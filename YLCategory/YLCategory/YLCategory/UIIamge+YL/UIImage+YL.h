@@ -30,7 +30,10 @@
  */
 - (UIColor *)colorAtPixel:(CGPoint)point;
 
-// ------------------ 高斯模糊 ------------------ //
+
+/// ------------------------------------
+/// @name 高斯模糊
+/// ------------------------------------
 - (UIImage *)applyLightEffectAtFrame:(CGRect)frame;
 - (UIImage *)applyExtraLightEffectAtFrame:(CGRect)frame;
 - (UIImage *)applyDarkEffectAtFrame:(CGRect)frame;
@@ -52,9 +55,24 @@
 - (UIImage *)applyDarkEffect;
 - (UIImage *)applyTintEffectWithColor:(UIColor *)tintColor;
 
-- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
+- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius
+                       tintColor:(UIColor *)tintColor
+           saturationDeltaFactor:(CGFloat)saturationDeltaFactor
+                       maskImage:(UIImage *)maskImage;
 
-- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius iterationsCount:(NSInteger)iterationsCount tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
-// ------------------ 高斯模糊 ------------------ //
+- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius
+                 iterationsCount:(NSInteger)iterationsCount
+                       tintColor:(UIColor *)tintColor
+           saturationDeltaFactor:(CGFloat)saturationDeltaFactor
+                       maskImage:(UIImage *)maskImage;
+
+
+/**
+ *  获取网络图片的 size
+ *
+ *  @param imageURL 图片的 url 地址 (NSSring / NSURL)
+ *
+ */
++ (CGSize)imageSizeWithURL:(id)imageURL;
 
 @end

@@ -12,7 +12,7 @@
 
 @implementation UIImage (YL)
 
-#pragma mark 根据边框宽度和颜色，裁剪出圆形图片
+#pragma mark - 根据边框宽度和颜色，裁剪出圆形图片
 + (instancetype)circleImage:(UIImage *)image borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor
 {
     // 1.开启上下文
@@ -42,7 +42,7 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
-#pragma mark 获取图片上某个点的颜色
+#pragma mark - 获取图片上某个点的颜色
 - (UIColor *)colorAtPixel:(CGPoint)point {
     // Cancel if point is outside image coordinates
     if (!CGRectContainsPoint(CGRectMake(0.0f, 0.0f, self.size.width, self.size.height), point)) {
@@ -84,7 +84,7 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
-//----------------------- 高斯模糊 -----------------//
+#pragma mark - 高斯模糊
 - (UIImage *)croppedImageAtFrame:(CGRect)frame
 {
     frame = CGRectMake(frame.origin.x * self.scale, frame.origin.y * self.scale, frame.size.width * self.scale, frame.size.height * self.scale);
@@ -95,8 +95,7 @@
     return newImage;
 }
 
-#pragma mark - Marge two Images
-
+#pragma mark Marge two Images
 - (UIImage *)addImageToImage:(UIImage *)img atRect:(CGRect)cropRect
 {
     
@@ -355,5 +354,193 @@
     
     return outputImage;
 }
-//----------------------- 高斯模糊 -----------------//
+#pragma mark - 获取网络图片的 size
++ (CGSize)imageSizeWithURL:(id)imageURL
+{
+    NSURL *URL = nil;
+    if([imageURL isKindOfClass:[NSURL class]])
+    {
+        URL = imageURL;
+    }
+    else if([imageURL isKindOfClass:[NSString class]])
+    {
+        URL = [NSURL URLWithString:imageURL];
+    }
+    if(URL == nil)
+    {
+        return CGSizeZero;
+    }
+    
+#ifdef dispatch_main_sync_safe
+    // 引入了 SDWebImage, 检测是否有缓存
+    NSString *absoluteString = URL.absoluteString;
+    if([[SDImageCache sharedImageCache] diskImageExistsWithKey:absoluteString])
+    {
+        UIImage* image = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:absoluteString];
+        if(!image)
+        {
+            image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:absoluteString];
+        }
+        if(image)
+        {
+            return image.size;
+        }
+    }
+#endif
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
+    NSString *pathExtendsion = [URL.pathExtension lowercaseString];
+    
+    CGSize size = CGSizeZero;
+    // 下载文件头，获取文件大小
+    if([pathExtendsion isEqualToString:@"png"])
+    {
+        size = [self PNGImageSizeWithRequest:request];
+    }
+    else if([pathExtendsion isEqual:@"gif"])
+    {
+        size = [self GIFImageSizeWithRequest:request];
+    }
+    else
+    {
+        size = [self JPGImageSizeWithRequest:request];
+    }
+    if(CGSizeEqualToSize(CGSizeZero, size))
+    {
+        // 获取失败，下载整个图片
+        NSData  *data  = [NSData dataWithContentsOfURL:URL];
+        UIImage *image = [UIImage imageWithData:data];
+        if(image)
+        {
+#ifdef dispatch_main_sync_safe
+            [[SDImageCache sharedImageCache] storeImage:image recalculateFromImage:YES imageData:data forKey:URL.absoluteString toDisk:YES];
+#endif
+            size = image.size;
+        }
+    }
+    return size;
+}
+
++ (NSData *)dataWithRequest:(NSMutableURLRequest *)request
+{
+    #define kGetImageDataHeaderFieldTimeoutInterval 1   // 超时时间 1s
+    __block NSData *data = nil;
+    __block dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable dataRespose, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if(error == nil && data.length)
+        {
+            data = dataRespose;
+            dispatch_semaphore_signal(semaphore);
+        }
+    }];
+    [dataTask resume];
+    dispatch_semaphore_wait(semaphore, kGetImageDataHeaderFieldTimeoutInterval);
+    return data;
+}
+
++ (CGSize)PNGImageSizeWithRequest:(NSMutableURLRequest *)request
+{
+    [request setValue:@"bytes=16-23" forHTTPHeaderField:@"Range"];
+    NSData *data = [self dataWithRequest:request];
+    if(data.length == 8)
+    {
+        int w1 = 0, w2 = 0, w3 = 0, w4 = 0;
+        [data getBytes:&w1 range:NSMakeRange(0, 1)];
+        [data getBytes:&w2 range:NSMakeRange(1, 1)];
+        [data getBytes:&w3 range:NSMakeRange(2, 1)];
+        [data getBytes:&w4 range:NSMakeRange(3, 1)];
+        int w = (w1 << 24) + (w2 << 16) + (w3 << 8) + w4;
+        int h1 = 0, h2 = 0, h3 = 0, h4 = 0;
+        [data getBytes:&h1 range:NSMakeRange(4, 1)];
+        [data getBytes:&h2 range:NSMakeRange(5, 1)];
+        [data getBytes:&h3 range:NSMakeRange(6, 1)];
+        [data getBytes:&h4 range:NSMakeRange(7, 1)];
+        int h = (h1 << 24) + (h2 << 16) + (h3 << 8) + h4;
+        return CGSizeMake(w, h);
+    }
+    return CGSizeZero;
+}
++ (CGSize)GIFImageSizeWithRequest:(NSMutableURLRequest *)request
+{
+    [request setValue:@"bytes=6-9" forHTTPHeaderField:@"Range"];
+    NSData *data = [self dataWithRequest:request];
+    if(data.length == 4)
+    {
+        short w1 = 0, w2 = 0;
+        [data getBytes:&w1 range:NSMakeRange(0, 1)];
+        [data getBytes:&w2 range:NSMakeRange(1, 1)];
+        short w = w1 + (w2 << 8);
+        short h1 = 0, h2 = 0;
+        [data getBytes:&h1 range:NSMakeRange(2, 1)];
+        [data getBytes:&h2 range:NSMakeRange(3, 1)];
+        short h = h1 + (h2 << 8);
+        return CGSizeMake(w, h);
+    }
+    return CGSizeZero;
+}
++ (CGSize)JPGImageSizeWithRequest:(NSMutableURLRequest *)request
+{
+    [request setValue:@"bytes=0-209" forHTTPHeaderField:@"Range"];
+    NSData *data = [self dataWithRequest:request];
+    
+    if ([data length] <= 0x58)
+    {
+        return CGSizeZero;
+    }
+    
+    if ([data length] < 210)
+    {
+        // 肯定只有一个DQT字段
+        short w1 = 0, w2 = 0;
+        [data getBytes:&w1 range:NSMakeRange(0x60, 0x1)];
+        [data getBytes:&w2 range:NSMakeRange(0x61, 0x1)];
+        short w = (w1 << 8) + w2;
+        short h1 = 0, h2 = 0;
+        [data getBytes:&h1 range:NSMakeRange(0x5e, 0x1)];
+        [data getBytes:&h2 range:NSMakeRange(0x5f, 0x1)];
+        short h = (h1 << 8) + h2;
+        return CGSizeMake(w, h);
+    }
+    else
+    {
+        short word = 0x0;
+        [data getBytes:&word range:NSMakeRange(0x15, 0x1)];
+        if (word == 0xdb)
+        {
+            [data getBytes:&word range:NSMakeRange(0x5a, 0x1)];
+            if (word == 0xdb)
+            {
+                // 两个DQT字段
+                short w1 = 0, w2 = 0;
+                [data getBytes:&w1 range:NSMakeRange(0xa5, 0x1)];
+                [data getBytes:&w2 range:NSMakeRange(0xa6, 0x1)];
+                short w = (w1 << 8) + w2;
+                short h1 = 0, h2 = 0;
+                [data getBytes:&h1 range:NSMakeRange(0xa3, 0x1)];
+                [data getBytes:&h2 range:NSMakeRange(0xa4, 0x1)];
+                short h = (h1 << 8) + h2;
+                return CGSizeMake(w, h);
+            }
+            else
+            {
+                // 一个DQT字段
+                short w1 = 0, w2 = 0;
+                [data getBytes:&w1 range:NSMakeRange(0x60, 0x1)];
+                [data getBytes:&w2 range:NSMakeRange(0x61, 0x1)];
+                short w = (w1 << 8) + w2;
+                short h1 = 0, h2 = 0;
+                [data getBytes:&h1 range:NSMakeRange(0x5e, 0x1)];
+                [data getBytes:&h2 range:NSMakeRange(0x5f, 0x1)];
+                short h = (h1 << 8) + h2;
+                return CGSizeMake(w, h);
+            }
+        }
+        else
+        {
+            return CGSizeZero;
+        }
+    }
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YLCategory.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self performSelectorInBackground:@selector(getImagesize) withObject:nil];
+    
+    for(int i = 0; i < 20; i++)
+    {
+        usleep(100000); // 0.1s
+        NSLog(@"i = %d", i);
+    }
+}
+
+- (void)getImagesize
+{
+    CGSize size = [UIImage imageSizeWithURL:@"http://img2.3lian.com/img2007/10/28/123.jpg"];
+    NSLog(@"size : %@", NSStringFromCGSize(size));
+
 }
 
 - (void)didReceiveMemoryWarning {
