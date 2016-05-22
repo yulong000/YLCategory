@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00067AEA1CF21EBE00FDDF36 /* UIView+YLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 00067AE91CF21EBE00FDDF36 /* UIView+YLFrame.m */; };
 		0034C3CF1C32E9670087DB48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3CE1C32E9670087DB48 /* main.m */; };
 		0034C3D21C32E9670087DB48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3D11C32E9670087DB48 /* AppDelegate.m */; };
 		0034C3D51C32E9670087DB48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3D41C32E9670087DB48 /* ViewController.m */; };
@@ -16,7 +17,6 @@
 		0034C3E81C32E9670087DB48 /* YLCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3E71C32E9670087DB48 /* YLCategoryTests.m */; };
 		0034C3F31C32E9670087DB48 /* YLCategoryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3F21C32E9670087DB48 /* YLCategoryUITests.m */; };
 		0061BF751C4F4A92007565C5 /* UIImage+YL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF711C4F4A92007565C5 /* UIImage+YL.m */; };
-		0061BF761C4F4A92007565C5 /* UIView+YL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF741C4F4A92007565C5 /* UIView+YL.m */; };
 		0061BF971C4F4EF3007565C5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF7B1C4F4EF3007565C5 /* MKAnnotationView+WebCache.m */; };
 		0061BF981C4F4EF3007565C5 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF7D1C4F4EF3007565C5 /* NSData+ImageContentType.m */; };
 		0061BF991C4F4EF3007565C5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF7F1C4F4EF3007565C5 /* SDImageCache.m */; };
@@ -51,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00067AE81CF21EBE00FDDF36 /* UIView+YLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YLFrame.h"; sourceTree = "<group>"; };
+		00067AE91CF21EBE00FDDF36 /* UIView+YLFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YLFrame.m"; sourceTree = "<group>"; };
 		0034C3CA1C32E9670087DB48 /* YLCategory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCategory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0034C3CE1C32E9670087DB48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0034C3D01C32E9670087DB48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,8 +71,6 @@
 		0034C3F41C32E9670087DB48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0061BF701C4F4A92007565C5 /* UIImage+YL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YL.h"; sourceTree = "<group>"; };
 		0061BF711C4F4A92007565C5 /* UIImage+YL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YL.m"; sourceTree = "<group>"; };
-		0061BF731C4F4A92007565C5 /* UIView+YL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YL.h"; sourceTree = "<group>"; };
-		0061BF741C4F4A92007565C5 /* UIView+YL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YL.m"; sourceTree = "<group>"; };
 		0061BF781C4F4AFE007565C5 /* YLCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCategory.h; sourceTree = "<group>"; };
 		0061BF7A1C4F4EF3007565C5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		0061BF7B1C4F4EF3007565C5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
@@ -128,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00067AE71CF21EBE00FDDF36 /* UIView+YLFrame */ = {
+			isa = PBXGroup;
+			children = (
+				00067AE81CF21EBE00FDDF36 /* UIView+YLFrame.h */,
+				00067AE91CF21EBE00FDDF36 /* UIView+YLFrame.m */,
+			);
+			path = "UIView+YLFrame";
+			sourceTree = "<group>";
+		};
 		0034C3C11C32E9670087DB48 = {
 			isa = PBXGroup;
 			children = (
@@ -196,8 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				0061BF781C4F4AFE007565C5 /* YLCategory.h */,
+				00067AE71CF21EBE00FDDF36 /* UIView+YLFrame */,
 				0061BF6F1C4F4A92007565C5 /* UIIamge+YL */,
-				0061BF721C4F4A92007565C5 /* UIView+YL */,
 			);
 			path = YLCategory;
 			sourceTree = "<group>";
@@ -209,15 +218,6 @@
 				0061BF711C4F4A92007565C5 /* UIImage+YL.m */,
 			);
 			path = "UIIamge+YL";
-			sourceTree = "<group>";
-		};
-		0061BF721C4F4A92007565C5 /* UIView+YL */ = {
-			isa = PBXGroup;
-			children = (
-				0061BF731C4F4A92007565C5 /* UIView+YL.h */,
-				0061BF741C4F4A92007565C5 /* UIView+YL.m */,
-			);
-			path = "UIView+YL";
 			sourceTree = "<group>";
 		};
 		0061BF791C4F4EF3007565C5 /* SDWebImage */ = {
@@ -392,8 +392,8 @@
 				0061BF751C4F4A92007565C5 /* UIImage+YL.m in Sources */,
 				0061BFA31C4F4EF3007565C5 /* UIImage+WebP.m in Sources */,
 				0061BF9F1C4F4EF3007565C5 /* SDWebImagePrefetcher.m in Sources */,
-				0061BF761C4F4A92007565C5 /* UIView+YL.m in Sources */,
 				0061BF9B1C4F4EF3007565C5 /* SDWebImageDecoder.m in Sources */,
+				00067AEA1CF21EBE00FDDF36 /* UIView+YLFrame.m in Sources */,
 				0061BF9C1C4F4EF3007565C5 /* SDWebImageDownloader.m in Sources */,
 				0034C3D51C32E9670087DB48 /* ViewController.m in Sources */,
 				0061BF9E1C4F4EF3007565C5 /* SDWebImageManager.m in Sources */,

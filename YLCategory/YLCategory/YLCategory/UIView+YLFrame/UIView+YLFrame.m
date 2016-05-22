@@ -1,9 +1,7 @@
 
-#import "UIView+YL.h"
+#import "UIView+YLFrame.h"
 
-@implementation UIView (YL)
-
-// ----------------- frame ----------------------//
+@implementation UIView (YLFrame)
 
 - (void)setX:(CGFloat)x
 {
@@ -109,6 +107,28 @@
     return CGRectGetMaxY(self.frame);
 }
 
-// ----------------- frame ----------------------//
+- (CGFloat)bottom
+{
+    return self.maxY;
+}
+
+- (void)setBottom:(CGFloat)bottom
+{
+    CGRect frame = self.frame;
+    frame.origin.y = bottom - self.height;
+    self.frame = frame;
+}
+
+- (CGFloat)right
+{
+    return self.maxX;
+}
+
+- (void)setRight:(CGFloat)right
+{
+    CGRect frame = self.frame;
+    frame.origin.x = right - self.width;
+    self.frame = frame;
+}
 
 @end
