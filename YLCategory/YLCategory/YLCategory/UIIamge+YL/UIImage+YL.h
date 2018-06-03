@@ -19,7 +19,9 @@
  *
  *  @return 裁剪后的图片
  */
-+ (instancetype)circleImage:(UIImage *)image borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
++ (instancetype)circleImage:(UIImage *)image
+                borderWidth:(CGFloat)borderWidth
+                borderColor:(UIColor *)borderColor;
 
 /**
  *  获取图片上某个点的颜色
