@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YLCategory.h"
+#import "TwoViewController.h"
 
 @interface ViewController ()
 
@@ -18,13 +19,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self performSelectorInBackground:@selector(getImagesize) withObject:nil];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitle:@"button" forState:UIControlStateNormal];
+    [btn setBackgroundColor:[UIColor redColor]];
+    btn.clickedBlock = ^(UIButton *button) {
+        [self test];
+    };
+    btn.frame = CGRectMake(120, 120, 100, 200);
+    [self.view addSubview:btn];
     
-    for(int i = 0; i < 20; i++)
-    {
-        usleep(100000); // 0.1s
-        NSLog(@"i = %d", i);
-    }
+}
+
+- (void)test {
+//    TwoViewController *two = [[TwoViewController alloc] init];
+//    [self.navigationController pushViewController:two animated:YES];
+    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"title" message:@"message" cancelButtonTitle:@"quxiao" cancelBlock:^(UIAlertAction *action) {
+        NSLog(@"quxiao");
+    } otherButtonTitle:@"queding" otherButtonblock:^(UIAlertAction *action) {
+        NSLog(@"qita");
+    }];
+    [controller showWithController:self completion:^{
+        NSLog(@"over");
+    }];
+    return;
 }
 
 - (void)getImagesize

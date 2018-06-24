@@ -1,14 +1,6 @@
-//
-//  UIImage+YL.h
-//  UIImageBlurredFrameExample
-//
-//  Created by WYL on 15/12/28.
-//  Copyright © 2015年 Icalia Labs. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
-@interface UIImage (YL)
+@interface UIImage (category)
 
 /**
  *  裁剪圆形图片 （以宽度最大边界）
@@ -31,6 +23,23 @@
  *  @return 获取到的颜色
  */
 - (UIColor *)colorAtPixel:(CGPoint)point;
+
+/**
+ *  获取网络图片的 size
+ *
+ *  @param imageURL 图片的 url 地址 (NSSring / NSURL)
+ *
+ */
++ (CGSize)imageSizeWithURL:(id)imageURL;
+
+/**
+ 获取纯色的图片
+ 
+ @param color 图片颜色
+ @param size 图片大小
+ @return 图片
+ */
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 
 /// ------------------------------------
@@ -69,12 +78,5 @@
                        maskImage:(UIImage *)maskImage;
 
 
-/**
- *  获取网络图片的 size
- *
- *  @param imageURL 图片的 url 地址 (NSSring / NSURL)
- *
- */
-+ (CGSize)imageSizeWithURL:(id)imageURL;
 
 @end

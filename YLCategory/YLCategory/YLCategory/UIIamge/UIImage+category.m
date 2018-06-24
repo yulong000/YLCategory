@@ -1,16 +1,8 @@
-//
-//  UIImage+YL.m
-//  UIImageBlurredFrameExample
-//
-//  Created by WYL on 15/12/28.
-//  Copyright © 2015年 Icalia Labs. All rights reserved.
-//
-
-#import "UIImage+YL.h"
+#import "UIImage+category.h"
 #import <float.h>
 #import <Accelerate/Accelerate.h>
 
-@implementation UIImage (YL)
+@implementation UIImage (category)
 
 #pragma mark - 根据边框宽度和颜色，裁剪出圆形图片
 + (instancetype)circleImage:(UIImage *)image
@@ -483,6 +475,17 @@
             return CGSizeZero;
         }
     }
+}
+
+#pragma mark 获取纯色图片
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, (CGRect){CGPointZero, size});
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 @end
