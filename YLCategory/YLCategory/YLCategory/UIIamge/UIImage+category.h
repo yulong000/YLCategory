@@ -16,13 +16,25 @@
                 borderColor:(UIColor *)borderColor;
 
 /**
- *  获取图片上某个点的颜色
- *
- *  @param point 点坐标
- *
- *  @return 获取到的颜色
+ 获取纯色的图片
+ 
+ @param color 图片颜色
+ @param size 图片大小
+ @return 图片
  */
-- (UIColor *)colorAtPixel:(CGPoint)point;
++ (instancetype)imageWithColor:(UIColor *)color size:(CGSize)size;
+
+
+/**
+ 全屏截图
+ */
++ (instancetype)screenImage;
+
+/**
+ 对某个view截图
+ */
++ (instancetype)imageWithView:(UIView *)view;
+
 
 /**
  *  获取网络图片的 size
@@ -32,14 +44,18 @@
  */
 + (CGSize)imageSizeWithURL:(id)imageURL;
 
+
+
 /**
- 获取纯色的图片
- 
- @param color 图片颜色
- @param size 图片大小
- @return 图片
+ *  获取图片上某个点的颜色
+ *
+ *  @param point 点坐标
+ *
+ *  @return 获取到的颜色
  */
-+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+- (UIColor *)colorAtPixel:(CGPoint)point;
+
+
 
 
 /// ------------------------------------

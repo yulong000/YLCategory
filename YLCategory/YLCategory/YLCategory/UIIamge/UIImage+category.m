@@ -488,4 +488,21 @@
     return image;
 }
 
+#pragma mark 对某个view截图
++ (instancetype)imageWithView:(UIView *)view {
+    if(view == nil) return [[UIImage alloc] init];
+    UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [view.layer renderInContext:context];
+    [[UIColor clearColor] setFill];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+#pragma mark 截屏
++ (instancetype)screenImage {
+    return [self imageWithView: [UIApplication sharedApplication].keyWindow];
+}
+
 @end

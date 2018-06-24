@@ -1,9 +1,10 @@
 #ifndef YLCategory_h
 #define YLCategory_h
 
-#import "UIImageCategoryHeader.h"
-#import "UIViewCategoryHeader.h"
-#import "UIButtonCategoryHeader.h"
-#import "UIAlertControllerCategoryHeader.h"
+#import "UIView+Frame.h"
+#import "UIImage+category.h"
+#import "UIButton+block.h"
+#import "UIAlertController+block.h"
+#import "UIColor+category.h"
 
 #endif /* YLCategory_h */

@@ -1,7 +1,7 @@
 #import "UIButton+block.h"
 #import <objc/runtime.h>
 
-static NSString *UIButtonClickedBlockKey = @"UIButtonClickedBlockKey";
+static const char UIButtonClickedBlockKey = '\0';
 
 @implementation UIButton (block)
 
@@ -12,7 +12,7 @@ static NSString *UIButtonClickedBlockKey = @"UIButtonClickedBlockKey";
 - (void)setClickedBlock:(UIButtonClickedBlock)clickedBlock {
     [self addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self willChangeValueForKey:@"clickBlock"];
-    objc_setAssociatedObject(self, &UIButtonClickedBlockKey, clickedBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, &UIButtonClickedBlockKey, clickedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self didChangeValueForKey:@"clickBlock"];
 }
 

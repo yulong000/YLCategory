@@ -20,6 +20,8 @@
 		004F5DCB20DFB0250054D0F6 /* UIButton+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F5DCA20DFB0250054D0F6 /* UIButton+block.m */; };
 		004F5DCE20DFB94D0054D0F6 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F5DCD20DFB94D0054D0F6 /* TwoViewController.m */; };
 		004F5DD220DFC5710054D0F6 /* UIAlertController+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F5DD120DFC5710054D0F6 /* UIAlertController+block.m */; };
+		004F5DD720DFDCD30054D0F6 /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F5DD620DFDCD30054D0F6 /* UIColor+category.m */; };
+		004F5DDB20DFE5CA0054D0F6 /* NSString+predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F5DDA20DFE5CA0054D0F6 /* NSString+predicate.m */; };
 		0061BF971C4F4EF3007565C5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF7B1C4F4EF3007565C5 /* MKAnnotationView+WebCache.m */; };
 		0061BF981C4F4EF3007565C5 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF7D1C4F4EF3007565C5 /* NSData+ImageContentType.m */; };
 		0061BF991C4F4EF3007565C5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF7F1C4F4EF3007565C5 /* SDImageCache.m */; };
@@ -75,16 +77,16 @@
 		004F5DBD20DFADE80054D0F6 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		004F5DBE20DFADE80054D0F6 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		004F5DBF20DFADE80054D0F6 /* YLCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCategory.h; sourceTree = "<group>"; };
-		004F5DC520DFAEB80054D0F6 /* UIViewCategoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewCategoryHeader.h; sourceTree = "<group>"; };
-		004F5DC620DFAF2D0054D0F6 /* UIImageCategoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIImageCategoryHeader.h; sourceTree = "<group>"; };
-		004F5DC820DFAFC10054D0F6 /* UIButtonCategoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIButtonCategoryHeader.h; sourceTree = "<group>"; };
 		004F5DC920DFB0250054D0F6 /* UIButton+block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+block.h"; sourceTree = "<group>"; };
 		004F5DCA20DFB0250054D0F6 /* UIButton+block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+block.m"; sourceTree = "<group>"; };
 		004F5DCC20DFB94D0054D0F6 /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		004F5DCD20DFB94D0054D0F6 /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		004F5DD020DFC5710054D0F6 /* UIAlertController+block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+block.h"; sourceTree = "<group>"; };
 		004F5DD120DFC5710054D0F6 /* UIAlertController+block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+block.m"; sourceTree = "<group>"; };
-		004F5DD320DFC5BE0054D0F6 /* UIAlertControllerCategoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIAlertControllerCategoryHeader.h; sourceTree = "<group>"; };
+		004F5DD520DFDCD30054D0F6 /* UIColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
+		004F5DD620DFDCD30054D0F6 /* UIColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+category.m"; sourceTree = "<group>"; };
+		004F5DD920DFE5CA0054D0F6 /* NSString+predicate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+predicate.h"; sourceTree = "<group>"; };
+		004F5DDA20DFE5CA0054D0F6 /* NSString+predicate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+predicate.m"; sourceTree = "<group>"; };
 		0061BF7A1C4F4EF3007565C5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		0061BF7B1C4F4EF3007565C5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		0061BF7C1C4F4EF3007565C5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -210,6 +212,8 @@
 		004F5DB520DFADE80054D0F6 /* YLCategory */ = {
 			isa = PBXGroup;
 			children = (
+				004F5DD820DFE5800054D0F6 /* NSString */,
+				004F5DD420DFDCAD0054D0F6 /* UIColor */,
 				004F5DCF20DFC54F0054D0F6 /* UIAlertController */,
 				004F5DC720DFAFA50054D0F6 /* UIButton */,
 				004F5DB620DFADE80054D0F6 /* UIIamge */,
@@ -222,7 +226,6 @@
 		004F5DB620DFADE80054D0F6 /* UIIamge */ = {
 			isa = PBXGroup;
 			children = (
-				004F5DC620DFAF2D0054D0F6 /* UIImageCategoryHeader.h */,
 				004F5DB820DFADE80054D0F6 /* UIImage+category.h */,
 				004F5DB720DFADE80054D0F6 /* UIImage+category.m */,
 			);
@@ -232,7 +235,6 @@
 		004F5DBC20DFADE80054D0F6 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				004F5DC520DFAEB80054D0F6 /* UIViewCategoryHeader.h */,
 				004F5DBE20DFADE80054D0F6 /* UIView+Frame.h */,
 				004F5DBD20DFADE80054D0F6 /* UIView+Frame.m */,
 			);
@@ -242,7 +244,6 @@
 		004F5DC720DFAFA50054D0F6 /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
-				004F5DC820DFAFC10054D0F6 /* UIButtonCategoryHeader.h */,
 				004F5DC920DFB0250054D0F6 /* UIButton+block.h */,
 				004F5DCA20DFB0250054D0F6 /* UIButton+block.m */,
 			);
@@ -254,9 +255,26 @@
 			children = (
 				004F5DD020DFC5710054D0F6 /* UIAlertController+block.h */,
 				004F5DD120DFC5710054D0F6 /* UIAlertController+block.m */,
-				004F5DD320DFC5BE0054D0F6 /* UIAlertControllerCategoryHeader.h */,
 			);
 			path = UIAlertController;
+			sourceTree = "<group>";
+		};
+		004F5DD420DFDCAD0054D0F6 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				004F5DD520DFDCD30054D0F6 /* UIColor+category.h */,
+				004F5DD620DFDCD30054D0F6 /* UIColor+category.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		004F5DD820DFE5800054D0F6 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				004F5DD920DFE5CA0054D0F6 /* NSString+predicate.h */,
+				004F5DDA20DFE5CA0054D0F6 /* NSString+predicate.m */,
+			);
+			path = NSString;
 			sourceTree = "<group>";
 		};
 		0061BF791C4F4EF3007565C5 /* SDWebImage */ = {
@@ -433,6 +451,7 @@
 				0061BF9B1C4F4EF3007565C5 /* SDWebImageDecoder.m in Sources */,
 				0061BF9C1C4F4EF3007565C5 /* SDWebImageDownloader.m in Sources */,
 				0034C3D51C32E9670087DB48 /* ViewController.m in Sources */,
+				004F5DD720DFDCD30054D0F6 /* UIColor+category.m in Sources */,
 				004F5DD220DFC5710054D0F6 /* UIAlertController+block.m in Sources */,
 				0061BF9E1C4F4EF3007565C5 /* SDWebImageManager.m in Sources */,
 				0061BFA01C4F4EF3007565C5 /* UIButton+WebCache.m in Sources */,
@@ -446,6 +465,7 @@
 				0061BF9D1C4F4EF3007565C5 /* SDWebImageDownloaderOperation.m in Sources */,
 				0061BFA11C4F4EF3007565C5 /* UIImage+GIF.m in Sources */,
 				0061BF9A1C4F4EF3007565C5 /* SDWebImageCompat.m in Sources */,
+				004F5DDB20DFE5CA0054D0F6 /* NSString+predicate.m in Sources */,
 				0061BF981C4F4EF3007565C5 /* NSData+ImageContentType.m in Sources */,
 				0034C3CF1C32E9670087DB48 /* main.m in Sources */,
 				0061BF971C4F4EF3007565C5 /* MKAnnotationView+WebCache.m in Sources */,

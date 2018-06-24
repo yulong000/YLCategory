@@ -13,12 +13,12 @@
  @param otherButtonTitle 第二个button的文字
  @param otherButtonBlock 第二个button的回调
  */
-+ (instancetype)alertControllerWithTitle:(NSString *)title
-                                 message:(NSString *)message
-                       cancelButtonTitle:(NSString *)cancelButtonTitle
-                             cancelBlock:(void(^)(UIAlertAction *action))cancelBlock
-                        otherButtonTitle:(NSString *)otherButtonTitle
-                        otherButtonblock:(void (^)(UIAlertAction *action))otherButtonBlock;
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title
+                                        message:(NSString *)message
+                              cancelButtonTitle:(NSString *)cancelButtonTitle
+                                    cancelBlock:(void(^)(UIAlertAction *action))cancelBlock
+                               otherButtonTitle:(NSString *)otherButtonTitle
+                               otherButtonblock:(void (^)(UIAlertAction *action))otherButtonBlock;
 
 /**
  在屏幕中间弹出
