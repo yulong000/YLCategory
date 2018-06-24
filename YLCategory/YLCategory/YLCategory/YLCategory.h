@@ -6,5 +6,6 @@
 #import "UIButton+block.h"
 #import "UIAlertController+block.h"
 #import "UIColor+category.h"
+#import "NSString+predicate.h"
 
 #endif /* YLCategory_h */
