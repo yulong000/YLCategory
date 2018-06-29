@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "YLCategory.h"
 #import "TwoViewController.h"
-
+#import "PublicHeader.h"
 @interface ViewController ()
 
 @end
@@ -27,7 +27,6 @@
     };
     btn.frame = CGRectMake(120, 120, 100, 200);
     [self.view addSubview:btn];
-    
 }
 
 - (void)test {
