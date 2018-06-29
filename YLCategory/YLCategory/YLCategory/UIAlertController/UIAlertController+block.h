@@ -21,6 +21,19 @@
                                otherButtonblock:(void (^)(UIAlertAction *action))otherButtonBlock;
 
 /**
+ 创建alertView类型，只有1个选择
+ 
+ @param title 标题
+ @param message 内容
+ @param buttonTitle button的文字
+ @param handleBlock 回调
+ */
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title
+                                        message:(NSString *)message
+                                    buttonTitle:(NSString *)buttonTitle
+                                     handlelock:(void(^)(UIAlertAction *action))handleBlock;
+
+/**
  在屏幕中间弹出
 
  @param controller 要显示到的控制器

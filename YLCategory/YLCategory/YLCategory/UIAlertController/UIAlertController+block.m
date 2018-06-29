@@ -22,6 +22,17 @@
     return alertController;
 }
 
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle handlelock:(void (^)(UIAlertAction *))handleBlock {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:buttonTitle
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:handleBlock];
+    [alertController addAction:cancelAction];
+    return alertController;
+}
+
 - (void)showWithController:(UIViewController *)controller {
     [self showWithController:controller completion:nil];
 }
