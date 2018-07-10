@@ -13,7 +13,7 @@
 #pragma mark - 显示自定义view
 + (MBProgressHUD *)showWithCustomView:(UIView *)customView  message:(NSString *)message toView:(UIView *)view
 {
-    if(view == nil)     view = [[UIApplication sharedApplication].windows lastObject];
+    if(view == nil)     view = [[UIApplication sharedApplication].delegate window];
     
     /*
      // 快速显示到view上
@@ -70,7 +70,7 @@
 #pragma mark - 显示一些提示信息, 带菊花, 可设置动画效果
 + (MBProgressHUD *)showMessage:(NSString *)message detailMessage:(NSString *)detailMessage toView:(UIView *)view animated:(BOOL)animated dimBackground:(BOOL)dimBackground
 {
-    if (view == nil)    view = [[UIApplication sharedApplication].windows lastObject];
+    if (view == nil)    view = [[UIApplication sharedApplication].delegate window];
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:animated];
     hud.labelText = message;
@@ -130,7 +130,7 @@
 #pragma mark - 显示文本提示信息, 带详细信息
 + (MBProgressHUD *)showText:(NSString *)text detailText:(NSString *)detailText toView:(UIView *)view square:(BOOL)square hiddenAfterDelay:(CGFloat)delay
 {
-    if(view == nil)     view = [[UIApplication sharedApplication].windows lastObject];
+    if(view == nil)     view = [[UIApplication sharedApplication].delegate window];
     if(delay <= 0)      delay = kHUDHiddenAfterSecond;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
@@ -147,7 +147,7 @@
 #pragma mark - 显示文本提示信息
 + (MBProgressHUD *)showText:(NSString *)text toView:(UIView *)view square:(BOOL)square hiddenAfterDelay:(CGFloat)delay
 {
-    if(view == nil)     view = [[UIApplication sharedApplication].windows lastObject];
+    if(view == nil)     view = [[UIApplication sharedApplication].delegate window];
     if(delay <= 0)      delay = kHUDHiddenAfterSecond;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
@@ -191,7 +191,7 @@
         }
         else
         {
-             view = [[UIApplication sharedApplication].windows lastObject];
+             view = [[UIApplication sharedApplication].delegate window];
         }
     }
     
@@ -219,7 +219,7 @@
         }
         else
         {
-            view = [[UIApplication sharedApplication].windows lastObject];
+            view = [[UIApplication sharedApplication].delegate window];
         }
     }
     
