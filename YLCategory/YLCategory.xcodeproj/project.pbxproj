@@ -39,6 +39,8 @@
 		0061BFA21C4F4EF3007565C5 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF921C4F4EF3007565C5 /* UIImage+MultiFormat.m */; };
 		0061BFA31C4F4EF3007565C5 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF941C4F4EF3007565C5 /* UIImage+WebP.m */; };
 		0061BFA41C4F4EF3007565C5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0061BF961C4F4EF3007565C5 /* UIImageView+WebCache.m */; };
+		0083872220F82A62002FEE2C /* UILabel+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 0083872020F82A62002FEE2C /* UILabel+category.m */; };
+		0083872920F82FA6002FEE2C /* NSString+bounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 0083872820F82FA6002FEE2C /* NSString+bounds.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,10 @@
 		0061BF941C4F4EF3007565C5 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		0061BF951C4F4EF3007565C5 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		0061BF961C4F4EF3007565C5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		0083872020F82A62002FEE2C /* UILabel+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+category.m"; sourceTree = "<group>"; };
+		0083872120F82A62002FEE2C /* UILabel+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+category.h"; sourceTree = "<group>"; };
+		0083872720F82FA6002FEE2C /* NSString+bounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+bounds.h"; sourceTree = "<group>"; };
+		0083872820F82FA6002FEE2C /* NSString+bounds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+bounds.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +256,7 @@
 		004F5DB520DFADE80054D0F6 /* YLCategory */ = {
 			isa = PBXGroup;
 			children = (
+				0083871F20F82A62002FEE2C /* UILabel */,
 				0035F7EC20EA12BF00E44187 /* NSDate */,
 				0028EFD320E5FC14005A575F /* MBProgressHUD */,
 				004F5DD820DFE5800054D0F6 /* NSString */,
@@ -314,6 +321,8 @@
 			children = (
 				004F5DD920DFE5CA0054D0F6 /* NSString+predicate.h */,
 				004F5DDA20DFE5CA0054D0F6 /* NSString+predicate.m */,
+				0083872720F82FA6002FEE2C /* NSString+bounds.h */,
+				0083872820F82FA6002FEE2C /* NSString+bounds.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -352,6 +361,15 @@
 				0061BF961C4F4EF3007565C5 /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		0083871F20F82A62002FEE2C /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				0083872120F82A62002FEE2C /* UILabel+category.h */,
+				0083872020F82A62002FEE2C /* UILabel+category.m */,
+			);
+			path = UILabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,6 +517,7 @@
 				0061BFA01C4F4EF3007565C5 /* UIButton+WebCache.m in Sources */,
 				0028EFDC20E5FC4B005A575F /* MBProgressHUD.m in Sources */,
 				004F5DC020DFADE80054D0F6 /* UIImage+category.m in Sources */,
+				0083872220F82A62002FEE2C /* UILabel+category.m in Sources */,
 				004F5DC220DFADE80054D0F6 /* UIView+Frame.m in Sources */,
 				0028EFD620E5FC14005A575F /* MBProgressHUD+YL.m in Sources */,
 				0061BFA21C4F4EF3007565C5 /* UIImage+MultiFormat.m in Sources */,
@@ -511,6 +530,7 @@
 				0061BF9A1C4F4EF3007565C5 /* SDWebImageCompat.m in Sources */,
 				004F5DDB20DFE5CA0054D0F6 /* NSString+predicate.m in Sources */,
 				0061BF981C4F4EF3007565C5 /* NSData+ImageContentType.m in Sources */,
+				0083872920F82FA6002FEE2C /* NSString+bounds.m in Sources */,
 				0034C3CF1C32E9670087DB48 /* main.m in Sources */,
 				0061BF971C4F4EF3007565C5 /* MKAnnotationView+WebCache.m in Sources */,
 				0061BF991C4F4EF3007565C5 /* SDImageCache.m in Sources */,

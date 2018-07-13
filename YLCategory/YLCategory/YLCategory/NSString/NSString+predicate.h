@@ -47,4 +47,9 @@
  */
 - (BOOL)bankCardluhmCheck;
 
+/**
+ 纯数字
+ */
+- (BOOL)isNumberText;
+
 @end

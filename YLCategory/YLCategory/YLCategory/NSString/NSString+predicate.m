@@ -262,5 +262,10 @@
     return (luhmTotal%10 ==0)?YES:NO;
 }
 
-
+#pragma mark 纯数字校验
+- (BOOL)isNumberText {
+    NSString * regex= @"[0-9]*";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [pred evaluateWithObject:self];
+}
 @end
