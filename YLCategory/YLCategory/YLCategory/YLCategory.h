@@ -8,5 +8,6 @@
 #import "UIColor+category.h"
 #import "NSString+predicate.h"
 #import "UILabel+category.h"
+#import "NSString+bounds.h"
 
 #endif /* YLCategory_h */
