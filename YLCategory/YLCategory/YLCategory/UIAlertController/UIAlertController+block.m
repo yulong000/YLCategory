@@ -37,7 +37,7 @@
     [self showWithController:controller completion:nil];
 }
 
-- (void)showWithController:(UIViewController *)controller completion:(void (^)())completion {
+- (void)showWithController:(UIViewController *)controller completion:(void (^__nullable)(void))completion {
     if(controller) {
         [controller presentViewController:self animated:YES completion:completion];
     }

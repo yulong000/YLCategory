@@ -9,10 +9,16 @@
 #import "MBProgressHUD.h"
 
 #define kHUDHiddenAfterSecond 0.7
+typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
 
 // 通过设置 属性值 square = YES 可以让hud对象保持正方形
 
 @interface MBProgressHUD (YL)
+
+/**
+ 设置了button时 点击回调
+ */
+@property (nonatomic, copy) MBProgressHUDButtonClickedBlock clickedBlock;
 
 /**
  *  显示成功信息
@@ -101,11 +107,24 @@
  *
  *  @param text       文本提示
  *  @param detailText 详细信息
- *  @param view       要显示到的vie
+ *  @param view       要显示到的view
  *  @param square     是否显示正方形的样式
  *  @param delay      delay秒后自动隐藏
+ *
+ *  @return MBProgressHUD实例
  */
 + (MBProgressHUD *)showText:(NSString *)text detailText:(NSString *)detailText toView:(UIView *)view square:(BOOL)square hiddenAfterDelay:(CGFloat)delay;
+
+/**
+ *  显示文本提示信息, 带详细信息, square = YES, delay = kHUDHiddenAfterSecond
+ *
+ *  @param text       文本提示
+ *  @param detailText 详细信息
+ *  @param view       要显示到的view
+ *
+ *  @return MBProgressHUD实例
+ */
++ (MBProgressHUD *)showText:(NSString *)text detailText:(NSString *)detailText toView:(UIView *)view;
 
 /**
  *  显示文本提示信息
@@ -114,6 +133,8 @@
  *  @param view   要显示到的view
  *  @param square 是否显示正方形的样式
  *  @param delay  delay秒后自动隐藏
+ *
+ *  @return MBProgressHUD实例
  */
 + (MBProgressHUD *)showText:(NSString *)text toView:(UIView *)view square:(BOOL)square hiddenAfterDelay:(CGFloat)delay;
 
@@ -123,48 +144,50 @@
  *  @param text  文本信息
  *  @param view  要显示到的view
  *  @param delay delay秒后自动隐藏
+ *
+ *  @return MBProgressHUD实例
  */
-+ (void)showText:(NSString *)text toView:(UIView *)view hiddenAfterDelay:(CGFloat)delay;
++ (MBProgressHUD *)showText:(NSString *)text toView:(UIView *)view hiddenAfterDelay:(CGFloat)delay;
 
 /**
  *  显示文本提示信息到 最后一个UIWindow 窗口上
  *
  *  @param text  文本信息
  *  @param delay delay秒后自动隐藏
+ *
+ *  @return MBProgressHUD实例
  */
-+ (void)showText:(NSString *)text hiddenAfterDelay:(CGFloat)delay;
++ (MBProgressHUD *)showText:(NSString *)text hiddenAfterDelay:(CGFloat)delay;
 
 /**
  *  显示文本提示信息到 最后一个UIWindow 窗口上,延时默认时间后隐藏
  *
  *  @param text 文本信息
+ *
+ *  @return MBProgressHUD实例
  */
-+ (void)showText:(NSString *)text;
++ (MBProgressHUD *)showText:(NSString *)text;
 
 /**
- *  环形的进度条, 可在method里改变 progress 的值 更改进度, progress 取值范围 0 ~ 1
+ *  环形的进度条, progress 取值范围 0 ~ 1
  *
  *  @param text   文本信息
- *  @param target 监听者
- *  @param method 监听者调用的方法
  *  @param view   要显示到的view
  *
  *  @return MBProgressHUD实例
  */
-+ (MBProgressHUD *)showAnnularProgressWithText:(NSString *)text target:(id)target method:(SEL)method toView:(UIView *)view;
++ (MBProgressHUD *)showAnnularProgressWithText:(NSString *)text toView:(UIView *)view;
 
 /**
- *  圆形的进度条, 可在method里改变 progress 的值 更改进度, progress 取值范围 0 ~ 1
- *
- *  @param text   文本信息
- *  @param target 监听者
- *  @param method 监听者调用的方法
- *  @param view   要显示到的view
- *
- *  @return MBProgressHUD实例
+ 带按钮的环形进度条, progress 取值范围 0 ~ 1
+ 
+ @param text 文本信息
+ @param view 要显示到的view
+ @param title button的title
+ @param clickBlock 回调block
+ @return MBProgressHUD实例
  */
-+ (MBProgressHUD *)showRoundProgressWithText:(NSString *)text target:(id)target method:(SEL)method toView:(UIView *)view;
-
++ (MBProgressHUD *)showAnnularProgressWithText:(NSString *)text toView:(UIView *)view buttonTitle:(NSString *)title clickBlock:(MBProgressHUDButtonClickedBlock)clickBlock;
 
 /**
  *  显示自定义view
@@ -176,5 +199,17 @@
  *  @return MBProgressHUD实例
  */
 + (MBProgressHUD *)showWithCustomView:(UIView *)customView  message:(NSString *)message toView:(UIView *)view;
+
+/**
+ 显示横向进度条
+
+ @param text 文本信息
+ @param view 要显示到的view
+ @return MBProgressHUD实例
+ */
++ (MBProgressHUD *)showHorizontalProgressBarWithText:(NSString *)text toView:(UIView *)view;
+
+
+
 
 @end

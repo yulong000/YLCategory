@@ -46,6 +46,6 @@
  @param controller 要显示到的控制器
  @param completion 弹出后的回调
  */
-- (void)showWithController:(UIViewController *)controller completion:(void (^)())completion;
+- (void)showWithController:(UIViewController *)controller completion:(void (^__nullable)(void))completion;
 
 @end

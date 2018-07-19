@@ -27,10 +27,13 @@
     btn.frame = CGRectMake(100, 100, 100, 100);
     [self.view addSubview:btn];
     self.btn = btn;
+    [self test];
 }
 
 - (void)test {
-    NSLog(@"test *******");
+    [MBProgressHUD showAnnularProgressWithText:@"加载" toView:nil buttonTitle:@"确定" clickBlock:^(UIButton *button) {
+        NSLog(@"点击了确定");
+    }];
 }
 
 - (void)dealloc

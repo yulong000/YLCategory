@@ -9,5 +9,6 @@
 #import "NSString+predicate.h"
 #import "UILabel+category.h"
 #import "NSString+bounds.h"
+#import "MBProgressHUD+YL.h"
 
 #endif /* YLCategory_h */
