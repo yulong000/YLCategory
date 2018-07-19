@@ -119,6 +119,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 
 #pragma mark - 隐藏HUD
 + (void)hideHUDForView:(UIView *)view {
+    view = [self hudShowViewWithInputView:view];
     [self hideHUDForView:view animated:YES];
 }
 
