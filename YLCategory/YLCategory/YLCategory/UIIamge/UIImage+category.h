@@ -3,9 +3,9 @@
 @interface UIImage (category)
 
 /**
- *  裁剪圆形图片 （以宽度最大边界）
+ *  裁剪圆形图片 (已最小的边长为直径, 裁剪中间部位)
  *
- *  @param image       原始图片
+ *  @param image       原始图片, 最好是方形图片
  *  @param borderWidth 边框的宽度
  *  @param borderColor 边框的颜色
  *
@@ -14,6 +14,16 @@
 + (instancetype)circleImage:(UIImage *)image
                 borderWidth:(CGFloat)borderWidth
                 borderColor:(UIColor *)borderColor;
+
+/**
+ *  裁剪圆形图片 （以宽度最大边界）
+ *
+ *  @param borderWidth 边框的宽度
+ *  @param borderColor 边框的颜色
+ *
+ *  @return 裁剪后的图片
+ */
+- (instancetype)circleImageWithBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
 /**
  获取纯色的图片

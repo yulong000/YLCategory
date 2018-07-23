@@ -16,7 +16,7 @@ typedef void (^UILabelClickedBlock)(UILabel *label);
 @property (nonatomic, copy) UILabelClickedBlock clickedBlock;
 
 /**
- 获取label的size, 文字自适应
+ 获取label的size, 文字自适应, 不限高度
 
  @param maxWidth 最大的宽度
  */
@@ -31,7 +31,7 @@ typedef void (^UILabelClickedBlock)(UILabel *label);
 - (CGSize)sizeWithMaxWidth:(CGFloat)maxWidth numberOfLines:(NSInteger)lines;
 
 /**
- 获取label的size, 文字自适应
+ 获取label的size, 文字自适应, 不限高度 
  
  @param maxWidth 最大的宽度
  @param attributes 文字属性
