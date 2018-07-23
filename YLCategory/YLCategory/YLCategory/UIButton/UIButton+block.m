@@ -2,7 +2,6 @@
 #import <objc/runtime.h>
 
 static const char UIButtonClickedBlockKey = '\0';
-static const char UIButtonAreaInsetsKey = '\0';
 
 @implementation UIButton (block)
 
@@ -47,31 +46,6 @@ static const char UIButtonAreaInsetsKey = '\0';
     return [UIButton buttonWithTitle:nil clickBlock:clickedBlock];
 }
 
-#pragma mark - add click area
-- (void)addClickArea:(UIEdgeInsets)insets {
-    [self willChangeValueForKey:@"areaInsets"];
-    objc_setAssociatedObject(self, &UIButtonAreaInsetsKey, [NSValue valueWithUIEdgeInsets:insets], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self didChangeValueForKey:@"areaInsets"];
-}
 
-// 有效区域
-- (CGRect)validArea {
-    UIEdgeInsets insets = [objc_getAssociatedObject(self, &UIButtonAreaInsetsKey) UIEdgeInsetsValue];
-    if(insets.top && insets.left && insets.bottom && insets.right) {
-        return CGRectMake(- insets.left,
-                          - insets.top,
-                          self.bounds.size.width + insets.left + insets.right,
-                          self.bounds.size.height + insets.top + insets.bottom);
-    }
-    return self.bounds;
-}
-
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    CGRect rect = [self validArea];
-    if(CGRectEqualToRect(rect, self.bounds)) {
-        return [super pointInside:point withEvent:event];
-    }
-    return CGRectContainsPoint(rect, point);
-}
 
 @end

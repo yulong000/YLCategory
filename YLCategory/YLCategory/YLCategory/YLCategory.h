@@ -10,6 +10,6 @@
 #import "UILabel+category.h"
 #import "NSString+bounds.h"
 #import "MBProgressHUD+YL.h"
-
+#import "UIControl+category.h"
 
 #endif /* YLCategory_h */

@@ -17,6 +17,7 @@
 		0034C3E81C32E9670087DB48 /* YLCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3E71C32E9670087DB48 /* YLCategoryTests.m */; };
 		0034C3F31C32E9670087DB48 /* YLCategoryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3F21C32E9670087DB48 /* YLCategoryUITests.m */; };
 		0035F7EF20EA12BF00E44187 /* NSDate+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035F7ED20EA12BF00E44187 /* NSDate+category.m */; };
+		004DDF6B210649D800FC8D99 /* UIControl+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 004DDF6A210649D800FC8D99 /* UIControl+category.m */; };
 		004F5DC020DFADE80054D0F6 /* UIImage+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F5DB720DFADE80054D0F6 /* UIImage+category.m */; };
 		004F5DC220DFADE80054D0F6 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F5DBD20DFADE80054D0F6 /* UIView+Frame.m */; };
 		004F5DCB20DFB0250054D0F6 /* UIButton+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F5DCA20DFB0250054D0F6 /* UIButton+block.m */; };
@@ -84,6 +85,8 @@
 		0034C3F41C32E9670087DB48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0035F7ED20EA12BF00E44187 /* NSDate+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+category.m"; sourceTree = "<group>"; };
 		0035F7EE20EA12BF00E44187 /* NSDate+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+category.h"; sourceTree = "<group>"; };
+		004DDF69210649D800FC8D99 /* UIControl+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+category.h"; sourceTree = "<group>"; };
+		004DDF6A210649D800FC8D99 /* UIControl+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+category.m"; sourceTree = "<group>"; };
 		004F5DB720DFADE80054D0F6 /* UIImage+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+category.m"; sourceTree = "<group>"; };
 		004F5DB820DFADE80054D0F6 /* UIImage+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+category.h"; sourceTree = "<group>"; };
 		004F5DBD20DFADE80054D0F6 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
@@ -250,9 +253,19 @@
 			path = NSDate;
 			sourceTree = "<group>";
 		};
+		004DDF68210649B400FC8D99 /* UIControl */ = {
+			isa = PBXGroup;
+			children = (
+				004DDF69210649D800FC8D99 /* UIControl+category.h */,
+				004DDF6A210649D800FC8D99 /* UIControl+category.m */,
+			);
+			path = UIControl;
+			sourceTree = "<group>";
+		};
 		004F5DB520DFADE80054D0F6 /* YLCategory */ = {
 			isa = PBXGroup;
 			children = (
+				004DDF68210649B400FC8D99 /* UIControl */,
 				0083871F20F82A62002FEE2C /* UILabel */,
 				0035F7EC20EA12BF00E44187 /* NSDate */,
 				0028EFD320E5FC14005A575F /* MBProgressHUD */,
@@ -532,6 +545,7 @@
 				0061BFA41C4F4EF3007565C5 /* UIImageView+WebCache.m in Sources */,
 				004F5DCE20DFB94D0054D0F6 /* TwoViewController.m in Sources */,
 				004F5DCB20DFB0250054D0F6 /* UIButton+block.m in Sources */,
+				004DDF6B210649D800FC8D99 /* UIControl+category.m in Sources */,
 				0034C3D21C32E9670087DB48 /* AppDelegate.m in Sources */,
 				0061BF9D1C4F4EF3007565C5 /* SDWebImageDownloaderOperation.m in Sources */,
 				0061BFA11C4F4EF3007565C5 /* UIImage+GIF.m in Sources */,
