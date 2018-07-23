@@ -5,7 +5,7 @@
 /**
  随机色
  */
-+ (UIColor *)RandomColor;
++ (UIColor *)randomColor;
 
 /**
  *  由16进制颜色格式生成UIColor (0xffffff)
@@ -18,7 +18,7 @@
 /**
  *  由16进制颜色字符串格式生成UIColor
  *
- *  @param hex 16进制颜色#00FF00
+ *  @param hexString 16进制颜色#00FF00
  */
 + (UIColor *)colorWithHexString:(NSString *)hexString;
 

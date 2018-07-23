@@ -304,8 +304,8 @@
 		004DDF8621064F1200FC8D99 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				004DDF8721064F1200FC8D99 /* UIView+Frame.m */,
 				004DDF8821064F1200FC8D99 /* UIView+Frame.h */,
+				004DDF8721064F1200FC8D99 /* UIView+Frame.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -314,8 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				004DDF8A21064F1200FC8D99 /* NSString+bounds.h */,
-				004DDF8B21064F1200FC8D99 /* NSString+predicate.h */,
 				004DDF8C21064F1200FC8D99 /* NSString+bounds.m */,
+				004DDF8B21064F1200FC8D99 /* NSString+predicate.h */,
 				004DDF8D21064F1200FC8D99 /* NSString+predicate.m */,
 			);
 			path = NSString;

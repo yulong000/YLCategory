@@ -3,7 +3,7 @@
 @implementation UIColor (category)
 
 #pragma mark 随机颜色
-+ (UIColor *)RandomColor {
++ (UIColor *)randomColor {
     NSInteger r = arc4random() % 255;
     NSInteger g = arc4random() % 255;
     NSInteger b = arc4random() % 255;

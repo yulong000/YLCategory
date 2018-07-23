@@ -60,6 +60,8 @@
 
 // int float -> string
 #define NSStringFromInt(int) [NSString stringWithFormat:@"%d", int]
+#define NSStringFromUInt(int) [NSString stringWithFormat:@"%u", int]
+#define NSStringFromInteger(integer) [NSString stringWithFormat:@"%ld", integer]
 #define NSStringFromFloat(float) [NSString stringWithFormat:@"%f", float]
 #define NSStringFromFloatPrice(float) [NSString stringWithFormat:@"%.2f", float]
 
