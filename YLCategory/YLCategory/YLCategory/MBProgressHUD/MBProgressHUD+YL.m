@@ -9,6 +9,8 @@
 #import "MBProgressHUD+YL.h"
 #import <objc/runtime.h>
 
+#define SetHUDColor // hud.bezelView.color = [UIColor colorWithWhite:0.8 alpha:0.8];
+
 static const char MBProgressHUDButtonClickedBlockKey = '\0';
 
 @implementation MBProgressHUD (YL)
@@ -32,32 +34,36 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
     hud.customView = customView;
     hud.label.text = message;
     hud.square = YES;
+    SetHUDColor
     return hud;
 }
 
 #pragma mark - 显示信息
-+ (void)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view {
++ (MBProgressHUD *)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view {
     UIImageView *customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
     MBProgressHUD *hud = [self showWithCustomView:customView message:text toView:view];
+    hud.square = NO;
+    SetHUDColor
     [hud hideAnimated:YES afterDelay:kHUDHiddenAfterSecond];
+    return hud;
 }
 
 #pragma mark 显示成功信息
-+ (void)showSuccess:(NSString *)success toView:(UIView *)view {
-    [self show:success icon:@"success.png" view:view];
++ (MBProgressHUD *)showSuccess:(NSString *)success toView:(UIView *)view {
+    return [self show:success icon:@"success.png" view:view];
 }
 
-+ (void)showSuccess:(NSString *)success {
-    [self showSuccess:success toView:nil];
++ (MBProgressHUD *)showSuccess:(NSString *)success {
+    return [self showSuccess:success toView:nil];
 }
 
 #pragma mark 显示错误信息
-+ (void)showError:(NSString *)error toView:(UIView *)view {
-    [self show:error icon:@"error.png" view:view];
++ (MBProgressHUD *)showError:(NSString *)error toView:(UIView *)view {
+    return [self show:error icon:@"error.png" view:view];
 }
 
-+ (void)showError:(NSString *)error {
-    [self showError:error toView:nil];
++ (MBProgressHUD *)showError:(NSString *)error {
+    return [self showError:error toView:nil];
 }
 
 #pragma mark - 显示一些提示信息, 带菊花, 可设置动画效果
@@ -68,6 +74,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
                  dimBackground:(BOOL)dimBackground {
     view = [self hudShowViewWithInputView:view];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:animated];
+    SetHUDColor
     hud.label.text = message;
     hud.detailsLabel.text = detailMessage;
     if(dimBackground) {
@@ -137,6 +144,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
     if(delay <= 0)      delay = kHUDHiddenAfterSecond;
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    SetHUDColor
     hud.mode = MBProgressHUDModeText;
     hud.label.text = text;
     hud.detailsLabel.text = detailText;
@@ -179,6 +187,7 @@ hiddenAfterDelay:(CGFloat)delay {
 + (MBProgressHUD *)showAnnularProgressWithText:(NSString *)text toView:(UIView *)view {
     view = [self hudShowViewWithInputView:view];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    SetHUDColor
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.label.text = text;
     return hud;
@@ -190,6 +199,7 @@ hiddenAfterDelay:(CGFloat)delay {
                                     clickBlock:(MBProgressHUDButtonClickedBlock)clickBlock {
     view = [self hudShowViewWithInputView:view];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    SetHUDColor
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.label.text = text;
     [hud.button addTarget:hud action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -204,6 +214,7 @@ hiddenAfterDelay:(CGFloat)delay {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.mode = MBProgressHUDModeDeterminateHorizontalBar;
     hud.label.text = text;
+    SetHUDColor
     return hud;
 }
 

@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^UILabelClickedBlock)(UILabel *label);
+
 @interface UILabel (category)
+
+/**  添加点击事件  */
+@property (nonatomic, copy) UILabelClickedBlock clickedBlock;
 
 /**
  获取label的size, 文字自适应
@@ -42,5 +47,8 @@
  @param attributes 文字属性
  */
 - (CGSize)sizeWithMaxWidth:(CGFloat)maxWidth numberOfLines:(NSInteger)lines attributes:(NSDictionary *)attributes;
+
+
+
 
 @end

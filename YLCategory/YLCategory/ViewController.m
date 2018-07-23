@@ -31,8 +31,9 @@
 }
 
 - (void)test {
-    TwoViewController *two = [[TwoViewController alloc] init];
-    [self.navigationController pushViewController:two animated:YES];
+    [MBProgressHUD showSuccess:@"删除订单成功"];
+//    TwoViewController *two = [[TwoViewController alloc] init];
+//    [self.navigationController pushViewController:two animated:YES];
 }
 
 

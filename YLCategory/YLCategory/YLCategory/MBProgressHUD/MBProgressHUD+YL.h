@@ -26,7 +26,7 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
  *  @param success 文本信息
  *  @param view    要显示到的view
  */
-+ (void)showSuccess:(NSString *)success toView:(UIView *)view;
++ (MBProgressHUD *)showSuccess:(NSString *)success toView:(UIView *)view;
 
 /**
  *  显示错误信息
@@ -34,21 +34,21 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
  *  @param error 文本信息
  *  @param view  要显示到的view
  */
-+ (void)showError:(NSString *)error toView:(UIView *)view;
++ (MBProgressHUD *)showError:(NSString *)error toView:(UIView *)view;
 
 /**
  *  显示成功信息到 最后一个UIWindow 窗口上
  *
  *  @param success 文本信息
  */
-+ (void)showSuccess:(NSString *)success;
++ (MBProgressHUD *)showSuccess:(NSString *)success;
 
 /**
  *  显示错误信息到 最后一个UIWindow 窗口上
  *
  *  @param error 文本信息
  */
-+ (void)showError:(NSString *)error;
++ (MBProgressHUD *)showError:(NSString *)error;
 
 /**
  *  显示提示信息,带菊花状态,需手动隐藏
