@@ -1,10 +1,3 @@
-//
-//  MBProgressHUD+YL.h
-//  view
-//
-//  Created by DreamHand on 15/9/9.
-//  Copyright (c) 2015年 WYL. All rights reserved.
-//
 
 #import "MBProgressHUD.h"
 

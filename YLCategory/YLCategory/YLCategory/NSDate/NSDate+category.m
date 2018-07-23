@@ -1,10 +1,3 @@
-//
-//  NSDate+category.m
-//  YLCategory
-//
-//  Created by weiyulong on 2018/7/2.
-//  Copyright © 2018年 WYL. All rights reserved.
-//
 
 #import "NSDate+category.h"
 

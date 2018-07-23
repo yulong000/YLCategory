@@ -14,4 +14,7 @@ typedef void (^UIButtonClickedBlock)(UIButton *button);
 + (instancetype)buttonWithImage:(UIImage *)image clickBlock:(UIButtonClickedBlock)clickedBlock;
 + (instancetype)buttonWithTitle:(NSString *)title image:(UIImage *)image clickBlock:(UIButtonClickedBlock)clickedBlock;
 
+/**  扩大点击区域  */
+- (void)addClickArea:(UIEdgeInsets)insets;
+
 @end
