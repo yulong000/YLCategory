@@ -189,6 +189,32 @@
     }
     return day;
 }
+#pragma mark 把星期几转换成文字
+- (NSString *)transformWeekdayToString:(Weekday)weekday {
+    switch (weekday) {
+        case Monday:
+            return @"星期一";
+        case Tuesday:
+            return @"星期二";
+        case Wednesday:
+            return @"星期三";
+        case Thursday:
+            return @"星期四";
+        case Friday:
+            return @"星期五";
+        case Saturday:
+            return @"星期六";
+        case Sunday:
+            return @"星期日";
+        default:
+            break;
+    }
+    return @"";
+}
+#pragma mark 获取日期为星期几 如 "星期一"
+- (NSString *)weekdayString {
+    return [self transformWeekdayToString:self.weekday];
+}
 
 #pragma mark 获取一个NSDateComponents实例
 - (NSDateComponents *)dateComponents

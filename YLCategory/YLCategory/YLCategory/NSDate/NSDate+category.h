@@ -56,9 +56,6 @@ typedef enum {
  *  @param date   @"2015-07-31"
  */
 + (NSDate *)dateWithFormat:(NSString *)format string:(NSString *)date;
-
-
-
 /**
  *  获取当前日期增加dayCount天的日期
  *
@@ -169,6 +166,15 @@ typedef enum {
  *  获取日期为星期几
  */
 - (Weekday)weekday;
+/**
+ 把星期几转换成文字 如 "星期一"
+ */
+- (NSString *)transformWeekdayToString:(Weekday)weekday;
+
+/**
+ 获取日期为星期几 如 "星期一"
+ */
+- (NSString *)weekdayString;
 
 /**
  *  是否为同一天
