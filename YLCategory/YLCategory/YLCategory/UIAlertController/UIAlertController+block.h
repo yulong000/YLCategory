@@ -31,7 +31,7 @@
 + (UIAlertController *)alertControllerWithTitle:(NSString *)title
                                         message:(NSString *)message
                                     buttonTitle:(NSString *)buttonTitle
-                                     handlelock:(void(^)(UIAlertAction *action))handleBlock;
+                                     handleBlock:(void(^)(UIAlertAction *action))handleBlock;
 
 /**
  在屏幕中间弹出

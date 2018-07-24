@@ -22,7 +22,7 @@
     return alertController;
 }
 
-+ (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle handlelock:(void (^)(UIAlertAction *))handleBlock {
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle handleBlock:(void (^)(UIAlertAction *))handleBlock {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
