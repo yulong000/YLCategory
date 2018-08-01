@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002CD1932111DB4400161EBD /* NSObject+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CD1922111DB4400161EBD /* NSObject+category.m */; };
 		0034C3CF1C32E9670087DB48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3CE1C32E9670087DB48 /* main.m */; };
 		0034C3D21C32E9670087DB48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3D11C32E9670087DB48 /* AppDelegate.m */; };
 		0034C3D51C32E9670087DB48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3D41C32E9670087DB48 /* ViewController.m */; };
@@ -65,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002CD1912111DB4400161EBD /* NSObject+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+category.h"; sourceTree = "<group>"; };
+		002CD1922111DB4400161EBD /* NSObject+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+category.m"; sourceTree = "<group>"; };
 		0034C3CA1C32E9670087DB48 /* YLCategory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCategory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0034C3CE1C32E9670087DB48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0034C3D01C32E9670087DB48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -168,6 +171,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002CD1902111DB3100161EBD /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				002CD1912111DB4400161EBD /* NSObject+category.h */,
+				002CD1922111DB4400161EBD /* NSObject+category.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
 		0034C3C11C32E9670087DB48 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +254,7 @@
 				004DDF8221064F1200FC8D99 /* PublicHeader.h */,
 				004DDF7821064F1200FC8D99 /* XcodeLog.m */,
 				004DDF9521064F1200FC8D99 /* YLCategory.h */,
+				002CD1902111DB3100161EBD /* NSObject */,
 				004DDF7521064F1200FC8D99 /* UIIamge */,
 				004DDF7921064F1200FC8D99 /* UILabel */,
 				004DDF8E21064F1200FC8D99 /* UIControl */,
@@ -544,6 +557,7 @@
 				0061BFA01C4F4EF3007565C5 /* UIButton+WebCache.m in Sources */,
 				004DDF9E21064F1300FC8D99 /* UIAlertController+block.m in Sources */,
 				004DDFA021064F1300FC8D99 /* NSString+bounds.m in Sources */,
+				002CD1932111DB4400161EBD /* NSObject+category.m in Sources */,
 				0061BFA21C4F4EF3007565C5 /* UIImage+MultiFormat.m in Sources */,
 				004DDFA321064F1300FC8D99 /* MBProgressHUD+YL.m in Sources */,
 				0061BFA41C4F4EF3007565C5 /* UIImageView+WebCache.m in Sources */,

@@ -12,5 +12,6 @@
 #import "MBProgressHUD+YL.h"
 #import "UIControl+category.h"
 #import "NSDate+category.h"
+#import "NSObject+category.h"
 
 #endif /* YLCategory_h */

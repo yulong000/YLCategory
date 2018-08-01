@@ -44,6 +44,45 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
 + (MBProgressHUD *)showError:(NSString *)error;
 
 /**
+ 显示成功信息 到指定的UIView上, 默认时间后隐藏, 结束后回调
+
+ @param success 成功的提示信息
+ @param view 要显示到的UIView
+ @param block 结束后回调
+ @return MBProgressHUD实例
+ */
++ (MBProgressHUD *)showSuccess:(NSString *)success toView:(UIView *)view completionBlock:(MBProgressHUDCompletionBlock)block;
+
+/**
+ 显示失败信息 到指定的UIView上,默认时间后隐藏, 结束后回调
+
+ @param error 失败的提示信息
+ @param view 要显示到的UIView
+ @param block 结束后回调
+ @return MBProgressHUD实例
+ */
++ (MBProgressHUD *)showError:(NSString *)error toView:(UIView *)view completionBlock:(MBProgressHUDCompletionBlock)block;
+
+/**
+ 显示成功信息 到UIWindow上, 默认时间后隐藏
+ 
+ @param success 成功的提示信息
+ @param block 结束后回调
+ @return MBProgressHUD实例
+ */
++ (MBProgressHUD *)showSuccess:(NSString *)success completionBlock:(MBProgressHUDCompletionBlock)block;
+
+/**
+ 显示失败信息 到UIWindow上,默认时间后隐藏
+ 
+ @param error 失败的提示信息
+ @param block 结束后回调
+ @return MBProgressHUD实例
+ */
+
++ (MBProgressHUD *)showError:(NSString *)error completionBlock:(MBProgressHUDCompletionBlock)block;
+
+/**
  *  显示提示信息,带菊花状态,需手动隐藏
  *
  *  @param message 提示信息
@@ -96,7 +135,7 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
 + (void)hideHUD;
 
 /**
- *  显示文本提示信息, 带详细信息
+ *  显示文本提示信息, 带详细信息, 不带菊花
  *
  *  @param text       文本提示
  *  @param detailText 详细信息
@@ -109,7 +148,7 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
 + (MBProgressHUD *)showText:(NSString *)text detailText:(NSString *)detailText toView:(UIView *)view square:(BOOL)square hiddenAfterDelay:(CGFloat)delay;
 
 /**
- *  显示文本提示信息, 带详细信息, square = YES, delay = kHUDHiddenAfterSecond
+ *  显示文本提示信息, 带详细信息, 不带菊花, square = YES, delay = kHUDHiddenAfterSecond
  *
  *  @param text       文本提示
  *  @param detailText 详细信息
@@ -120,7 +159,7 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
 + (MBProgressHUD *)showText:(NSString *)text detailText:(NSString *)detailText toView:(UIView *)view;
 
 /**
- *  显示文本提示信息
+ *  显示文本提示信息, 不带菊花
  *
  *  @param text   文本信息
  *  @param view   要显示到的view
@@ -132,7 +171,7 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
 + (MBProgressHUD *)showText:(NSString *)text toView:(UIView *)view square:(BOOL)square hiddenAfterDelay:(CGFloat)delay;
 
 /**
- *  显示文本提示信息
+ *  显示文本提示信息, 不带菊花
  *
  *  @param text  文本信息
  *  @param view  要显示到的view
@@ -143,7 +182,7 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
 + (MBProgressHUD *)showText:(NSString *)text toView:(UIView *)view hiddenAfterDelay:(CGFloat)delay;
 
 /**
- *  显示文本提示信息到 最后一个UIWindow 窗口上
+ *  显示文本提示信息到 最后一个UIWindow 窗口上, 不带菊花
  *
  *  @param text  文本信息
  *  @param delay delay秒后自动隐藏
@@ -153,7 +192,28 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
 + (MBProgressHUD *)showText:(NSString *)text hiddenAfterDelay:(CGFloat)delay;
 
 /**
- *  显示文本提示信息到 最后一个UIWindow 窗口上,延时默认时间后隐藏
+ 显示文本提示信息到最后一个UIWindow 窗口上, 不带菊花,隐藏后调用block
+
+ @param text 文本信息
+ @param delay delay秒后自动隐藏
+ @param block 结束后回调
+ @return MBProgressHUD实例
+ */
++ (MBProgressHUD *)showText:(NSString *)text hiddenAfterDelay:(CGFloat)delay completionBlock:(MBProgressHUDCompletionBlock)block;
+
+/**
+ 显示文本提示信息到指定的UIView上, 不带菊花,隐藏后调用block
+
+ @param text 文本信息
+ @param view 指定的UIView
+ @param delay delay秒后自动隐藏
+ @param block 结束后回调
+ @return MBProgressHUD实例
+ */
++ (MBProgressHUD *)showText:(NSString *)text toView:(UIView *)view hiddenAfterDelay:(CGFloat)delay completionBlock:(MBProgressHUDCompletionBlock)block;
+
+/**
+ *  显示文本提示信息到 最后一个UIWindow 窗口上,延时默认时间后隐藏, 不带菊花
  *
  *  @param text 文本信息
  *

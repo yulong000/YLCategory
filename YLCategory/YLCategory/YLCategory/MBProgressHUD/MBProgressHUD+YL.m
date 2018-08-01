@@ -38,6 +38,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
     hud.square = NO;
     SetHUDColor
     [hud hideAnimated:YES afterDelay:kHUDHiddenAfterSecond];
+    hud.tag = arc4random() % 1000 + 10; // 10 - 1009, 会自动隐藏的
     return hud;
 }
 
@@ -50,6 +51,18 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
     return [self showSuccess:success toView:nil];
 }
 
++ (MBProgressHUD *)showSuccess:(NSString *)success completionBlock:(MBProgressHUDCompletionBlock)block {
+    MBProgressHUD *hud = [self showMessage:success];
+    hud.completionBlock = block;
+    return hud;
+}
+
++ (MBProgressHUD *)showSuccess:(NSString *)success toView:(UIView *)view completionBlock:(MBProgressHUDCompletionBlock)block {
+    MBProgressHUD *hud = [self showMessage:success toView:view];
+    hud.completionBlock = block;
+    return hud;
+}
+
 #pragma mark 显示错误信息
 + (MBProgressHUD *)showError:(NSString *)error toView:(UIView *)view {
     return [self show:error icon:@"error.png" view:view];
@@ -57,6 +70,18 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 
 + (MBProgressHUD *)showError:(NSString *)error {
     return [self showError:error toView:nil];
+}
+
++ (MBProgressHUD *)showError:(NSString *)error completionBlock:(MBProgressHUDCompletionBlock)block {
+    MBProgressHUD *hud = [self showError:error];
+    hud.completionBlock = block;
+    return hud;
+}
+
++ (MBProgressHUD *)showError:(NSString *)error toView:(UIView *)view completionBlock:(MBProgressHUDCompletionBlock)block {
+    MBProgressHUD *hud = [self showError:error toView:view];
+    hud.completionBlock = block;
+    return hud;
 }
 
 #pragma mark - 显示一些提示信息, 带菊花, 可设置动画效果
@@ -120,7 +145,16 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 #pragma mark - 隐藏HUD
 + (void)hideHUDForView:(UIView *)view {
     view = [self hudShowViewWithInputView:view];
-    [self hideHUDForView:view animated:YES];
+    // 排除掉会自动隐藏的hud, 解决多个hud时隐藏不掉的bug
+    NSEnumerator *subviewsEnum = [view.subviews reverseObjectEnumerator];
+    for (UIView *subview in subviewsEnum) {
+        if ([subview isKindOfClass:self] && subview.tag < 10) {
+            if (subview.superview) {
+                [(MBProgressHUD *)subview hideAnimated:YES];
+                break;
+            }
+        }
+    }
 }
 
 + (void)hideHUD {
@@ -145,6 +179,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:delay];
+    hud.tag = arc4random() % 1000 + 10; // 10 - 1009, 会自动隐藏的
     return hud;
 }
 
@@ -174,6 +209,18 @@ hiddenAfterDelay:(CGFloat)delay {
 
 + (MBProgressHUD *)showText:(NSString *)text {
     return [self showText:text toView:nil hiddenAfterDelay:0];
+}
+
++ (MBProgressHUD *)showText:(NSString *)text hiddenAfterDelay:(CGFloat)delay completionBlock:(MBProgressHUDCompletionBlock)block {
+    MBProgressHUD *hud = [self showText:text hiddenAfterDelay:delay];
+    hud.completionBlock = block;
+    return hud;
+}
+
++ (MBProgressHUD *)showText:(NSString *)text toView:(UIView *)view hiddenAfterDelay:(CGFloat)delay completionBlock:(MBProgressHUDCompletionBlock)block {
+    MBProgressHUD *hud = [self showText:text toView:view hiddenAfterDelay:delay];
+    hud.completionBlock = block;
+    return hud;
 }
 
 #pragma mark - 环形的进度条
