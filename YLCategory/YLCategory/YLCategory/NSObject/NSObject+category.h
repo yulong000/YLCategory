@@ -11,6 +11,6 @@
 @interface NSObject (category)
 
 /**  长度不为0的字符串  */
-- (BOOL)isVaildString;
+- (BOOL)isValidString;
 
 @end

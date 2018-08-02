@@ -11,7 +11,7 @@
 @implementation NSObject (category)
 
 #pragma mark 是否是长度不为0的字符串
-- (BOOL)isVaildString {
+- (BOOL)isValidString {
     if([self isKindOfClass:[NSString class]]) {
         NSString *str = (NSString *)self;
         return str.length;
