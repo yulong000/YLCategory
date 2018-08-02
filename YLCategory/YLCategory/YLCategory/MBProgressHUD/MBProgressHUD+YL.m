@@ -150,7 +150,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
     for (UIView *subview in subviewsEnum) {
         if ([subview isKindOfClass:self] && subview.tag < 10) {
             if (subview.superview) {
-                [(MBProgressHUD *)subview hideAnimated:YES];
+                [(MBProgressHUD *)subview hideAnimated:NO];
                 break;
             }
         }
