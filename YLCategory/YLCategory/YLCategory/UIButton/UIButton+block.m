@@ -27,6 +27,7 @@ static const char UIButtonClickedBlockKey = '\0';
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.titleLabel.adjustsFontSizeToFitWidth = YES;
+    button.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     if(title.length)    [button setTitle:title forState:UIControlStateNormal];
     if(image)           [button setImage:image forState:UIControlStateNormal];
     if(clickedBlock)    button.clickedBlock = clickedBlock;
