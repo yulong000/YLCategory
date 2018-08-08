@@ -2,6 +2,7 @@
 #define YLCategory_h
 
 #import "UIView+Frame.h"
+#import "UIView+gesture.h"
 #import "UIImage+category.h"
 #import "UIButton+block.h"
 #import "UIAlertController+block.h"

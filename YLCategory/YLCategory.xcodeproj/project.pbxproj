@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00059A56211A77F70036D2BD /* UIView+gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 00059A55211A77F70036D2BD /* UIView+gesture.m */; };
 		002CD1932111DB4400161EBD /* NSObject+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CD1922111DB4400161EBD /* NSObject+category.m */; };
 		0034C3CF1C32E9670087DB48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3CE1C32E9670087DB48 /* main.m */; };
 		0034C3D21C32E9670087DB48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3D11C32E9670087DB48 /* AppDelegate.m */; };
@@ -66,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00059A54211A77F70036D2BD /* UIView+gesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+gesture.h"; sourceTree = "<group>"; };
+		00059A55211A77F70036D2BD /* UIView+gesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+gesture.m"; sourceTree = "<group>"; };
 		002CD1912111DB4400161EBD /* NSObject+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+category.h"; sourceTree = "<group>"; };
 		002CD1922111DB4400161EBD /* NSObject+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+category.m"; sourceTree = "<group>"; };
 		0034C3CA1C32E9670087DB48 /* YLCategory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCategory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -319,6 +322,8 @@
 			children = (
 				004DDF8821064F1200FC8D99 /* UIView+Frame.h */,
 				004DDF8721064F1200FC8D99 /* UIView+Frame.m */,
+				00059A54211A77F70036D2BD /* UIView+gesture.h */,
+				00059A55211A77F70036D2BD /* UIView+gesture.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -570,6 +575,7 @@
 				0061BF9A1C4F4EF3007565C5 /* SDWebImageCompat.m in Sources */,
 				004DDF9921064F1300FC8D99 /* UIImage+category.m in Sources */,
 				004DDF9D21064F1300FC8D99 /* UIColor+category.m in Sources */,
+				00059A56211A77F70036D2BD /* UIView+gesture.m in Sources */,
 				0061BF981C4F4EF3007565C5 /* NSData+ImageContentType.m in Sources */,
 				0034C3CF1C32E9670087DB48 /* main.m in Sources */,
 				0061BF971C4F4EF3007565C5 /* MKAnnotationView+WebCache.m in Sources */,
