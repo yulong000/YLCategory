@@ -2,30 +2,54 @@
 #import "UIView+gesture.h"
 #import <objc/runtime.h>
 
-static const char UIViewGestureBlockKey = '\0';
+static const char UIViewPanGestureBlockKey = '\0';
+static const char UIViewTapGestureBlockKey = '\0';
 
 @implementation UIView (gesture)
 
-- (void)setGestureBlock:(UIViewGestureBlock)gestureBlock {
-    [self willChangeValueForKey:@"gestureBlock"];
-    objc_setAssociatedObject(self, &UIViewGestureBlockKey, gestureBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self didChangeValueForKey:@"gestureBlock"];
+- (void)setTapGestureBlock:(UIViewTapGestureBlock)tapGestureBlock {
+    [self willChangeValueForKey:@"tapGestureBlock"];
+    objc_setAssociatedObject(self, &UIViewTapGestureBlockKey, tapGestureBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self didChangeValueForKey:@"tapGestureBlock"];
 }
 
-- (UIViewGestureBlock)gestureBlock {
-    return objc_getAssociatedObject(self, &UIViewGestureBlockKey);
+- (UIViewTapGestureBlock)tapGestureBlock {
+    return objc_getAssociatedObject(self, &UIViewTapGestureBlockKey);
 }
 
-- (void)addTapGestureHandleBlock:(UIViewGestureBlock)handle {
+- (void)setPanGestureBlock:(UIViewPanGestureBlock)panGestureBlock {
+    [self willChangeValueForKey:@"panGestureBlock"];
+    objc_setAssociatedObject(self, &UIViewPanGestureBlockKey, panGestureBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self didChangeValueForKey:@"panGestureBlock"];
+}
+
+- (UIViewPanGestureBlock)panGestureBlock {
+    return objc_getAssociatedObject(self, &UIViewPanGestureBlockKey);
+}
+
+- (void)addTapGestureHandleBlock:(UIViewTapGestureBlock)handle {
     self.userInteractionEnabled = YES;
-    self.gestureBlock = handle;
+    self.tapGestureBlock = [handle copy];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     [self addGestureRecognizer:tap];
 }
 
-- (void)tap:(UIGestureRecognizer *)tap {
-    if(self.gestureBlock) {
-        self.gestureBlock(self, tap);
+- (void)tap:(UITapGestureRecognizer *)tap {
+    if(self.tapGestureBlock) {
+        self.tapGestureBlock(self, tap);
+    }
+}
+
+- (void)addPanGestureHandleBlock:(UIViewPanGestureBlock)handle {
+    self.userInteractionEnabled = YES;
+    self.panGestureBlock = [handle copy];
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self addGestureRecognizer:pan];
+}
+
+- (void)pan:(UIPanGestureRecognizer *)pan {
+    if(self.panGestureBlock) {
+        self.panGestureBlock(self, pan);
     }
 }
 @end
