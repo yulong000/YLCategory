@@ -9,4 +9,7 @@ typedef void (^UIViewPanGestureBlock)(UIView *view, UIPanGestureRecognizer *pan)
 
 - (void)addTapGestureHandleBlock:(UIViewTapGestureBlock)handle;
 - (void)addPanGestureHandleBlock:(UIViewPanGestureBlock)handle;
+
+- (void)addTapGestureWithDelegate:(id)delegate handleBlock:(UIViewTapGestureBlock)handle;
+- (void)addPanGestureWithDelegate:(id)delegate handleBlock:(UIViewPanGestureBlock)handle;
 @end

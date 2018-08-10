@@ -27,11 +27,16 @@ static const char UIViewTapGestureBlockKey = '\0';
     return objc_getAssociatedObject(self, &UIViewPanGestureBlockKey);
 }
 
-- (void)addTapGestureHandleBlock:(UIViewTapGestureBlock)handle {
+- (void)addTapGestureWithDelegate:(id)delegate handleBlock:(UIViewTapGestureBlock)handle {
     self.userInteractionEnabled = YES;
     self.tapGestureBlock = [handle copy];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    if(delegate) tap.delegate = delegate;
     [self addGestureRecognizer:tap];
+}
+
+- (void)addTapGestureHandleBlock:(UIViewTapGestureBlock)handle {
+    [self addTapGestureWithDelegate:nil handleBlock:handle];
 }
 
 - (void)tap:(UITapGestureRecognizer *)tap {
@@ -40,11 +45,16 @@ static const char UIViewTapGestureBlockKey = '\0';
     }
 }
 
-- (void)addPanGestureHandleBlock:(UIViewPanGestureBlock)handle {
+- (void)addPanGestureWithDelegate:(id)delegate handleBlock:(UIViewPanGestureBlock)handle {
     self.userInteractionEnabled = YES;
     self.panGestureBlock = [handle copy];
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    if(delegate) pan.delegate = delegate;
     [self addGestureRecognizer:pan];
+}
+
+- (void)addPanGestureHandleBlock:(UIViewPanGestureBlock)handle {
+    [self addPanGestureWithDelegate:nil handleBlock:handle];
 }
 
 - (void)pan:(UIPanGestureRecognizer *)pan {
