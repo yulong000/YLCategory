@@ -15,7 +15,7 @@ s.public_header_files = 'YLCategory/YLCategory.h'
 s.requires_arc = true
 
 s.subspec 'MBProgressHUD' do |ss|
-ss.source_files  =    'YLCategory/MBProgressHUD/*.{h,m,bundle}', 'YLCategoryExample/MBProgressHUD/*.{h,m}'
+ss.source_files  =    'YLCategory/MBProgressHUD/*.{h,m}'
 ss.resource      =    'YLCategory/MBProgressHUD/MBProgressHUD.bundle'
 end
 
