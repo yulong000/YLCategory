@@ -11,5 +11,18 @@ Pod::Spec.new do |s|
   s.author             = { "weiyulong" => "weiyulong1987@163.com" }
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/yulong000/YLCategory.git", :tag => "1.0.1" }
-  s.source_files  = "YLCategory", "YLCategory/YLCategory/YLCategory/**/*", "YLCategory/YLCategory/MBProgressHUD/*.{h,m}"
+  s.source_files = "YLCategory/YLCategory/YLCategory/*.{h,m}",
+  s.subspec 'LCategory/YLCategory/YLCategory/' do |ss|
+  ss.source_files  =    "YLCategory/YLCategory/YLCategory/MBProgressHUD/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/NSDate/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/NSObject/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/NSString/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/UIAlertController/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/UIButton/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/UIColor/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/UIControl/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/UIIamge/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/UILabel/*.{h,m}",
+                        "YLCategory/YLCategory/YLCategory/UIView/*.{h,m}",
+                        "YLCategory/YLCategory/MBProgressHUD/*.{h,m}"
 end
