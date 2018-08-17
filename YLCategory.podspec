@@ -57,10 +57,6 @@ s.subspec 'UIView' do |ss|
 ss.source_files  =   'YLCategory/UIView/*.{h,m}'
 end
 
-s.subspec 'UILabel' do |ss|
-ss.source_files  =   'YLCategory/UILabel/*.{h,m}'
-end
-
 s.subspec 'Others' do |ss|
 ss.source_files  =   'YLCategory/Others/*.{h,m}'
 end
