@@ -62,7 +62,7 @@ ss.source_files  =   'YLCategory/UILabel/*.{h,m}'
 end
 
 s.subspec 'Others' do |ss|
-ss.source_files  =   'YLCategory/Other/*.{h,m}'
+ss.source_files  =   'YLCategory/Others/*.{h,m}'
 end
 
 end
