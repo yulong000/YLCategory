@@ -47,7 +47,7 @@
 		00C9FEBB2125B4530027069C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00C9FE8F2125B4530027069C /* MBProgressHUD.bundle */; };
 		00C9FEBC2125B4530027069C /* NSObject+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE922125B4530027069C /* NSObject+category.m */; };
 		00C9FEBD2125B4530027069C /* NSDate+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE952125B4530027069C /* NSDate+category.m */; };
-		00C9FEC12125B47D0027069C /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FEBF2125B47D0027069C /* XcodeLog.m */; };
+		00C9FF02212651CD0027069C /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FF00212651CD0027069C /* XcodeLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,8 +146,8 @@
 		00C9FE932125B4530027069C /* YLCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCategory.h; sourceTree = "<group>"; };
 		00C9FE952125B4530027069C /* NSDate+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+category.m"; sourceTree = "<group>"; };
 		00C9FE962125B4530027069C /* NSDate+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+category.h"; sourceTree = "<group>"; };
-		00C9FEBF2125B47D0027069C /* XcodeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
-		00C9FEC02125B47D0027069C /* PublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicHeader.h; sourceTree = "<group>"; };
+		00C9FF00212651CD0027069C /* XcodeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
+		00C9FF01212651CD0027069C /* PublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,7 +273,7 @@
 		00C9FE6A2125B4530027069C /* YLCategory */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FEBE2125B47D0027069C /* Other */,
+				00C9FEFF212651CD0027069C /* Others */,
 				00C9FE6B2125B4530027069C /* UIIamge */,
 				00C9FE6E2125B4530027069C /* UILabel */,
 				00C9FE712125B4530027069C /* UIButton */,
@@ -396,13 +396,13 @@
 			path = NSDate;
 			sourceTree = "<group>";
 		};
-		00C9FEBE2125B47D0027069C /* Other */ = {
+		00C9FEFF212651CD0027069C /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FEBF2125B47D0027069C /* XcodeLog.m */,
-				00C9FEC02125B47D0027069C /* PublicHeader.h */,
+				00C9FF00212651CD0027069C /* XcodeLog.m */,
+				00C9FF01212651CD0027069C /* PublicHeader.h */,
 			);
-			path = Other;
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,7 +561,7 @@
 				00C9FEBD2125B4530027069C /* NSDate+category.m in Sources */,
 				00C9FEB12125B4530027069C /* UIColor+category.m in Sources */,
 				00C9FEAC2125B4530027069C /* UIButton+WebCache.m in Sources */,
-				00C9FEC12125B47D0027069C /* XcodeLog.m in Sources */,
+				00C9FF02212651CD0027069C /* XcodeLog.m in Sources */,
 				00C9FEA92125B4530027069C /* SDWebImageDownloaderOperation.m in Sources */,
 				00C9FEB02125B4530027069C /* UIButton+block.m in Sources */,
 				00C9FE9F2125B4530027069C /* UIImage+WebP.m in Sources */,
