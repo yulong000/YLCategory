@@ -1,8 +1,11 @@
 # YLCategory(常用的分类)
 -----------
 ### 添加pod支持
+
 ``` objective-c
-pod 'YLCategory', '~> 1.0.3'
+在Podfile里添加
+pod 'YLCategory', '~> 1.0.4'
+然后
 pod install
 ```
 
