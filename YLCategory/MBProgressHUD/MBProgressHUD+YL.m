@@ -52,13 +52,13 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 }
 
 + (MBProgressHUD *)showSuccess:(NSString *)success completionBlock:(MBProgressHUDCompletionBlock)block {
-    MBProgressHUD *hud = [self showMessage:success];
+    MBProgressHUD *hud = [self showSuccess:success];
     hud.completionBlock = block;
     return hud;
 }
 
 + (MBProgressHUD *)showSuccess:(NSString *)success toView:(UIView *)view completionBlock:(MBProgressHUDCompletionBlock)block {
-    MBProgressHUD *hud = [self showMessage:success toView:view];
+    MBProgressHUD *hud = [self showSuccess:success toView:view];
     hud.completionBlock = block;
     return hud;
 }
