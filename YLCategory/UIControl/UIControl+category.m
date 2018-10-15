@@ -42,8 +42,9 @@ static const char UIControlClickedBlockKey = '\0';
 
 // 有效区域
 - (CGRect)validArea {
-    UIEdgeInsets insets = [objc_getAssociatedObject(self, &UIControlAreaInsetsKey) UIEdgeInsetsValue];
-    if(insets.top && insets.left && insets.bottom && insets.right) {
+    NSValue *value = objc_getAssociatedObject(self, &UIControlAreaInsetsKey);
+    if(value && [value isKindOfClass:[NSNull class]] == NO) {
+        UIEdgeInsets insets = [value UIEdgeInsetsValue];
         return CGRectMake(- insets.left,
                           - insets.top,
                           self.bounds.size.width + insets.left + insets.right,
