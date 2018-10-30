@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0034C3E81C32E9670087DB48 /* YLCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3E71C32E9670087DB48 /* YLCategoryTests.m */; };
 		0034C3F31C32E9670087DB48 /* YLCategoryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3F21C32E9670087DB48 /* YLCategoryUITests.m */; };
+		00AAFD0B2186DCE900038A34 /* NSString+secret.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AAFD0A2186DCE900038A34 /* NSString+secret.m */; };
 		00C9FE972125B4530027069C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C9FE3F2125B4530027069C /* Assets.xcassets */; };
 		00C9FE982125B4530027069C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE402125B4530027069C /* ViewController.m */; };
 		00C9FE992125B4530027069C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C9FE412125B4530027069C /* LaunchScreen.storyboard */; };
@@ -75,6 +76,8 @@
 		0034C3EE1C32E9670087DB48 /* YLCategoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YLCategoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0034C3F21C32E9670087DB48 /* YLCategoryUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCategoryUITests.m; sourceTree = "<group>"; };
 		0034C3F41C32E9670087DB48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00AAFD092186DCE900038A34 /* NSString+secret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+secret.h"; sourceTree = "<group>"; };
+		00AAFD0A2186DCE900038A34 /* NSString+secret.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+secret.m"; sourceTree = "<group>"; };
 		00C9FE3E2125B4530027069C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		00C9FE3F2125B4530027069C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00C9FE402125B4530027069C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -349,10 +352,12 @@
 		00C9FE822125B4530027069C /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FE832125B4530027069C /* NSString+bounds.h */,
 				00C9FE842125B4530027069C /* NSString+predicate.h */,
-				00C9FE852125B4530027069C /* NSString+bounds.m */,
 				00C9FE862125B4530027069C /* NSString+predicate.m */,
+				00C9FE832125B4530027069C /* NSString+bounds.h */,
+				00C9FE852125B4530027069C /* NSString+bounds.m */,
+				00AAFD092186DCE900038A34 /* NSString+secret.h */,
+				00AAFD0A2186DCE900038A34 /* NSString+secret.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				00C9FEAB2125B4530027069C /* UIImageView+WebCache.m in Sources */,
 				00C9FEB42125B4530027069C /* UIView+gesture.m in Sources */,
 				00C9FEA12125B4530027069C /* SDWebImageManager.m in Sources */,
+				00AAFD0B2186DCE900038A34 /* NSString+secret.m in Sources */,
 				00C9FE982125B4530027069C /* ViewController.m in Sources */,
 				00C9FEBC2125B4530027069C /* NSObject+category.m in Sources */,
 				00C9FEB62125B4530027069C /* NSString+bounds.m in Sources */,
