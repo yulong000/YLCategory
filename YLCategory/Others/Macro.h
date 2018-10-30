@@ -1,14 +1,13 @@
 //
-//  PublicHeader.h
+//  Macro.h
 //  YLCategory
 //
-//  Created by weiyulong on 2018/6/29.
-//  Copyright © 2018年 WYL. All rights reserved.
+//  Created by weiyulong on 2018/10/30.
+//  Copyright © 2018 WYL. All rights reserved.
 //
 
-#ifndef PublicHeader_h
-#define PublicHeader_h
-
+#ifndef Macro_h
+#define Macro_h
 
 /****************************************  尺寸  ***********************************/
 
@@ -16,11 +15,16 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
-#define kIsIphoneX CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812))   // 是否是IphoneX
-#define kIphoneXTopSafeAreaHeight       44.0f   // iPhonex上面的安全区域
-#define kIphoneXBottomSafeAreaHeight    34.0f   // iPhonex下面的安全区域
-#define kTabbarHeight       (kIsIphoneX ? 83.0f : 49.0f)    // 下面tabbar的高度
-#define kNavTotalHeight     (kIsIphoneX ? 88.0f : 64.0f)  // 上面导航栏总高度
+#define kIsIphoneX CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375.0f, 812.0f))     // 是否是IphoneX
+#define kIsIphoneXS kIsIphoneX                                                                          // 是否是iPhone XS
+#define kIsIphoneXR CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(414.0f, 896.0f))    // 是否是iPhone XR
+#define kIsIphoneXS_Max kIsIphoneXR                                                                     // 是否是iPhone XS_Max
+#define kIsFullScreen (kIsIphoneX || kIsIphoneXR)   // 是否是全面屏
+#define kFullScreenTopSafeAreaHeight       44.0f    // 全面屏上面的安全区域
+#define kFullScreenBottomSafeAreaHeight    34.0f    // 全面屏下面的安全区域
+#define kTabbarHeight       (kIsFullScreen ? 83.0f : 49.0f)     // 下面tabbar的高度
+#define kNavTotalHeight     (kIsFullScreen ? 88.0f : 64.0f)     // 上面导航栏总高度
+
 
 
 /****************************************  颜色  ***********************************/
@@ -59,17 +63,18 @@
 /****************************************  数据类型转换  ***********************************/
 
 // int float -> string
-#define NSStringFromInt(int) [NSString stringWithFormat:@"%d", int]
-#define NSStringFromUInt(int) [NSString stringWithFormat:@"%u", int]
-#define NSStringFromInteger(integer) [NSString stringWithFormat:@"%ld", integer]
-#define NSStringFromFloat(float) [NSString stringWithFormat:@"%f", float]
-#define NSStringFromFloatPrice(float) [NSString stringWithFormat:@"%.2f", float]
+#define NSStringFromInt(int)            [NSString stringWithFormat:@"%d", int]
+#define NSStringFromUInt(int)           [NSString stringWithFormat:@"%u", int]
+#define NSStringFromInteger(integer)    [NSString stringWithFormat:@"%ld", integer]
+#define NSStringFromFloat(float)        [NSString stringWithFormat:@"%f", float]
+#define NSStringFromFloatPrice(float)   [NSString stringWithFormat:@"%.2f", float]
 
 
 
 /****************************************  字体  ***********************************/
 
 // 字体大小
-#define UIFontSize(size)  [UIFont systemFontOfSize:size]
+#define Font(size)  [UIFont systemFontOfSize:size]
 
-#endif /* PublicHeader_h */
+
+#endif /* Macro_h */

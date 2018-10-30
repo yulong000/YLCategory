@@ -78,6 +78,7 @@
 		0034C3F41C32E9670087DB48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00AAFD092186DCE900038A34 /* NSString+secret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+secret.h"; sourceTree = "<group>"; };
 		00AAFD0A2186DCE900038A34 /* NSString+secret.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+secret.m"; sourceTree = "<group>"; };
+		00AAFD1E2188498500038A34 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		00C9FE3E2125B4530027069C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		00C9FE3F2125B4530027069C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00C9FE402125B4530027069C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -150,7 +151,6 @@
 		00C9FE952125B4530027069C /* NSDate+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+category.m"; sourceTree = "<group>"; };
 		00C9FE962125B4530027069C /* NSDate+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+category.h"; sourceTree = "<group>"; };
 		00C9FF00212651CD0027069C /* XcodeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
-		00C9FF01212651CD0027069C /* PublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +276,7 @@
 		00C9FE6A2125B4530027069C /* YLCategory */ = {
 			isa = PBXGroup;
 			children = (
+				00C9FE932125B4530027069C /* YLCategory.h */,
 				00C9FEFF212651CD0027069C /* Others */,
 				00C9FE6B2125B4530027069C /* UIIamge */,
 				00C9FE6E2125B4530027069C /* UILabel */,
@@ -287,7 +288,6 @@
 				00C9FE872125B4530027069C /* UIControl */,
 				00C9FE8A2125B4530027069C /* MBProgressHUD */,
 				00C9FE902125B4530027069C /* NSObject */,
-				00C9FE932125B4530027069C /* YLCategory.h */,
 				00C9FE942125B4530027069C /* NSDate */,
 			);
 			path = YLCategory;
@@ -405,7 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				00C9FF00212651CD0027069C /* XcodeLog.m */,
-				00C9FF01212651CD0027069C /* PublicHeader.h */,
+				00AAFD1E2188498500038A34 /* Macro.h */,
 			);
 			path = Others;
 			sourceTree = "<group>";
