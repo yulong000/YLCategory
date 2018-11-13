@@ -6,7 +6,7 @@
 + (NSDate *)dateWithFormat:(NSString *)format string:(NSString *)dateStr
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8];
+    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8 * 60 * 60];
     [formatter setDateFormat:format];
     return [formatter dateFromString:dateStr];
 }
@@ -15,7 +15,7 @@
 - (NSString *)stringValueWithFormat:(NSString *)formatStr
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8];
+    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8 * 60 * 60];
     [formatter setDateFormat:formatStr];
     return [formatter stringFromDate:self];
 }
@@ -26,7 +26,7 @@
     formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     [formatter setDateFormat:formatStr];
     NSString *dateStr = [formatter stringFromDate:self];
-    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8];
+    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8 * 60 * 60];
     NSDate *date = [formatter dateFromString:dateStr];
     return date;
 }
@@ -114,7 +114,7 @@
 - (NSString *)dateToStringWithFormat:(NSString *)format
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8];
+    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:8 * 60 * 60];
     [formatter setDateFormat:format];
     //    formatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
     return [formatter stringFromDate:self];
