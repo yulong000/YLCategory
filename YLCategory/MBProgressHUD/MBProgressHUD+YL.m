@@ -13,7 +13,11 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
     if(inputView)   return inputView;
     NSArray *windows = [UIApplication sharedApplication].windows;
     for(UIWindow *window in [windows reverseObjectEnumerator]) {
-        if ([window isKindOfClass:[UIWindow class]] && CGRectEqualToRect(window.bounds, [UIScreen mainScreen].bounds))
+        if ([window isKindOfClass:[UIWindow class]] &&
+            [window isKindOfClass:NSClassFromString(@"UITextEffectsWindow")] == NO &&
+            [window isKindOfClass:NSClassFromString(@"UIRemoteKeyboardWindow")] == NO &&
+            [window isKindOfClass:NSClassFromString(@"FLEXWindow")] == NO &&
+            CGRectEqualToRect(window.bounds, [UIScreen mainScreen].bounds))
             return window;
     }
     return [UIApplication sharedApplication].keyWindow;
