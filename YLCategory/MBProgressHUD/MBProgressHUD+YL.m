@@ -37,7 +37,14 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 
 #pragma mark - 显示信息
 + (MBProgressHUD *)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view {
-    UIImageView *customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"MBProgressHUD" withExtension:@"bundle"];
+    if(url == nil) {
+        url = [[[[NSBundle mainBundle] URLForResource:@"Frameworks" withExtension:nil] URLByAppendingPathComponent:@"YLCategory"] URLByAppendingPathExtension:@"framework"];
+        NSBundle *bundle = [NSBundle bundleWithURL:url];
+        url = [bundle URLForResource:@"MBProgressHUD" withExtension:@"bundle"];
+    }
+    NSString *path = [[NSBundle bundleWithURL:url].bundlePath stringByAppendingPathComponent:icon];
+    UIImageView *customView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:path]];
     MBProgressHUD *hud = [self showWithCustomView:customView message:text toView:view];
     hud.square = NO;
     SetHUDColor
@@ -48,7 +55,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 
 #pragma mark 显示成功信息
 + (MBProgressHUD *)showSuccess:(NSString *)success toView:(UIView *)view {
-    return [self show:success icon:@"success.png" view:view];
+    return [self show:success icon:@"success" view:view];
 }
 
 + (MBProgressHUD *)showSuccess:(NSString *)success {
@@ -69,7 +76,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 
 #pragma mark 显示错误信息
 + (MBProgressHUD *)showError:(NSString *)error toView:(UIView *)view {
-    return [self show:error icon:@"error.png" view:view];
+    return [self show:error icon:@"error" view:view];
 }
 
 + (MBProgressHUD *)showError:(NSString *)error {

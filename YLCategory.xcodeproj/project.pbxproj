@@ -32,7 +32,6 @@
 		00C9FEAA2125B4530027069C /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE5E2125B4530027069C /* NSData+ImageContentType.m */; };
 		00C9FEAB2125B4530027069C /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE5F2125B4530027069C /* UIImageView+WebCache.m */; };
 		00C9FEAC2125B4530027069C /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE652125B4530027069C /* UIButton+WebCache.m */; };
-		00C9FEAD2125B4530027069C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C9FE682125B4530027069C /* Info.plist */; };
 		00C9FEAE2125B4530027069C /* UIImage+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE6C2125B4530027069C /* UIImage+category.m */; };
 		00C9FEAF2125B4530027069C /* UILabel+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE6F2125B4530027069C /* UILabel+category.m */; };
 		00C9FEB02125B4530027069C /* UIButton+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE722125B4530027069C /* UIButton+block.m */; };
@@ -519,7 +518,6 @@
 				00C9FE9A2125B4530027069C /* Main.storyboard in Resources */,
 				00C9FE972125B4530027069C /* Assets.xcassets in Resources */,
 				00C9FE9E2125B4530027069C /* icon_selected@2x.png in Resources */,
-				00C9FEAD2125B4530027069C /* Info.plist in Resources */,
 				00C9FE992125B4530027069C /* LaunchScreen.storyboard in Resources */,
 				00C9FEBB2125B4530027069C /* MBProgressHUD.bundle in Resources */,
 			);
