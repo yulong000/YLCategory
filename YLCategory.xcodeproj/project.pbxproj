@@ -42,12 +42,12 @@
 		00C9FEB62125B4530027069C /* NSString+bounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE852125B4530027069C /* NSString+bounds.m */; };
 		00C9FEB72125B4530027069C /* NSString+predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE862125B4530027069C /* NSString+predicate.m */; };
 		00C9FEB82125B4530027069C /* UIControl+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE882125B4530027069C /* UIControl+category.m */; };
+		00C9FEB92125B4530027069C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE8B2125B4530027069C /* MBProgressHUD.m */; };
 		00C9FEBA2125B4530027069C /* MBProgressHUD+YL.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE8E2125B4530027069C /* MBProgressHUD+YL.m */; };
 		00C9FEBB2125B4530027069C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00C9FE8F2125B4530027069C /* MBProgressHUD.bundle */; };
 		00C9FEBC2125B4530027069C /* NSObject+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE922125B4530027069C /* NSObject+category.m */; };
 		00C9FEBD2125B4530027069C /* NSDate+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE952125B4530027069C /* NSDate+category.m */; };
 		00C9FF02212651CD0027069C /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FF00212651CD0027069C /* XcodeLog.m */; };
-		068A71FD5883DFA5ED5289EE /* libPods-YLCategory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E018464B3D32F11DC8E02AFE /* libPods-YLCategory.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,7 +139,9 @@
 		00C9FE862125B4530027069C /* NSString+predicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+predicate.m"; sourceTree = "<group>"; };
 		00C9FE882125B4530027069C /* UIControl+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+category.m"; sourceTree = "<group>"; };
 		00C9FE892125B4530027069C /* UIControl+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+category.h"; sourceTree = "<group>"; };
+		00C9FE8B2125B4530027069C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		00C9FE8C2125B4530027069C /* MBProgressHUD+YL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+YL.h"; sourceTree = "<group>"; };
+		00C9FE8D2125B4530027069C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		00C9FE8E2125B4530027069C /* MBProgressHUD+YL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+YL.m"; sourceTree = "<group>"; };
 		00C9FE8F2125B4530027069C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		00C9FE912125B4530027069C /* NSObject+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+category.h"; sourceTree = "<group>"; };
@@ -148,9 +150,6 @@
 		00C9FE952125B4530027069C /* NSDate+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+category.m"; sourceTree = "<group>"; };
 		00C9FE962125B4530027069C /* NSDate+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+category.h"; sourceTree = "<group>"; };
 		00C9FF00212651CD0027069C /* XcodeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
-		4E632D6435BE0D371DAE685A /* Pods-YLCategory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCategory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLCategory/Pods-YLCategory.debug.xcconfig"; sourceTree = "<group>"; };
-		60CD04D59D2DE1950B47E505 /* Pods-YLCategory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCategory.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLCategory/Pods-YLCategory.release.xcconfig"; sourceTree = "<group>"; };
-		E018464B3D32F11DC8E02AFE /* libPods-YLCategory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLCategory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +157,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				068A71FD5883DFA5ED5289EE /* libPods-YLCategory.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,8 +185,6 @@
 				0034C3E61C32E9670087DB48 /* YLCategoryTests */,
 				0034C3F11C32E9670087DB48 /* YLCategoryUITests */,
 				0034C3CB1C32E9670087DB48 /* Products */,
-				DF5CFDB43FFEDE9F11AB6713 /* Pods */,
-				5336290D1416A4D11EFE2E89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -377,6 +373,8 @@
 		00C9FE8A2125B4530027069C /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				00C9FE8D2125B4530027069C /* MBProgressHUD.h */,
+				00C9FE8B2125B4530027069C /* MBProgressHUD.m */,
 				00C9FE8C2125B4530027069C /* MBProgressHUD+YL.h */,
 				00C9FE8E2125B4530027069C /* MBProgressHUD+YL.m */,
 				00C9FE8F2125B4530027069C /* MBProgressHUD.bundle */,
@@ -411,23 +409,6 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
-		5336290D1416A4D11EFE2E89 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E018464B3D32F11DC8E02AFE /* libPods-YLCategory.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DF5CFDB43FFEDE9F11AB6713 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4E632D6435BE0D371DAE685A /* Pods-YLCategory.debug.xcconfig */,
-				60CD04D59D2DE1950B47E505 /* Pods-YLCategory.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -435,7 +416,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0034C3F71C32E9670087DB48 /* Build configuration list for PBXNativeTarget "YLCategory" */;
 			buildPhases = (
-				8CB8EC39AB92C5F2DC73560A /* [CP] Check Pods Manifest.lock */,
 				0034C3C61C32E9670087DB48 /* Sources */,
 				0034C3C71C32E9670087DB48 /* Frameworks */,
 				0034C3C81C32E9670087DB48 /* Resources */,
@@ -559,27 +539,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		8CB8EC39AB92C5F2DC73560A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YLCategory-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		0034C3C61C32E9670087DB48 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -592,6 +551,7 @@
 				00C9FEB72125B4530027069C /* NSString+predicate.m in Sources */,
 				00C9FEAE2125B4530027069C /* UIImage+category.m in Sources */,
 				00C9FEA32125B4530027069C /* SDWebImageDownloader.m in Sources */,
+				00C9FEB92125B4530027069C /* MBProgressHUD.m in Sources */,
 				00C9FEAF2125B4530027069C /* UILabel+category.m in Sources */,
 				00C9FEB22125B4530027069C /* UIAlertController+block.m in Sources */,
 				00C9FEA72125B4530027069C /* SDWebImagePrefetcher.m in Sources */,
@@ -776,14 +736,13 @@
 		};
 		0034C3F81C32E9670087DB48 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E632D6435BE0D371DAE685A /* Pods-YLCategory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				INFOPLIST_FILE = "$(SRCROOT)/YLCategoryExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yulong.wei.com;
+				PRODUCT_BUNDLE_IDENTIFIER = wei.yulong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -791,14 +750,13 @@
 		};
 		0034C3F91C32E9670087DB48 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60CD04D59D2DE1950B47E505 /* Pods-YLCategory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				INFOPLIST_FILE = "$(SRCROOT)/YLCategoryExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yulong.wei.com;
+				PRODUCT_BUNDLE_IDENTIFIER = wei.yulong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
