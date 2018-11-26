@@ -15,7 +15,7 @@ s.requires_arc = true
 s.subspec 'MBProgressHUD' do |ss|
 ss.source_files  =    'YLCategory/MBProgressHUD/*.{h,m}'
 ss.resource      =    'YLCategory/MBProgressHUD/MBProgressHUD.bundle'
-ss.dependency    =    'MBProgressHUD', '~>1.1.0'
+ss.dependency    =    'MBProgressHUD', '~>0.9'
 end
 
 s.subspec 'NSDate' do |ss|
