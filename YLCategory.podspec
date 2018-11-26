@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = 'YLCategory'
-s.version      = '1.0.8'
+s.version      = '1.0.9'
 s.summary      = '分类'
 s.homepage     = 'https://github.com/yulong000/YLCategory'
 s.license      = 'MIT'
@@ -15,6 +15,7 @@ s.requires_arc = true
 s.subspec 'MBProgressHUD' do |ss|
 ss.source_files  =    'YLCategory/MBProgressHUD/*.{h,m}'
 ss.resource      =    'YLCategory/MBProgressHUD/MBProgressHUD.bundle'
+ss.dependency    =    'MBProgressHUD', '~>1.1.0'
 end
 
 s.subspec 'NSDate' do |ss|
