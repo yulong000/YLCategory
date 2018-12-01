@@ -304,8 +304,8 @@
 		00C9FE6E2125B4530027069C /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FE6F2125B4530027069C /* UILabel+category.m */,
 				00C9FE702125B4530027069C /* UILabel+category.h */,
+				00C9FE6F2125B4530027069C /* UILabel+category.m */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -331,8 +331,8 @@
 		00C9FE772125B4530027069C /* UIAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FE782125B4530027069C /* UIAlertController+block.m */,
 				00C9FE792125B4530027069C /* UIAlertController+block.h */,
+				00C9FE782125B4530027069C /* UIAlertController+block.m */,
 			);
 			path = UIAlertController;
 			sourceTree = "<group>";

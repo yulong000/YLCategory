@@ -95,6 +95,11 @@
 }
 
 #pragma mark 精确的身份证号码有效性检测
+- (BOOL)accurateVerifyIDCardNumber {
+    return [[super class] accurateVerifyIDCardNumber:self];
+}
+
+#pragma mark 精确的身份证号码有效性检测
 + (BOOL)accurateVerifyIDCardNumber:(NSString *)value {
     value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     

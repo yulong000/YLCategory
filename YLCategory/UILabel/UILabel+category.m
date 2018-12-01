@@ -20,11 +20,38 @@ static const char UILabelClickedBlockKey = '\0';
 
 - (CGSize)sizeWithMaxWidth:(CGFloat)maxWidth numberOfLines:(NSInteger)lines attributes:(NSDictionary *)attributes {
     self.numberOfLines = lines;
+    if(lines > 0) {
+        CGFloat height = 0; // 记录高度的变化
+        int line = 0;       // 记录换行
+        for (int i = 0; i < self.text.length; i++) {
+            // 遍历字符串
+            CGFloat subHeight = [[self.text substringToIndex:i] boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
+                                                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                                                          attributes:attributes
+                                                                             context:nil].size.height;
+            if(subHeight > height) {
+                // 高度变化时记录
+                if(++ line > lines) {
+                    // 超过了限定行数, 截取到上一个字符,计算高度
+                    CGSize size = [[self.text substringToIndex:i - 1] boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
+                                                                                   options:NSStringDrawingUsesLineFragmentOrigin
+                                                                                attributes:attributes
+                                                                                   context:nil].size;
+                    CGRect frame = self.frame;
+                    frame.size = size;
+                    self.frame = frame;
+                    return size;
+                }
+                height = subHeight; // 保存行高
+            }
+        }
+    }
+        // 不限高度
     NSString *string = self.text ? self.text : @"";
     CGSize size = [string boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
-                                options:NSStringDrawingUsesLineFragmentOrigin
-                             attributes:attributes
-                                context:nil].size;
+                                       options:NSStringDrawingUsesLineFragmentOrigin
+                                    attributes:attributes
+                                       context:nil].size;
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;

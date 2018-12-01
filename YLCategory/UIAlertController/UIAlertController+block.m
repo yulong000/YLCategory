@@ -1,5 +1,17 @@
 #import "UIAlertController+block.h"
 
+@implementation UIAlertActionModel
+
++ (instancetype)actionModelWithTitle:(NSString *)title actionStyle:(UIAlertActionStyle)style handler:(UIAlertActionHandler)handler {
+    UIAlertActionModel *model = [[UIAlertActionModel alloc] init];
+    model.title = title;
+    model.style = style;
+    model.handler = handler;
+    return model;
+}
+
+@end
+
 @implementation UIAlertController (block)
 
 + (instancetype)alertControllerWithTitle:(NSString *)title
@@ -22,7 +34,10 @@
     return alertController;
 }
 
-+ (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle handleBlock:(void (^)(UIAlertAction *))handleBlock {
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title
+                                        message:(NSString *)message
+                                    buttonTitle:(NSString *)buttonTitle
+                                    handleBlock:(void (^)(UIAlertAction *))handleBlock {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -30,6 +45,21 @@
                                                            style:UIAlertActionStyleCancel
                                                          handler:handleBlock];
     [alertController addAction:cancelAction];
+    return alertController;
+}
+
++ (UIAlertController *)actionSheetControllerWithTitle:(NSString *)title
+                                              message:(NSString *)message
+                                         actionModels:(NSArray<UIAlertActionModel *> *)actionModels {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    for (UIAlertActionModel *model in actionModels) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:model.title
+                                                         style:model.style
+                                                       handler:model.handler];
+        [alertController addAction:action];
+    }
     return alertController;
 }
 

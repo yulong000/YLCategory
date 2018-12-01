@@ -26,7 +26,7 @@
     btn.clickedBlock = ^(UIButton *button) {
         [weakSelf test];
     };
-    btn.frame = CGRectMake(120, 120, 100, 200);
+    btn.frame = CGRectMake(20, 20, 100, 100);
     [self.view addSubview:btn];
 }
 

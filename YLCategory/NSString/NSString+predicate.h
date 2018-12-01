@@ -26,6 +26,12 @@
 /**
  *  精确的身份证号码有效性检测
  *
+ */
+- (BOOL)accurateVerifyIDCardNumber;
+
+/**
+ *  精确的身份证号码有效性检测
+ *
  *  @param value 身份证号
  */
 + (BOOL)accurateVerifyIDCardNumber:(NSString *)value;

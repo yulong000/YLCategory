@@ -1,6 +1,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^UIAlertActionHandler)(UIAlertAction *action);
+
+@interface UIAlertActionModel : NSObject
+
+@property (nonatomic, assign) UIAlertActionStyle style;
+@property (nonatomic, copy)   NSString *title;
+@property (nonatomic, copy)   UIAlertActionHandler handler;
+
++ (instancetype)actionModelWithTitle:(NSString *)title actionStyle:(UIAlertActionStyle)style handler:(UIAlertActionHandler)handler;
+@end
+
 @interface UIAlertController (block)
 
 /**
@@ -16,9 +27,9 @@
 + (UIAlertController *)alertControllerWithTitle:(NSString *)title
                                         message:(NSString *)message
                               cancelButtonTitle:(NSString *)cancelButtonTitle
-                                    cancelBlock:(void(^)(UIAlertAction *action))cancelBlock
+                                    cancelBlock:(UIAlertActionHandler)cancelBlock
                                otherButtonTitle:(NSString *)otherButtonTitle
-                               otherButtonblock:(void (^)(UIAlertAction *action))otherButtonBlock;
+                               otherButtonblock:(UIAlertActionHandler)otherButtonBlock;
 
 /**
  创建alertView类型，只有1个选择
@@ -31,7 +42,18 @@
 + (UIAlertController *)alertControllerWithTitle:(NSString *)title
                                         message:(NSString *)message
                                     buttonTitle:(NSString *)buttonTitle
-                                     handleBlock:(void(^)(UIAlertAction *action))handleBlock;
+                                     handleBlock:(UIAlertActionHandler)handleBlock;
+
+/**
+ 创建actionSheet类型
+ 
+ @param title 标题
+ @param message 内容
+ @param actions actionModel 对象
+ */
++ (UIAlertController *)actionSheetControllerWithTitle:(NSString *)title
+                                              message:(NSString *)message
+                                          actionModels:(NSArray<UIAlertActionModel *> *)actionModels;
 
 /**
  在屏幕中间弹出
