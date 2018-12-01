@@ -9,7 +9,9 @@ typedef void(^UIAlertActionHandler)(UIAlertAction *action);
 @property (nonatomic, copy)   NSString *title;
 @property (nonatomic, copy)   UIAlertActionHandler handler;
 
-+ (instancetype)actionModelWithTitle:(NSString *)title actionStyle:(UIAlertActionStyle)style handler:(UIAlertActionHandler)handler;
++ (instancetype)actionModelWithTitle:(NSString *)title
+                         actionStyle:(UIAlertActionStyle)style
+                             handler:(UIAlertActionHandler)handler;
 @end
 
 @interface UIAlertController (block)

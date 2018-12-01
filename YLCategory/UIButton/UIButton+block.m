@@ -23,16 +23,21 @@ static const char UIButtonClickedBlockKey = '\0';
     }
 }
 
-+ (instancetype)buttonWithTitle:(NSString *)title image:(UIImage *)image clickBlock:(UIButtonClickedBlock)clickedBlock {
-    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
++ (instancetype)buttonWithTitle:(NSString *)title image:(UIImage *)image backgroundImage:(UIImage *)backgroundImage clickBlock:(UIButtonClickedBlock)clickedBlock {
+    UIButton *button =  [[UIButton alloc] init];
+    if(title.length)    [button setTitle:title forState:UIControlStateNormal];
+    if(image)           [button setImage:image forState:UIControlStateNormal];
+    if(backgroundImage) [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+    if(clickedBlock)    button.clickedBlock = clickedBlock;
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.titleLabel.adjustsFontSizeToFitWidth = YES;
     button.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-    if(title.length)    [button setTitle:title forState:UIControlStateNormal];
-    if(image)           [button setImage:image forState:UIControlStateNormal];
-    if(clickedBlock)    button.clickedBlock = clickedBlock;
     [button addTarget:button action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     return button;
+}
+
++ (instancetype)buttonWithTitle:(NSString *)title image:(UIImage *)image clickBlock:(UIButtonClickedBlock)clickedBlock {
+    return [UIButton buttonWithTitle:title image:image backgroundImage:nil clickBlock:clickedBlock];
 }
 
 + (instancetype)buttonWithTitle:(NSString *)title clickBlock:(UIButtonClickedBlock)clickedBlock {
@@ -47,6 +52,12 @@ static const char UIButtonClickedBlockKey = '\0';
     return [UIButton buttonWithTitle:nil clickBlock:clickedBlock];
 }
 
++ (instancetype)buttonWithBackgroundImage:(UIImage *)backgroundImage clickBlock:(UIButtonClickedBlock)clickedBlock {
+    return [UIButton buttonWithTitle:nil image:nil backgroundImage:backgroundImage clickBlock:clickedBlock];
+}
 
++ (instancetype)buttonWithTitle:(NSString *)title backgroundImage:(UIImage *)backgroundImage clickBlock:(UIButtonClickedBlock)clickedBlock {
+    return [UIButton buttonWithTitle:title image:nil backgroundImage:backgroundImage clickBlock:clickedBlock];
+}
 
 @end

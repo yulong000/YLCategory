@@ -503,6 +503,12 @@
     return image;
 }
 
+#pragma mark 获取可拉伸的纯色图片
++ (instancetype)stretchableImageWithColor:(UIColor *)color {
+    UIImage *image = [self imageWithColor:color size:CGSizeMake(4, 4)];
+    return [image stretchableImageWithLeftCapWidth:2 topCapHeight:2];
+}
+
 #pragma mark 对某个view截图
 + (instancetype)imageWithView:(UIView *)view {
     if(view == nil) return [[UIImage alloc] init];

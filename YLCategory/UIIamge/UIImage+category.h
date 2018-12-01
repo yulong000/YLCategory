@@ -34,6 +34,13 @@
  */
 + (instancetype)imageWithColor:(UIColor *)color size:(CGSize)size;
 
+/**
+ 获取可拉伸的纯色图片
+
+ @param color 图片颜色
+ @return 图片
+ */
++ (instancetype)stretchableImageWithColor:(UIColor *)color;
 
 /**
  全屏截图

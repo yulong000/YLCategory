@@ -295,8 +295,8 @@
 		00C9FE6B2125B4530027069C /* UIIamge */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FE6C2125B4530027069C /* UIImage+category.m */,
 				00C9FE6D2125B4530027069C /* UIImage+category.h */,
+				00C9FE6C2125B4530027069C /* UIImage+category.m */,
 			);
 			path = UIIamge;
 			sourceTree = "<group>";
@@ -313,8 +313,8 @@
 		00C9FE712125B4530027069C /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FE722125B4530027069C /* UIButton+block.m */,
 				00C9FE732125B4530027069C /* UIButton+block.h */,
+				00C9FE722125B4530027069C /* UIButton+block.m */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -340,10 +340,10 @@
 		00C9FE7A2125B4530027069C /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				00C9FE7E2125B4530027069C /* UIView+Frame.h */,
 				00C9FE7B2125B4530027069C /* UIView+Frame.m */,
 				00C9FE7C2125B4530027069C /* UIView+gesture.h */,
 				00C9FE7D2125B4530027069C /* UIView+gesture.m */,
-				00C9FE7E2125B4530027069C /* UIView+Frame.h */,
 			);
 			path = UIView;
 			sourceTree = "<group>";

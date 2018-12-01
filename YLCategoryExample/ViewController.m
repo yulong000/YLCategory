@@ -20,13 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak typeof(self) weakSelf = self;
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"button" forState:UIControlStateNormal];
-    [btn setBackgroundColor:[UIColor redColor]];
-    btn.clickedBlock = ^(UIButton *button) {
-        [weakSelf test];
-    };
-    btn.frame = CGRectMake(20, 20, 100, 100);
+    UIButton *btn = [UIButton buttonWithTitle:@"点击一" backgroundImage:[UIImage stretchableImageWithColor:RedColor] clickBlock:^(UIButton *button) {
+        
+    }];
+    btn.titleLabel.font = Font(14);
+    btn.frame = CGRectMake(20, 120, 43, 20);
     [self.view addSubview:btn];
 }
 
