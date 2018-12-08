@@ -12,6 +12,8 @@ typedef void(^UIAlertActionHandler)(UIAlertAction *action);
 + (instancetype)actionModelWithTitle:(NSString *)title
                          actionStyle:(UIAlertActionStyle)style
                              handler:(UIAlertActionHandler)handler;
+
++ (instancetype)cancelAction;
 @end
 
 @interface UIAlertController (block)

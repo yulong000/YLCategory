@@ -10,6 +10,14 @@
     return model;
 }
 
++ (instancetype)cancelAction {
+    UIAlertActionModel *model = [[UIAlertActionModel alloc] init];
+    model.title = @"取消";
+    model.style = UIAlertActionStyleCancel;
+    model.handler = nil;
+    return model;
+}
+
 @end
 
 @implementation UIAlertController (block)
