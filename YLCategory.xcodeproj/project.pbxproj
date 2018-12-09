@@ -277,7 +277,7 @@
 			children = (
 				00C9FE932125B4530027069C /* YLCategory.h */,
 				00C9FEFF212651CD0027069C /* Others */,
-				00C9FE6B2125B4530027069C /* UIIamge */,
+				00C9FE6B2125B4530027069C /* UIImage */,
 				00C9FE6E2125B4530027069C /* UILabel */,
 				00C9FE712125B4530027069C /* UIButton */,
 				00C9FE742125B4530027069C /* UIColor */,
@@ -292,13 +292,13 @@
 			path = YLCategory;
 			sourceTree = "<group>";
 		};
-		00C9FE6B2125B4530027069C /* UIIamge */ = {
+		00C9FE6B2125B4530027069C /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
 				00C9FE6D2125B4530027069C /* UIImage+category.h */,
 				00C9FE6C2125B4530027069C /* UIImage+category.m */,
 			);
-			path = UIIamge;
+			path = UIImage;
 			sourceTree = "<group>";
 		};
 		00C9FE6E2125B4530027069C /* UILabel */ = {

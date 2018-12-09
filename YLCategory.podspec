@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = 'YLCategory'
-s.version      = '1.1.0'
+s.version      = '1.1.1'
 s.summary      = '分类'
 s.homepage     = 'https://github.com/yulong000/YLCategory'
 s.license      = 'MIT'
@@ -45,8 +45,8 @@ s.subspec 'UIControl' do |ss|
 ss.source_files  =   'YLCategory/UIControl/*.{h,m}'
 end
 
-s.subspec 'UIIamge' do |ss|
-ss.source_files  =   'YLCategory/UIIamge/*.{h,m}'
+s.subspec 'UIImage' do |ss|
+ss.source_files  =   'YLCategory/UIImage/*.{h,m}'
 end
 
 s.subspec 'UILabel' do |ss|
