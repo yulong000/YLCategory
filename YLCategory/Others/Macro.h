@@ -12,55 +12,56 @@
 /****************************************  尺寸  ***********************************/
 
 //屏幕宽、高
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth                        [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight                       [UIScreen mainScreen].bounds.size.height
 
-#define kIsIphoneX CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375.0f, 812.0f))     // 是否是IphoneX
-#define kIsIphoneXS kIsIphoneX                                                                          // 是否是iPhone XS
-#define kIsIphoneXR CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(414.0f, 896.0f))    // 是否是iPhone XR
-#define kIsIphoneXS_Max kIsIphoneXR                                                                     // 是否是iPhone XS_Max
-#define kIsFullScreen (kIsIphoneX || kIsIphoneXR)   // 是否是全面屏
+#define kIsIphoneX                          CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375.0f, 812.0f))        // 是否是IphoneX
+#define kIsIphoneXR                         CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(414.0f, 896.0f))        // 是否是iPhone XR
+#define kIsIphoneXS                         kIsIphoneX                                                                              // 是否是iPhone XS
+#define kIsIphoneXS_Max                     kIsIphoneXR                                                                             // 是否是iPhone XS_Max
+#define kIsFullScreen                       (kIsIphoneX || kIsIphoneXR)                                                             // 是否是全面屏
 #define kFullScreenTopSafeAreaHeight        44.0f    // 全面屏上面的安全区域
 #define kFullScreenBottomSafeAreaHeight     34.0f    // 全面屏下面的安全区域
 #define kBottomSafeAreaHeight               (kIsFullScreen ? 34.0f : 0.0f)       // 下面的安全区域
 #define kTopSafeAreaHeight                  (kIsFullScreen ? 44.0f : 0.0f)       // 上面的安全区域
 #define kTabbarHeight                       (kIsFullScreen ? 83.0f : 49.0f)      // 下面tabbar的高度
 #define kNavTotalHeight                     (kIsFullScreen ? 88.0f : 64.0f)      // 上面导航栏总高度
-
+#define kScreenScale                        [[UIScreen mainScreen] scale]        // 屏幕
 
 
 /****************************************  颜色  ***********************************/
 
 
 // 纯白色
-#define WhiteColor     [UIColor whiteColor]
+#define WhiteColor                  [UIColor whiteColor]
 // 纯黑色
-#define BlackColor     [UIColor blackColor]
+#define BlackColor                  [UIColor blackColor]
 // 透明色
-#define ClearColor     [UIColor clearColor]
+#define ClearColor                  [UIColor clearColor]
 // 灰色
-#define GrayColor      [UIColor grayColor]
+#define GrayColor                   [UIColor grayColor]
 // 深灰色
-#define DarkGrayColor  [UIColor darkGrayColor]   // 0.333 white
+#define DarkGrayColor               [UIColor darkGrayColor]   // 0.333 white
 // 亮灰色
-#define LightGrayColor [UIColor lightGrayColor]  // 0.667 white
+#define LightGrayColor              [UIColor lightGrayColor]  // 0.667 white
 // 红色
-#define RedColor       [UIColor redColor]
+#define RedColor                    [UIColor redColor]
 // 绿色
-#define GreenColor     [UIColor greenColor]
+#define GreenColor                  [UIColor greenColor]
 // 橙色
-#define OrangeColor    [UIColor orangeColor]
+#define OrangeColor                 [UIColor orangeColor]
 // 黄色
-#define YellowColor    [UIColor yellowColor]
+#define YellowColor                 [UIColor yellowColor]
 // 蓝色
-#define BlueColor      [UIColor blueColor]
+#define BlueColor                   [UIColor blueColor]
 // r, g, b ,a 颜色
-#define RGBA(r, g, b, a)    [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
+#define RGBA(r, g, b, a)            [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
 // 随机颜色
-#define RandomColor         [UIColor colorWithRed:arc4random() % 255 green:arc4random() % 255 blue:arc4random() % 255 alpha:1]
+#define RandomColor                 [UIColor colorWithRed:arc4random() % 255 green:arc4random() % 255 blue:arc4random() % 255 alpha:1]
 // 十六进制获取颜色
-#define UIColorFromHex(s)   [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s & 0xFF00) >> 8))/255.0 blue:((s & 0xFF))/255.0  alpha:1.0]
-
+#define UIColorFromHex(s)           [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s & 0xFF00) >> 8))/255.0 blue:((s & 0xFF))/255.0  alpha:1.0]
+// 半透明黑
+#define BlackColorAlpha(alpha)      [UIColor colorWithWhite:0 alpha:alpha]
 
 /****************************************  数据类型转换  ***********************************/
 
@@ -76,7 +77,28 @@
 /****************************************  字体  ***********************************/
 
 // 字体大小
-#define Font(size)  [UIFont systemFontOfSize:size]
+#define Font(size)                      [UIFont systemFontOfSize:size]
+#define BoldFont(size)                  [UIFont boldSystemFontOfSize:size]
 
+
+/****************************************  快捷方法  ***********************************/
+
+// weakself
+#define WeakObject(obj)                 __weak typeof(obj) weak##obj = obj;
+// 根据图片名字构建image
+#define ImageWithName(imageName)        [UIImage imageNamed:imageName]
+
+#define kDocumentPath                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+#define kCachePath                      [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+
+// 懒加载
+#define LazyLoad(_obj) \
+- (id)obj {\
+    if(_obj == nil) {\
+        _obj = [[[_obj class] alloc] init];\
+    }   \
+    return _obj;   \
+}\
 
 #endif /* Macro_h */
