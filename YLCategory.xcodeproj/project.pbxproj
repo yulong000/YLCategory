@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0013009021D4DBA200D39375 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0013008F21D4DBA200D39375 /* NullSafe.m */; };
 		0034C3E81C32E9670087DB48 /* YLCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3E71C32E9670087DB48 /* YLCategoryTests.m */; };
 		0034C3F31C32E9670087DB48 /* YLCategoryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0034C3F21C32E9670087DB48 /* YLCategoryUITests.m */; };
 		00AAFD0B2186DCE900038A34 /* NSString+secret.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AAFD0A2186DCE900038A34 /* NSString+secret.m */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0013008F21D4DBA200D39375 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		0034C3CA1C32E9670087DB48 /* YLCategory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCategory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0034C3E31C32E9670087DB48 /* YLCategoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YLCategoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0034C3E71C32E9670087DB48 /* YLCategoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCategoryTests.m; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 		00C9FEFF212651CD0027069C /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				0013008F21D4DBA200D39375 /* NullSafe.m */,
 				00C9FF00212651CD0027069C /* XcodeLog.m */,
 				00AAFD1E2188498500038A34 /* Macro.h */,
 			);
@@ -556,6 +559,7 @@
 				00C9FEB22125B4530027069C /* UIAlertController+block.m in Sources */,
 				00C9FEA72125B4530027069C /* SDWebImagePrefetcher.m in Sources */,
 				00C9FEAB2125B4530027069C /* UIImageView+WebCache.m in Sources */,
+				0013009021D4DBA200D39375 /* NullSafe.m in Sources */,
 				00C9FEB42125B4530027069C /* UIView+gesture.m in Sources */,
 				00C9FEA12125B4530027069C /* SDWebImageManager.m in Sources */,
 				00AAFD0B2186DCE900038A34 /* NSString+secret.m in Sources */,

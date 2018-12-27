@@ -20,10 +20,12 @@
 #define kIsIphoneXR CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(414.0f, 896.0f))    // 是否是iPhone XR
 #define kIsIphoneXS_Max kIsIphoneXR                                                                     // 是否是iPhone XS_Max
 #define kIsFullScreen (kIsIphoneX || kIsIphoneXR)   // 是否是全面屏
-#define kFullScreenTopSafeAreaHeight       44.0f    // 全面屏上面的安全区域
-#define kFullScreenBottomSafeAreaHeight    34.0f    // 全面屏下面的安全区域
-#define kTabbarHeight       (kIsFullScreen ? 83.0f : 49.0f)     // 下面tabbar的高度
-#define kNavTotalHeight     (kIsFullScreen ? 88.0f : 64.0f)     // 上面导航栏总高度
+#define kFullScreenTopSafeAreaHeight        44.0f    // 全面屏上面的安全区域
+#define kFullScreenBottomSafeAreaHeight     34.0f    // 全面屏下面的安全区域
+#define kBottomSafeAreaHeight               (kIsFullScreen ? 34.0f : 0.0f)       // 下面的安全区域
+#define kTopSafeAreaHeight                  (kIsFullScreen ? 44.0f : 0.0f)       // 上面的安全区域
+#define kTabbarHeight                       (kIsFullScreen ? 83.0f : 49.0f)      // 下面tabbar的高度
+#define kNavTotalHeight                     (kIsFullScreen ? 88.0f : 64.0f)      // 上面导航栏总高度
 
 
 
