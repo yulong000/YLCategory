@@ -4,7 +4,7 @@
 
 ``` objective-c
 在Podfile里添加
-pod 'YLCategory', '~> 1.1.0'
+pod 'YLCategory', '~> 1.1.1'
 然后
 pod install
 ```
