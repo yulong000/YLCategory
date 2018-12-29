@@ -128,4 +128,16 @@
     return CGPointMake(self.width * 0.5, self.height * 0.5);
 }
 
+- (void)setWidthFixRight:(CGFloat)widthFixRight {
+    CGFloat maxX = self.maxX;
+    self.width = widthFixRight;
+    self.right = maxX;
+}
+
+- (void)setHeightFixBottom:(CGFloat)heightFixBottom {
+    CGFloat maxY = self.maxY;
+    self.height = heightFixBottom;
+    self.bottom = maxY;
+}
+
 @end

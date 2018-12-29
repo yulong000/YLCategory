@@ -1,11 +1,3 @@
-//
-//  NSObject+category.m
-//  YLCategory
-//
-//  Created by weiyulong on 2018/8/1.
-//  Copyright © 2018年 WYL. All rights reserved.
-//
-
 #import "NSObject+category.h"
 
 @implementation NSObject (category)
@@ -14,9 +6,14 @@
 - (BOOL)isValidString {
     if([self isKindOfClass:[NSString class]]) {
         NSString *str = (NSString *)self;
-        return str.length;
+        return str.length > 0;
     }
     return NO;
+}
+
+#pragma mark 是否是 [NSNull null]
+- (BOOL)isNull {
+    return [self isKindOfClass:[NSNull class]];
 }
 
 @end

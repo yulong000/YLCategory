@@ -60,4 +60,27 @@ static const char UIButtonClickedBlockKey = '\0';
     return [UIButton buttonWithTitle:title image:nil backgroundImage:backgroundImage clickBlock:clickedBlock];
 }
 
++ (instancetype)buttonWithTitle:(NSString *)title
+          backgroundImageCorlor:(UIColor *)bgImageColor
+                   cornerRadius:(CGFloat)cornerRadius
+                     clickBlock:(UIButtonClickedBlock)clickedBlock {
+    UIImage *image = [self imageWithColor:bgImageColor size:CGSizeMake(10, 10)];
+    UIImage *bgImage = [image stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+    UIButton *btn = [UIButton buttonWithTitle:title backgroundImage:bgImage clickBlock:clickedBlock];
+    btn.layer.cornerRadius = cornerRadius;
+    btn.clipsToBounds = YES;
+    return btn;
+}
+
+#pragma mark 获取纯色图片
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, (CGRect){CGPointZero, size});
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

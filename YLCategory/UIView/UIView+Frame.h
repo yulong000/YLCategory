@@ -21,4 +21,9 @@
 @property (assign, readonly, nonatomic) CGFloat maxY;
 @property (assign, readonly, nonatomic) CGPoint centerPoint;
 
+/**  保持最大X值不变,更改宽度  */
+- (void)setWidthFixRight:(CGFloat)widthFixRight;
+/**  保持最大Y值不变,更改高度  */
+- (void)setHeightFixBottom:(CGFloat)heightFixBottom;
+
 @end

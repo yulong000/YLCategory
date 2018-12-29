@@ -85,12 +85,25 @@
 
 // weakself
 #define WeakObject(obj)                 __weak typeof(obj) weak##obj = obj;
+
 // 根据图片名字构建image
 #define ImageWithName(imageName)        [UIImage imageNamed:imageName]
+// 从中心拉伸图片
+#define StretchImageName(imageName)     [ImageWithName(imageName) \
+                                        stretchableImageWithLeftCapWidth:ImageWithName(imageName).size.width * 0.5 \
+                                        topCapHeight:ImageWithName(imageName).size.height * 0.5]
+#define StretchImage(image)             [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5]
 
+
+// 文件路径
 #define kDocumentPath                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 #define kCachePath                      [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+#define kBundlePath(file)               [[NSBundle mainBundle] pathForResource:file ofType:nil]
 
+// 版本号
+#define APP_Version                     [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+// building 号
+#define APP_Build_Number                [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 
 // 懒加载
 #define LazyLoad(_obj) \
