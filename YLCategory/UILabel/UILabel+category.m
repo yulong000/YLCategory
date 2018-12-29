@@ -47,7 +47,7 @@ static const char UILabelClickedBlockKey = '\0';
         }
     }
         // 不限高度
-    NSString *string = self.text ? self.text : @"";
+    NSString *string = self.text ?: @"";
     CGSize size = [string boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
                                        options:NSStringDrawingUsesLineFragmentOrigin
                                     attributes:attributes
