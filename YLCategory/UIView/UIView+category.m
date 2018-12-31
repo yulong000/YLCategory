@@ -10,6 +10,15 @@
     }
 }
 
+#pragma mark 添加一组子控件
+- (void)addSubViewsFromArray:(NSArray *)subViews {
+    [subViews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if([obj isKindOfClass:[UIView class]]) {
+            [self addSubview:obj];
+        }
+    }];
+}
+
 #pragma mark 获取view所在的controller
 - (UIViewController *)controller {
     UIResponder *responder = [self nextResponder];
