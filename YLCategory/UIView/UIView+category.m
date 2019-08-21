@@ -30,4 +30,22 @@
     }
     return nil;
 }
+
+#pragma mark 设置边框
+- (void)setBorderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth {
+    self.layer.borderColor = borderColor.CGColor;
+    self.layer.borderWidth = borderWidth;
+}
+
+#pragma mark 设置圆角
+- (void)setCornerRadius:(CGFloat)cornerRadius {
+    self.clipsToBounds = YES;
+    self.layer.cornerRadius = cornerRadius;
+}
+
+#pragma mark 设置边框和圆角
+- (void)setBorderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius {
+    [self setBorderColor:borderColor borderWidth:borderWidth];
+    [self setCornerRadius:cornerRadius];
+}
 @end

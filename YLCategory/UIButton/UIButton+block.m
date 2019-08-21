@@ -32,6 +32,7 @@ static const char UIButtonClickedBlockKey = '\0';
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.titleLabel.adjustsFontSizeToFitWidth = YES;
     button.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [button addTarget:button action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }

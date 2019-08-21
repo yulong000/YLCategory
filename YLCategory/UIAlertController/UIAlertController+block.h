@@ -53,7 +53,7 @@ typedef void(^UIAlertActionHandler)(UIAlertAction *action);
  
  @param title 标题
  @param message 内容
- @param actions actionModel 对象
+ @param actionModels actionModel 对象数组
  */
 + (UIAlertController *)actionSheetControllerWithTitle:(NSString *)title
                                               message:(NSString *)message
@@ -72,6 +72,6 @@ typedef void(^UIAlertActionHandler)(UIAlertAction *action);
  @param controller 要显示到的控制器
  @param completion 弹出后的回调
  */
-- (void)showWithController:(UIViewController *)controller completion:(void (^__nullable)(void))completion;
+- (void)showWithController:(UIViewController *)controller completion:(void (^)(void))completion;
 
 @end

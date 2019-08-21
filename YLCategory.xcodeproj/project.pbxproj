@@ -224,19 +224,19 @@
 		00C9FE3D2125B4530027069C /* YLCategoryExample */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FE3E2125B4530027069C /* AppDelegate.h */,
 				00C9FE3F2125B4530027069C /* Assets.xcassets */,
+				00C9FE3E2125B4530027069C /* AppDelegate.h */,
+				00C9FE472125B4530027069C /* AppDelegate.m */,
+				00C9FE692125B4530027069C /* ViewController.h */,
 				00C9FE402125B4530027069C /* ViewController.m */,
+				00C9FE672125B4530027069C /* TwoViewController.h */,
+				00C9FE452125B4530027069C /* TwoViewController.m */,
 				00C9FE412125B4530027069C /* LaunchScreen.storyboard */,
 				00C9FE432125B4530027069C /* Main.storyboard */,
-				00C9FE452125B4530027069C /* TwoViewController.m */,
 				00C9FE462125B4530027069C /* main.m */,
-				00C9FE472125B4530027069C /* AppDelegate.m */,
 				00C9FE482125B4530027069C /* icon_selected@2x.png */,
 				00C9FE492125B4530027069C /* SDWebImage */,
-				00C9FE672125B4530027069C /* TwoViewController.h */,
 				00C9FE682125B4530027069C /* Info.plist */,
-				00C9FE692125B4530027069C /* ViewController.h */,
 			);
 			path = YLCategoryExample;
 			sourceTree = "<group>";
@@ -503,6 +503,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
