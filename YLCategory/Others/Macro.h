@@ -27,6 +27,7 @@
 #define kTabbarHeight                       (kIsFullScreen ? 83.0f : 49.0f)      // 下面tabbar的高度
 #define kNavTotalHeight                     (kIsFullScreen ? 88.0f : 64.0f)      // 上面导航栏总高度
 #define kScreenScale                        [[UIScreen mainScreen] scale]        // 屏幕
+#define kStatusBarHeight                    [UIApplication sharedApplication].statusBarFrame.size.height
 
 
 /****************************************  颜色  ***********************************/
@@ -62,6 +63,8 @@
 #define UIColorFromHex(s)           [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s & 0xFF00) >> 8))/255.0 blue:((s & 0xFF))/255.0  alpha:1.0]
 // 半透明黑
 #define BlackColorAlpha(alpha)      [UIColor colorWithWhite:0 alpha:alpha]
+// 半透明白
+#define WhiteColorAlpha(alpha)      [UIColor colorWithWhite:1 alpha:alpha]
 
 /****************************************  数据类型转换  ***********************************/
 
@@ -101,17 +104,15 @@
 #define kBundlePath(file)               [[NSBundle mainBundle] pathForResource:file ofType:nil]
 
 // 版本号
-#define APP_Version                     [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define kAPP_Version                     [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 // building 号
-#define APP_Build_Number                [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+#define kAPP_Build_Number                [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+// app Name
+#define kAPP_Name                        [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
 
-// 懒加载
-#define LazyLoad(_obj) \
-- (id)obj {\
-    if(_obj == nil) {\
-        _obj = [[[_obj class] alloc] init];\
-    }   \
-    return _obj;   \
-}\
+//  appDelegate
+#define kAppDelegate                    [UIApplication sharedApplication].delegate
+//  keyWindow
+#define kAppKeyWindow                   kAppDelegate.window
 
 #endif /* Macro_h */

@@ -401,8 +401,8 @@
 		00C9FE942125B4530027069C /* NSDate */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FE952125B4530027069C /* NSDate+category.m */,
 				00C9FE962125B4530027069C /* NSDate+category.h */,
+				00C9FE952125B4530027069C /* NSDate+category.m */,
 			);
 			path = NSDate;
 			sourceTree = "<group>";

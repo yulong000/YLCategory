@@ -22,6 +22,13 @@
                            alpha:alpha];
 }
 
+#pragma mark 获取某个颜色设置透明度后的颜色
++ (UIColor *)colorWithColor:(UIColor *)color alpha:(CGFloat)alpha {
+    if(color == nil)    return nil;
+    const CGFloat *components = CGColorGetComponents(color.CGColor);
+    return [UIColor colorWithRed:components[0] green:components[1] blue:components[2] alpha:MAX(0, MIN(alpha, 1))];
+}
+
 /**
  *  生成颜色数值
  *

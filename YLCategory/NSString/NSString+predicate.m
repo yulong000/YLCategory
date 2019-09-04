@@ -9,100 +9,30 @@
     return [pre evaluateWithObject:self];
 }
 
-#pragma mark 手机号分服务商
-- (BOOL)isMobileNumberClassification{
-    /**
-     * 手机号码
-     * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188,1705
-     * 联通：130,131,132,152,155,156,185,186,1709
-     * 电信：133,1349,153,180,189,1700
-     */
-    //    NSString * MOBILE = @"^1((3//d|5[0-35-9]|8[025-9])//d|70[059])\\d{7}$";//总况
-    
-    /**
-     10         * 中国移动：China Mobile
-     11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188，1705
-     12         */
-    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d|705)\\d{7}$";
-    /**
-     15         * 中国联通：China Unicom
-     16         * 130,131,132,152,155,156,185,186,1709
-     17         */
-    NSString * CU = @"^1((3[0-2]|5[256]|8[56])\\d|709)\\d{7}$";
-    /**
-     20         * 中国电信：China Telecom
-     21         * 133,1349,153,180,189,1700
-     22         */
-    NSString * CT = @"^1((33|53|8[09])\\d|349|700)\\d{7}$";
-    
-    
-    /**
-     25         * 大陆地区固话及小灵通
-     26         * 区号：010,020,021,022,023,024,025,027,028,029
-     27         * 号码：七位或八位
-     28         */
-    NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
-    
-    
-    //    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
-    
-    if (([self isValidateByRegex:CM])
-        || ([self isValidateByRegex:CU])
-        || ([self isValidateByRegex:CT])
-        || ([self isValidateByRegex:PHS]))
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-}
-
 #pragma mark 手机号有效性
-- (BOOL)isMobileNumber{
-    /**
-     *  手机号以13、15、18、170开头，8个 \d 数字字符
-     *  小灵通 区号：010,020,021,022,023,024,025,027,028,029 还有未设置的新区号xxx
-     */
-    NSString *mobileNoRegex = @"^1((3\\d|5[0-35-9]|8[025-9])\\d|70[059])\\d{7}$";//除4以外的所有个位整数，不能使用[^4,\\d]匹配，这里是否iOS Bug?
-    NSString *phsRegex =@"^0(10|2[0-57-9]|\\d{3})\\d{7,8}$";
-    
-    BOOL ret = [self isValidateByRegex:mobileNoRegex];
-    BOOL ret1 = [self isValidateByRegex:phsRegex];
-    
-    return (ret || ret1);
+- (BOOL)isMobileNumber {
+    return [self isValidateByRegex:@"^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$"];
 }
 
 #pragma mark 邮箱
-- (BOOL)isEmailAddress{
-    NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    return [self isValidateByRegex:emailRegex];
+- (BOOL)isEmailAddress {
+    return [self isValidateByRegex:@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"];
 }
 
 #pragma mark 身份证号模糊匹配
-- (BOOL)simpleVerifyIdentityCardNum
-{
-    NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
-    return [self isValidateByRegex:regex2];
+- (BOOL)isIdentityCardNumForHazy {
+    return [self isValidateByRegex:@"^(\\d{14}|\\d{17})(\\d|[xX])$"];
 }
 
 #pragma mark 车牌
-- (BOOL)isCarNumber{
+- (BOOL)isCarNumber {
     //车牌号:湘K-DE829 香港车牌号码:粤Z-J499港
-    NSString *carRegex = @"^[\u4e00-\u9fff]{1}[a-zA-Z]{1}[-][a-zA-Z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fff]$";//其中\u4e00-\u9fa5表示unicode编码中汉字已编码部分，\u9fa5-\u9fff是保留部分，将来可能会添加
-    return [self isValidateByRegex:carRegex];
+    return [self isValidateByRegex:@"^[\u4e00-\u9fff]{1}[a-zA-Z]{1}[-][a-zA-Z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fff]$"];
 }
 
 #pragma mark 精确的身份证号码有效性检测
-- (BOOL)accurateVerifyIDCardNumber {
-    return [[super class] accurateVerifyIDCardNumber:self];
-}
-
-#pragma mark 精确的身份证号码有效性检测
-+ (BOOL)accurateVerifyIDCardNumber:(NSString *)value {
-    value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
+- (BOOL)isIdentityCardNum {
+    NSString *value = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     int length =0;
     if (!value) {
         return NO;
@@ -193,7 +123,6 @@
     }
 }
 
-
 #pragma mark 银行卡号
 /** 银行卡号有效性问题Luhn算法
  *  现行 16 位银联卡现行卡号开头 6 位是 622126～622925 之间的，7 到 15 位是银行自定义的，
@@ -203,7 +132,7 @@
  *  2，将奇位乘积的个十位全部相加，再加上所有偶数位上的数字
  *  3，将加法和加上校验位能被 10 整除。
  */
-- (BOOL)bankCardluhmCheck{
+- (BOOL)bankCardluhmCheck {
     NSString * lastNum = [[self substringFromIndex:(self.length-1)] copy];//取出最后一位
     NSString * forwardNum = [[self substringToIndex:(self.length -1)] copy];//前15或18位
     
@@ -262,8 +191,6 @@
 
 #pragma mark 纯数字校验
 - (BOOL)isNumberText {
-    NSString * regex= @"[0-9]*";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    return [pred evaluateWithObject:self];
+    return [self isValidateByRegex:@"[0-9]*"];
 }
 @end
