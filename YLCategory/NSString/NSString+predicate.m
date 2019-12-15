@@ -193,4 +193,9 @@
 - (BOOL)isNumberText {
     return [self isValidateByRegex:@"[0-9]*"];
 }
+
+#pragma mark 价格校验
+- (BOOL)isPriceText {
+    return [self isValidateByRegex:@"((^[1-9]\\d*)|^0)(\\.\\d{0,2}){0,1}$"];
+}
 @end

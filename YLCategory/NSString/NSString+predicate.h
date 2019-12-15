@@ -40,4 +40,9 @@
  */
 - (BOOL)isNumberText;
 
+/**
+  价格字符串, 保留2位小数
+ */
+- (BOOL)isPriceText;
+
 @end

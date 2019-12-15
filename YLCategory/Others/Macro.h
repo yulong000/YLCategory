@@ -62,9 +62,9 @@
 // 十六进制获取颜色
 #define UIColorFromHex(s)           [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s & 0xFF00) >> 8))/255.0 blue:((s & 0xFF))/255.0  alpha:1.0]
 // 半透明黑
-#define BlackColorAlpha(alpha)      [UIColor colorWithWhite:0 alpha:alpha]
+#define BlackColorAlpha(a)      [UIColor colorWithWhite:0 alpha:a]
 // 半透明白
-#define WhiteColorAlpha(alpha)      [UIColor colorWithWhite:1 alpha:alpha]
+#define WhiteColorAlpha(a)      [UIColor colorWithWhite:1 alpha:a]
 
 /****************************************  数据类型转换  ***********************************/
 
