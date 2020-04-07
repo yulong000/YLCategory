@@ -15,10 +15,8 @@
 #define kScreenWidth                        [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight                       [UIScreen mainScreen].bounds.size.height
 
-#define kIsIphoneX                          (kScreenHeight == 812.0f || kScreenWidth == 812.0f)     // 是否是IphoneX
-#define kIsIphoneXR                         (kScreenHeight == 896.0f || kScreenWidth == 896.0f)     // 是否是iPhone XR
-#define kIsIphoneXS                         kIsIphoneX                                              // 是否是iPhone XS
-#define kIsIphoneXS_Max                     kIsIphoneXR                                             // 是否是iPhone XS_Max
+#define kIsIphoneX                          (kScreenHeight == 812.0f || kScreenWidth == 812.0f)     // X,XS,11Pro
+#define kIsIphoneXR                         (kScreenHeight == 896.0f || kScreenWidth == 896.0f)     // XR,XS Max,11,11Pro Max
 #define kIsFullScreen                       (kIsIphoneX || kIsIphoneXR)                             // 是否是全面屏
 #define kFullScreenTopSafeAreaHeight        44.0f    // 全面屏上面的安全区域
 #define kFullScreenBottomSafeAreaHeight     34.0f    // 全面屏下面的安全区域

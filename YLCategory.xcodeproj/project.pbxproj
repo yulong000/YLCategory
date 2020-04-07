@@ -50,6 +50,7 @@
 		00C9FEBC2125B4530027069C /* NSObject+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE922125B4530027069C /* NSObject+category.m */; };
 		00C9FEBD2125B4530027069C /* NSDate+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FE952125B4530027069C /* NSDate+category.m */; };
 		00C9FF02212651CD0027069C /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9FF00212651CD0027069C /* XcodeLog.m */; };
+		6D7F62A8243C603100DD49BC /* UIViewController+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7F62A7243C603100DD49BC /* UIViewController+category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		00C9FE952125B4530027069C /* NSDate+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+category.m"; sourceTree = "<group>"; };
 		00C9FE962125B4530027069C /* NSDate+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+category.h"; sourceTree = "<group>"; };
 		00C9FF00212651CD0027069C /* XcodeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
+		6D7F62A6243C603100DD49BC /* UIViewController+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+category.h"; sourceTree = "<group>"; };
+		6D7F62A7243C603100DD49BC /* UIViewController+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +285,7 @@
 			children = (
 				00C9FE932125B4530027069C /* YLCategory.h */,
 				00C9FEFF212651CD0027069C /* Others */,
+				6D7F62A5243C5FE100DD49BC /* UIViewController */,
 				00C9FE6B2125B4530027069C /* UIImage */,
 				00C9FE6E2125B4530027069C /* UILabel */,
 				00C9FE712125B4530027069C /* UIButton */,
@@ -415,6 +419,15 @@
 				00AAFD1E2188498500038A34 /* Macro.h */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		6D7F62A5243C5FE100DD49BC /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6D7F62A6243C603100DD49BC /* UIViewController+category.h */,
+				6D7F62A7243C603100DD49BC /* UIViewController+category.m */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,6 +573,7 @@
 				00C9FEB72125B4530027069C /* NSString+predicate.m in Sources */,
 				00C9FEAE2125B4530027069C /* UIImage+category.m in Sources */,
 				00C9FEA32125B4530027069C /* SDWebImageDownloader.m in Sources */,
+				6D7F62A8243C603100DD49BC /* UIViewController+category.m in Sources */,
 				00C9FEB92125B4530027069C /* MBProgressHUD.m in Sources */,
 				00C9FEAF2125B4530027069C /* UILabel+category.m in Sources */,
 				00C9FEB22125B4530027069C /* UIAlertController+block.m in Sources */,
@@ -753,7 +767,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/YLCategoryExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = wei.yulong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yulong.wei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -767,7 +781,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/YLCategoryExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = wei.yulong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yulong.wei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
