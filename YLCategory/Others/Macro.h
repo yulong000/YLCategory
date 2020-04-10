@@ -63,13 +63,16 @@
 #define BlackColorAlpha(a)      [UIColor colorWithWhite:0 alpha:a]
 // 半透明白
 #define WhiteColorAlpha(a)      [UIColor colorWithWhite:1 alpha:a]
+// 自定义灰色
+#define GrayColorComponent(w)   [UIColor colorWithWhite:w alpha:1]
 
 /****************************************  数据类型转换  ***********************************/
 
 // int float -> string
 #define NSStringFromInt(int)            [NSString stringWithFormat:@"%d", int]
 #define NSStringFromUInt(int)           [NSString stringWithFormat:@"%u", int]
-#define NSStringFromInteger(integer)    [NSString stringWithFormat:@"%ld", integer]
+#define NSStringFromInteger(integer)    [NSString stringWithFormat:@"%zd", integer]
+#define NSStringFromUInteger(integer)   [NSString stringWithFormat:@"%tu", integer]
 #define NSStringFromFloat(float)        [NSString stringWithFormat:@"%f", float]
 #define NSStringFromFloatPrice(float)   [NSString stringWithFormat:@"%.2f", float]
 
@@ -93,7 +96,12 @@
 #define StretchImageName(imageName)     [ImageWithName(imageName) \
                                         stretchableImageWithLeftCapWidth:ImageWithName(imageName).size.width * 0.5 \
                                         topCapHeight:ImageWithName(imageName).size.height * 0.5]
-#define StretchImage(image)             [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5]
+#define StretchImage(image)             [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 \
+                                        topCapHeight:image.size.height * 0.5]
+// 从指定位置拉伸图片
+#define StretchImageNameWith(imageName, left, top)  [ImageWithName(imageName) \
+                                                    stretchableImageWithLeftCapWidth:left topCapHeight:top]
+#define StretchImageWith(image, left, top)          [image stretchableImageWithLeftCapWidth:left topCapHeight:top]
 
 
 // 文件路径
