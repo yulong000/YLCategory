@@ -1,10 +1,7 @@
 
 #import "MBProgressHUD.h"
 
-#define kHUDHiddenAfterSecond 0.7
 typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
-
-// 通过设置 属性值 square = YES 可以让hud对象保持正方形
 
 @interface MBProgressHUD (YL)
 
@@ -262,7 +259,23 @@ typedef void (^MBProgressHUDButtonClickedBlock)(UIButton *button);
  */
 + (MBProgressHUD *)showHorizontalProgressBarWithText:(NSString *)text toView:(UIView *)view;
 
+@end
 
+@interface MBProgressHUDConfig : NSObject
 
++ (instancetype)shareInstance;
+
+/// 提示框的背景色
+@property (nonatomic, strong) UIColor *hudColor;
+/// 文本的颜色, 默认黑色
+@property (nonatomic, strong) UIColor *textColor;
+/// 详细文本的颜色, 默认黑色
+@property (nonatomic, strong) UIColor *detailTextColor;
+/// 默认显示的时间, default = 1
+@property (nonatomic, assign) CGFloat hideAfterTimer;
+/// 成功时的图片
+@property (nonatomic, copy)   NSString *successImage;
+/// 失败时的图片
+@property (nonatomic, copy)   NSString *errorImage;
 
 @end

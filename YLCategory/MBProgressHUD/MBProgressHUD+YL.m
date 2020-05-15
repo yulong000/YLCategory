@@ -2,8 +2,6 @@
 #import "MBProgressHUD+YL.h"
 #import <objc/runtime.h>
 
-#define SetHUDColor // hud.bezelView.color = [UIColor colorWithWhite:0.8 alpha:0.8];
-
 static const char MBProgressHUDButtonClickedBlockKey = '\0';
 
 @implementation MBProgressHUD (YL)
@@ -31,7 +29,15 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
     hud.customView = customView;
     hud.label.text = message;
     hud.square = YES;
-    SetHUDColor
+    if([MBProgressHUDConfig shareInstance].hudColor) {
+        hud.bezelView.color = [MBProgressHUDConfig shareInstance].hudColor;
+    }
+    if([MBProgressHUDConfig shareInstance].textColor) {
+        hud.label.textColor = [MBProgressHUDConfig shareInstance].textColor;
+    }
+    if([MBProgressHUDConfig shareInstance].detailTextColor) {
+        hud.detailsLabel.textColor = [MBProgressHUDConfig shareInstance].detailTextColor;
+    }
     return hud;
 }
 
@@ -44,18 +50,25 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
         url = [bundle URLForResource:@"MBProgressHUD" withExtension:@"bundle"];
     }
     NSString *path = [[NSBundle bundleWithURL:url].bundlePath stringByAppendingPathComponent:icon];
-    UIImageView *customView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:path]];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    if(image == nil) {
+        // 自定义的图片
+        image = [UIImage imageNamed:icon];
+    }
+    UIImageView *customView = [[UIImageView alloc] initWithImage:image];
     MBProgressHUD *hud = [self showWithCustomView:customView message:text toView:view];
     hud.square = NO;
-    SetHUDColor
-    [hud hideAnimated:YES afterDelay:kHUDHiddenAfterSecond];
+    if([MBProgressHUDConfig shareInstance].hudColor) {
+        hud.bezelView.color = [MBProgressHUDConfig shareInstance].hudColor;
+    }
+    [hud hideAnimated:YES afterDelay:[MBProgressHUDConfig shareInstance].hideAfterTimer];
     hud.tag = arc4random() % 1000 + 10; // 10 - 1009, 会自动隐藏的
     return hud;
 }
 
 #pragma mark 显示成功信息
 + (MBProgressHUD *)showSuccess:(NSString *)success toView:(UIView *)view {
-    return [self show:success icon:@"success" view:view];
+    return [self show:success icon:[MBProgressHUDConfig shareInstance].successImage ?: @"success" view:view];
 }
 
 + (MBProgressHUD *)showSuccess:(NSString *)success {
@@ -76,7 +89,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 
 #pragma mark 显示错误信息
 + (MBProgressHUD *)showError:(NSString *)error toView:(UIView *)view {
-    return [self show:error icon:@"error" view:view];
+    return [self show:error icon:[MBProgressHUDConfig shareInstance].errorImage ?: @"error" view:view];
 }
 
 + (MBProgressHUD *)showError:(NSString *)error {
@@ -103,13 +116,21 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
                  dimBackground:(BOOL)dimBackground {
     view = [self hudShowViewWithInputView:view];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:animated];
-    SetHUDColor
     hud.label.text = message;
     hud.detailsLabel.text = detailMessage;
     if(dimBackground) {
         // YES代表需要蒙版效果
         hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
         hud.backgroundView.color = [UIColor colorWithWhite:0.f alpha:0.3];
+    }
+    if([MBProgressHUDConfig shareInstance].hudColor) {
+        hud.bezelView.color = [MBProgressHUDConfig shareInstance].hudColor;
+    }
+    if([MBProgressHUDConfig shareInstance].textColor) {
+        hud.label.textColor = [MBProgressHUDConfig shareInstance].textColor;
+    }
+    if([MBProgressHUDConfig shareInstance].detailTextColor) {
+        hud.detailsLabel.textColor = [MBProgressHUDConfig shareInstance].detailTextColor;
     }
     return hud;
 }
@@ -179,18 +200,26 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
                      square:(BOOL)square
            hiddenAfterDelay:(CGFloat)delay {
     view = [self hudShowViewWithInputView:view];
-    if(delay <= 0)      delay = kHUDHiddenAfterSecond;
-    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    SetHUDColor
     hud.mode = MBProgressHUDModeText;
     hud.label.text = text;
     hud.detailsLabel.text = detailText;
+    hud.label.textColor = [MBProgressHUDConfig shareInstance].textColor;
+    hud.detailsLabel.textColor = [MBProgressHUDConfig shareInstance].detailTextColor;
     hud.square = square;
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:delay];
+    [hud hideAnimated:YES afterDelay:MAX([MBProgressHUDConfig shareInstance].hideAfterTimer, delay)];
     hud.tag = arc4random() % 1000 + 10; // 10 - 1009, 会自动隐藏的
+    if([MBProgressHUDConfig shareInstance].hudColor) {
+        hud.bezelView.color = [MBProgressHUDConfig shareInstance].hudColor;
+    }
+    if([MBProgressHUDConfig shareInstance].textColor) {
+        hud.label.textColor = [MBProgressHUDConfig shareInstance].textColor;
+    }
+    if([MBProgressHUDConfig shareInstance].detailTextColor) {
+        hud.detailsLabel.textColor = [MBProgressHUDConfig shareInstance].detailTextColor;
+    }
     return hud;
 }
 
@@ -198,7 +227,7 @@ static const char MBProgressHUDButtonClickedBlockKey = '\0';
 + (MBProgressHUD *)showText:(NSString *)text
                  detailText:(NSString *)detailText
                      toView:(UIView *)view {
-    return [self showText:text detailText:detailText toView:view square:YES hiddenAfterDelay:kHUDHiddenAfterSecond];
+    return [self showText:text detailText:detailText toView:view square:YES hiddenAfterDelay:0];
 }
 
 + (MBProgressHUD *)showText:(NSString *)text
@@ -238,9 +267,14 @@ hiddenAfterDelay:(CGFloat)delay {
 + (MBProgressHUD *)showAnnularProgressWithText:(NSString *)text toView:(UIView *)view {
     view = [self hudShowViewWithInputView:view];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    SetHUDColor
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.label.text = text;
+    if([MBProgressHUDConfig shareInstance].hudColor) {
+        hud.bezelView.color = [MBProgressHUDConfig shareInstance].hudColor;
+    }
+    if([MBProgressHUDConfig shareInstance].textColor) {
+        hud.label.textColor = [MBProgressHUDConfig shareInstance].textColor;
+    }
     return hud;
 }
 #pragma mark 带按钮的环形进度条
@@ -250,12 +284,17 @@ hiddenAfterDelay:(CGFloat)delay {
                                     clickBlock:(MBProgressHUDButtonClickedBlock)clickBlock {
     view = [self hudShowViewWithInputView:view];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    SetHUDColor
     hud.mode = MBProgressHUDModeAnnularDeterminate;
     hud.label.text = text;
     [hud.button addTarget:hud action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     hud.clickedBlock = clickBlock;
     [hud.button setTitle:title forState:UIControlStateNormal];
+    if([MBProgressHUDConfig shareInstance].hudColor) {
+        hud.bezelView.color = [MBProgressHUDConfig shareInstance].hudColor;
+    }
+    if([MBProgressHUDConfig shareInstance].textColor) {
+        hud.label.textColor = [MBProgressHUDConfig shareInstance].textColor;
+    }
     return hud;
 }
 
@@ -265,7 +304,13 @@ hiddenAfterDelay:(CGFloat)delay {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.mode = MBProgressHUDModeDeterminateHorizontalBar;
     hud.label.text = text;
-    SetHUDColor
+    hud.label.textColor = [MBProgressHUDConfig shareInstance].textColor;
+    if([MBProgressHUDConfig shareInstance].hudColor) {
+        hud.bezelView.color = [MBProgressHUDConfig shareInstance].hudColor;
+    }
+    if([MBProgressHUDConfig shareInstance].textColor) {
+        hud.label.textColor = [MBProgressHUDConfig shareInstance].textColor;
+    }
     return hud;
 }
 
@@ -286,6 +331,21 @@ hiddenAfterDelay:(CGFloat)delay {
 
 - (MBProgressHUDButtonClickedBlock)clickedBlock {
     return objc_getAssociatedObject(self, &MBProgressHUDButtonClickedBlockKey);
+}
+
+@end
+
+
+@implementation MBProgressHUDConfig
+
++ (instancetype)shareInstance {
+    static MBProgressHUDConfig *config = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        config = [[MBProgressHUDConfig alloc] init];
+        config.hideAfterTimer = 1;
+    });
+    return config;
 }
 
 @end

@@ -15,10 +15,8 @@
 #define kScreenWidth                        [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight                       [UIScreen mainScreen].bounds.size.height
 
-#define kIsIphoneX                          (kScreenHeight == 812.0f || kScreenWidth == 812.0f)     // 是否是IphoneX
-#define kIsIphoneXR                         (kScreenHeight == 896.0f || kScreenWidth == 896.0f)     // 是否是iPhone XR
-#define kIsIphoneXS                         kIsIphoneX                                              // 是否是iPhone XS
-#define kIsIphoneXS_Max                     kIsIphoneXR                                             // 是否是iPhone XS_Max
+#define kIsIphoneX                          (kScreenHeight == 812.0f || kScreenWidth == 812.0f)     // X,XS,11Pro
+#define kIsIphoneXR                         (kScreenHeight == 896.0f || kScreenWidth == 896.0f)     // XR,XS Max,11,11Pro Max
 #define kIsFullScreen                       (kIsIphoneX || kIsIphoneXR)                             // 是否是全面屏
 #define kFullScreenTopSafeAreaHeight        44.0f    // 全面屏上面的安全区域
 #define kFullScreenBottomSafeAreaHeight     34.0f    // 全面屏下面的安全区域
@@ -65,13 +63,16 @@
 #define BlackColorAlpha(a)      [UIColor colorWithWhite:0 alpha:a]
 // 半透明白
 #define WhiteColorAlpha(a)      [UIColor colorWithWhite:1 alpha:a]
+// 自定义灰色
+#define GrayColorComponent(w)   [UIColor colorWithWhite:w alpha:1]
 
 /****************************************  数据类型转换  ***********************************/
 
 // int float -> string
 #define NSStringFromInt(int)            [NSString stringWithFormat:@"%d", int]
 #define NSStringFromUInt(int)           [NSString stringWithFormat:@"%u", int]
-#define NSStringFromInteger(integer)    [NSString stringWithFormat:@"%ld", integer]
+#define NSStringFromInteger(integer)    [NSString stringWithFormat:@"%zd", integer]
+#define NSStringFromUInteger(integer)   [NSString stringWithFormat:@"%tu", integer]
 #define NSStringFromFloat(float)        [NSString stringWithFormat:@"%f", float]
 #define NSStringFromFloatPrice(float)   [NSString stringWithFormat:@"%.2f", float]
 
@@ -95,7 +96,12 @@
 #define StretchImageName(imageName)     [ImageWithName(imageName) \
                                         stretchableImageWithLeftCapWidth:ImageWithName(imageName).size.width * 0.5 \
                                         topCapHeight:ImageWithName(imageName).size.height * 0.5]
-#define StretchImage(image)             [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5]
+#define StretchImage(image)             [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 \
+                                        topCapHeight:image.size.height * 0.5]
+// 从指定位置拉伸图片
+#define StretchImageNameWith(imageName, left, top)  [ImageWithName(imageName) \
+                                                    stretchableImageWithLeftCapWidth:left topCapHeight:top]
+#define StretchImageWith(image, left, top)          [image stretchableImageWithLeftCapWidth:left topCapHeight:top]
 
 
 // 文件路径
