@@ -70,6 +70,8 @@ static const char UIButtonClickedBlockKey = '\0';
     UIButton *btn = [UIButton buttonWithTitle:title backgroundImage:bgImage clickBlock:clickedBlock];
     btn.layer.cornerRadius = cornerRadius;
     btn.clipsToBounds = YES;
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
     return btn;
 }
 

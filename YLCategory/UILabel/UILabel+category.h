@@ -43,5 +43,18 @@ typedef void (^UILabelClickedBlock)(UILabel *label);
 
 
 
+/// 快速创建Label
+/// @param text 文本
+/// @param textColor 文本颜色
+/// @param font 字号
++ (instancetype)labelWithText:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font;
+
+
+/// 快速创建Label
+/// @param text 文本
+/// @param textColor 文本颜色
+/// @param alignment 对齐方式
+/// @param font 字号
++ (instancetype)labelWithText:(NSString *)text textColor:(UIColor *)textColor alignment:(NSTextAlignment)alignment font:(UIFont *)font;
 
 @end

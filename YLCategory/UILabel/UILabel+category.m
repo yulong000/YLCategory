@@ -34,6 +34,19 @@ static const char UILabelClickedBlockKey = '\0';
     return size;
 }
 
++ (instancetype)labelWithText:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font {
+    return [self labelWithText:text textColor:textColor alignment:NSTextAlignmentLeft font:font];
+}
+
++ (instancetype)labelWithText:(NSString *)text textColor:(UIColor *)textColor alignment:(NSTextAlignment)alignment font:(UIFont *)font {
+    UILabel *label = [[UILabel alloc] init];
+    label.text = text;
+    label.textColor = textColor;
+    label.textAlignment = alignment;
+    label.font = font;
+    return label;
+}
+
 #pragma mark - 添加单击操作
 - (void)setClickedBlock:(UILabelClickedBlock)clickedBlock {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
