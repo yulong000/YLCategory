@@ -375,8 +375,8 @@
 		00C9FE872125B4530027069C /* UIControl */ = {
 			isa = PBXGroup;
 			children = (
-				00C9FE882125B4530027069C /* UIControl+category.m */,
 				00C9FE892125B4530027069C /* UIControl+category.h */,
+				00C9FE882125B4530027069C /* UIControl+category.m */,
 			);
 			path = UIControl;
 			sourceTree = "<group>";

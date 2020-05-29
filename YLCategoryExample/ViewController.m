@@ -34,15 +34,11 @@
         [btn setHeightFixBottom:100];
     };
     [self.view addSubview:btn2];
-    
+
 }
 
 - (void)test {
-//    [MBProgressHUD showMessage:@"jiazao"];
-    [MBProgressHUD showSuccess:@"删除订单成功"];
-//    [MBProgressHUD hideHUD];
-//    TwoViewController *two = [[TwoViewController alloc] init];
-//    [self.navigationController pushViewController:two animated:YES];
+    
 }
 
 

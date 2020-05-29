@@ -43,6 +43,20 @@ typedef void (^UILabelClickedBlock)(UILabel *label);
 
 
 
+/// 设置label的size,文字自适应, 文本居中
+/// @param padding 文字左右留的间距
+/// @param fixedHeight label设置的固定高度
+- (CGSize)sizeWithSingleLineAutoWidthWithPadding:(CGFloat)padding fixedHeight:(CGFloat)fixedHeight;
+
+
+/// 设置label的size,文字自适应
+/// @param padding 文字左右留的间距
+/// @param minWidth 最小的label宽度
+/// @param fixedHeight label设置的固定高度
+- (CGSize)sizeWithSingleLineAutoWidthWithPadding:(CGFloat)padding minWidth:(CGFloat)minWidth fixedHeight:(CGFloat)fixedHeight;
+
+
+
 /// 快速创建Label
 /// @param text 文本
 /// @param textColor 文本颜色

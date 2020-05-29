@@ -34,6 +34,22 @@ static const char UILabelClickedBlockKey = '\0';
     return size;
 }
 
+- (CGSize)sizeWithSingleLineAutoWidthWithPadding:(CGFloat)padding fixedHeight:(CGFloat)fixedHeight {
+    return [self sizeWithSingleLineAutoWidthWithPadding:padding minWidth:padding * 2 fixedHeight:fixedHeight];
+}
+
+- (CGSize)sizeWithSingleLineAutoWidthWithPadding:(CGFloat)padding minWidth:(CGFloat)minWidth fixedHeight:(CGFloat)fixedHeight {
+    self.textAlignment = NSTextAlignmentCenter;
+    self.numberOfLines = 1;
+    CGSize size = [self sizeThatFits:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    size.width = MAX(minWidth, size.width + padding * 2);
+    size.height = fixedHeight;
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+    return size;
+}
+
 + (instancetype)labelWithText:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font {
     return [self labelWithText:text textColor:textColor alignment:NSTextAlignmentLeft font:font];
 }

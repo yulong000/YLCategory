@@ -75,6 +75,32 @@ static const char UIButtonClickedBlockKey = '\0';
     return btn;
 }
 
++ (instancetype)buttonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor font:(UIFont *)font clickedBlock:(UIButtonClickedBlock)clickedBlock {
+    UIButton *btn = [self buttonWithTitle:title clickBlock:clickedBlock];
+    [btn setTitleColor:titleColor forState:UIControlStateNormal];
+    btn.titleLabel.font = font;
+    return btn;
+}
+
++ (instancetype)buttonWithTitle:(NSString *)title titleColor:(UIColor *)titleColor font:(UIFont *)font backgroundImageCorlor:(UIColor *)bgImageColor cornerRadius:(CGFloat)cornerRadius clickedBlock:(UIButtonClickedBlock)clickedBlock {
+    UIButton *btn = [self buttonWithTitle:title backgroundImageCorlor:bgImageColor cornerRadius:cornerRadius clickBlock:clickedBlock];
+    [btn setTitleColor:titleColor forState:UIControlStateNormal];
+    btn.titleLabel.font = font;
+    return btn;
+}
+
+- (CGSize)sizeWithTitlePadding:(CGFloat)padding fixHeight:(CGFloat)fixHeight {
+    CGSize titleSize = [self.titleLabel sizeThatFits:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    CGRect frame = self.frame;
+    frame.size = CGSizeMake(titleSize.width + padding * 2, titleSize.height);
+    if(fixHeight > 0) {
+        frame.size.height = fixHeight;
+    }
+    self.frame = frame;
+    self.titleEdgeInsets = UIEdgeInsetsZero;
+    return frame.size;
+}
+
 #pragma mark 获取纯色图片
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     UIGraphicsBeginImageContext(size);
