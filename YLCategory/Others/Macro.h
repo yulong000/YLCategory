@@ -15,17 +15,15 @@
 #define kScreenWidth                        [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight                       [UIScreen mainScreen].bounds.size.height
 
-#define kIsIphoneX                          (kScreenHeight == 812.0f || kScreenWidth == 812.0f)     // X,XS,11Pro
-#define kIsIphoneXR                         (kScreenHeight == 896.0f || kScreenWidth == 896.0f)     // XR,XS Max,11,11Pro Max
-#define kIsFullScreen                       (kIsIphoneX || kIsIphoneXR)                             // 是否是全面屏
+#define kScreenScale                        [[UIScreen mainScreen] scale]        // 屏幕
+#define kStatusBarHeight                    [UIApplication sharedApplication].statusBarFrame.size.height
+#define kIsFullScreen                       (kStatusBarHeight == 44)                             // 是否是全面屏
 #define kFullScreenTopSafeAreaHeight        44.0f    // 全面屏上面的安全区域
 #define kFullScreenBottomSafeAreaHeight     34.0f    // 全面屏下面的安全区域
 #define kBottomSafeAreaHeight               (kIsFullScreen ? 34.0f : 0.0f)       // 下面的安全区域
 #define kTopSafeAreaHeight                  (kIsFullScreen ? 44.0f : 0.0f)       // 上面的安全区域
 #define kTabbarHeight                       (kIsFullScreen ? 83.0f : 49.0f)      // 下面tabbar的高度
 #define kNavTotalHeight                     (kIsFullScreen ? 88.0f : 64.0f)      // 上面导航栏总高度
-#define kScreenScale                        [[UIScreen mainScreen] scale]        // 屏幕
-#define kStatusBarHeight                    [UIApplication sharedApplication].statusBarFrame.size.height
 
 
 /****************************************  颜色  ***********************************/

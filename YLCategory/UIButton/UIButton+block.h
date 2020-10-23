@@ -27,6 +27,13 @@ typedef void (^UIButtonClickedBlock)(UIButton *button);
 + (instancetype)buttonWithImage:(UIImage *)image clickBlock:(UIButtonClickedBlock)clickedBlock;
 
 
+/// 创建button, 设置正常状态下的image, 和选中状态下的image
+/// @param image 正常状态下的image
+/// @param selectedImage 选中状态下的image
+/// @param clickedBlock 点击回调
++ (instancetype)buttonWithImage:(UIImage *)image selectedImage:(UIImage *)selectedImage clickBlock:(UIButtonClickedBlock)clickedBlock;
+
+
 /// 创建button, 设置正常状态下的 title 和 image
 /// @param title title
 /// @param image image

@@ -49,6 +49,12 @@ static const char UIButtonClickedBlockKey = '\0';
     return [UIButton buttonWithTitle:nil image:image clickBlock:clickedBlock];
 }
 
++ (instancetype)buttonWithImage:(UIImage *)image selectedImage:(UIImage *)selectedImage clickBlock:(UIButtonClickedBlock)clickedBlock {
+    UIButton *button = [UIButton buttonWithImage:image clickBlock:clickedBlock];
+    [button setImage:selectedImage forState:UIControlStateSelected];
+    return button;
+}
+
 + (instancetype)buttonWithClickBlock:(UIButtonClickedBlock)clickedBlock {
     return [UIButton buttonWithTitle:nil clickBlock:clickedBlock];
 }
