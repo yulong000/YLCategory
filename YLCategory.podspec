@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = 'YLCategory'
-s.version      = '1.1.5'
+s.version      = '1.1.6'
 s.summary      = '分类'
 s.homepage     = 'https://github.com/yulong000/YLCategory'
 s.license      = 'MIT'
@@ -62,3 +62,9 @@ ss.source_files  =   'YLCategory/Others/*.{h,m}'
 end
 
 end
+
+
+# 升级时  1.add tag
+#        2.push tag
+#        3.pod trunk push YLCategory.podspec --allow-warnings
+

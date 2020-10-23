@@ -17,7 +17,7 @@
 
 #define kScreenScale                        [[UIScreen mainScreen] scale]        // 屏幕
 #define kStatusBarHeight                    [UIApplication sharedApplication].statusBarFrame.size.height
-#define kIsFullScreen                       (kStatusBarHeight == 44)                             // 是否是全面屏
+#define kIsFullScreen                       (kStatusBarHeight > 20)                             // 是否是全面屏
 #define kFullScreenTopSafeAreaHeight        44.0f    // 全面屏上面的安全区域
 #define kFullScreenBottomSafeAreaHeight     34.0f    // 全面屏下面的安全区域
 #define kBottomSafeAreaHeight               (kIsFullScreen ? 34.0f : 0.0f)       // 下面的安全区域
