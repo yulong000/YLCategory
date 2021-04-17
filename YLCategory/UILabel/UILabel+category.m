@@ -50,6 +50,18 @@ static const char UILabelClickedBlockKey = '\0';
     return size;
 }
 
++ (instancetype)labelWithFont:(UIFont *)font {
+    return [self labelWithFont:font textColor:[UIColor blackColor]];
+}
+
++ (instancetype)labelWithFont:(UIFont *)font textColor:(UIColor *)textColor {
+    return [self labelWithFont:font textColor:textColor textAlignment:NSTextAlignmentLeft];
+}
+
++ (instancetype)labelWithFont:(UIFont *)font textColor:(UIColor *)textColor alignment:(NSTextAlignment)alignment {
+    return [self labelWithText:@"" textColor:textColor alignment:alignment font:font];
+}
+
 + (instancetype)labelWithText:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font {
     return [self labelWithText:text textColor:textColor alignment:NSTextAlignmentLeft font:font];
 }

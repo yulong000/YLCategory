@@ -56,6 +56,22 @@ typedef void (^UILabelClickedBlock)(UILabel *label);
 - (CGSize)sizeWithSingleLineAutoWidthWithPadding:(CGFloat)padding minWidth:(CGFloat)minWidth fixedHeight:(CGFloat)fixedHeight;
 
 
+/// 快捷创建Label
+/// @param font 字号
++ (instancetype)labelWithFont:(UIFont *)font;
+
+
+/// 快捷创建Label
+/// @param font 字号
+/// @param textColor 字体颜色
++ (instancetype)labelWithFont:(UIFont *)font textColor:(UIColor *)textColor;
+
+
+/// 快捷创建Label
+/// @param font 字号
+/// @param textColor 字体颜色
+/// @param alignment 对齐方式
++ (instancetype)labelWithFont:(UIFont *)font textColor:(UIColor *)textColor alignment:(NSTextAlignment)alignment;
 
 /// 快速创建Label
 /// @param text 文本

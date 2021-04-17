@@ -7,6 +7,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**  移除所有的子控件  */
 - (void)removeAllSubviews;
 
+/// 移除某一类子控件
+- (void)removeSubviewsWithClass:(Class)classRemove;
+
 /**  添加一组子控件  */
 - (void)addSubViewsFromArray:(NSArray *)subViews;
 

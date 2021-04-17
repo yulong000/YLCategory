@@ -10,6 +10,17 @@
     }
 }
 
+#pragma mark 移除某一类子控件
+- (void)removeSubviewsWithClass:(Class)classRemove {
+    if([self isKindOfClass:[UIView class]] == NO)   return;
+    if(classRemove == nil)  return;
+    for (UIView *sub in self.subviews) {
+        if([sub isKindOfClass:classRemove]) {
+            [sub removeFromSuperview];
+        }
+    }
+}
+
 #pragma mark 添加一组子控件
 - (void)addSubViewsFromArray:(NSArray *)subViews {
     [subViews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
