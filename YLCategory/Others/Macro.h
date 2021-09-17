@@ -20,15 +20,21 @@
 #define kScreenHeight                       [UIScreen mainScreen].bounds.size.height
 #endif
 
-#define kScreenScale                        [[UIScreen mainScreen] scale]        // 屏幕
+#ifndef kStatusBarHeight
 #define kStatusBarHeight                    [UIApplication sharedApplication].statusBarFrame.size.height
-#define kIsFullScreen                       (kStatusBarHeight > 20)                             // 是否是全面屏
-#define kFullScreenTopSafeAreaHeight        44.0f    // 全面屏上面的安全区域
-#define kFullScreenBottomSafeAreaHeight     34.0f    // 全面屏下面的安全区域
-#define kBottomSafeAreaHeight               (kIsFullScreen ? 34.0f : 0.0f)       // 下面的安全区域
-#define kTopSafeAreaHeight                  (kIsFullScreen ? 44.0f : 0.0f)       // 上面的安全区域
-#define kTabbarHeight                       (kIsFullScreen ? 83.0f : 49.0f)      // 下面tabbar的高度
-#define kNavTotalHeight                     (kIsFullScreen ? 88.0f : 64.0f)      // 上面导航栏总高度
+#endif
+
+#ifndef kIsPad
+#define kIsPad                              (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#endif
+
+#define kScreenScale                        [[UIScreen mainScreen] scale]                                                           // 自然分辨率
+#define kBottomSafeAreaHeight               [UIApplication sharedApplication].delegate.window.safeAreaInsets.bottom                 // 下面的安全区域
+#define kTopSafeAreaHeight                  [UIApplication sharedApplication].delegate.window.safeAreaInsets.top                    // 上面的安全区域
+#define kIsFullScreen                       (kBottomSafeAreaHeight > 0)
+
+#define kTabbarHeight                       (kIsFullScreen ? 83.0f : 49.0f)         // 下面tabbar的高度
+#define kNavTotalHeight                     (kStatusBarHeight + 44.0f)              // 上面导航栏总高度
 
 
 /****************************************  颜色  ***********************************/
@@ -112,12 +118,14 @@
 #define kCachePath                      [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 #define kBundlePath(file)               [[NSBundle mainBundle] pathForResource:file ofType:nil]
 
-// 版本号
+// app版本号
 #define kAPP_Version                     [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 // building 号
 #define kAPP_Build_Number                [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 // app Name
 #define kAPP_Name                        [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+// 系统版本号
+#define kSystem_version                  [[UIDevice currentDevice].systemName stringByAppendingFormat:@" %@", [UIDevice currentDevice].systemVersion]
 
 //  appDelegate
 #define kAppDelegate                    [UIApplication sharedApplication].delegate
