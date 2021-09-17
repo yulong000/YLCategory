@@ -34,6 +34,21 @@ static const char UILabelClickedBlockKey = '\0';
     return size;
 }
 
+- (CGSize)sizeWithSingleLineMaxWidth:(CGFloat)maxWidth fixedHeight:(CGFloat)fixedHeight {
+    CGSize size = [self sizeWithSingleLineFixedHeight:fixedHeight];
+    if(size.width > maxWidth) {
+        size.width = maxWidth;
+        CGRect frame = self.frame;
+        frame.size = size;
+        self.frame = frame;
+    }
+    return size;
+}
+
+- (CGSize)sizeWithSingleLineFixedHeight:(CGFloat)fixedHeight {
+    return [self sizeWithSingleLineAutoWidthWithPadding:0 fixedHeight:fixedHeight];
+}
+
 - (CGSize)sizeWithSingleLineAutoWidthWithPadding:(CGFloat)padding fixedHeight:(CGFloat)fixedHeight {
     return [self sizeWithSingleLineAutoWidthWithPadding:padding minWidth:padding * 2 fixedHeight:fixedHeight];
 }
@@ -55,7 +70,7 @@ static const char UILabelClickedBlockKey = '\0';
 }
 
 + (instancetype)labelWithFont:(UIFont *)font textColor:(UIColor *)textColor {
-    return [self labelWithFont:font textColor:textColor textAlignment:NSTextAlignmentLeft];
+    return [self labelWithFont:font textColor:textColor alignment:NSTextAlignmentLeft];
 }
 
 + (instancetype)labelWithFont:(UIFont *)font textColor:(UIColor *)textColor alignment:(NSTextAlignment)alignment {

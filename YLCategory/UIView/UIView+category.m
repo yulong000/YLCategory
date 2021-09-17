@@ -31,7 +31,7 @@
 }
 
 #pragma mark 获取view所在的controller
-- (UIViewController *)controller {
+- (UIViewController *)vc {
     UIResponder *responder = [self nextResponder];
     while (responder) {
         if([responder isKindOfClass:[UIViewController class]]) {
@@ -59,4 +59,5 @@
     [self setBorderColor:borderColor borderWidth:borderWidth];
     [self setCornerRadius:cornerRadius];
 }
+
 @end

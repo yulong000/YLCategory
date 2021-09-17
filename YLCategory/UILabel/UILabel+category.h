@@ -41,7 +41,19 @@ typedef void (^UILabelClickedBlock)(UILabel *label);
  */
 - (CGSize)sizeWithMaxWidth:(CGFloat)maxWidth numberOfLines:(NSInteger)lines attributes:(NSDictionary *)attributes;
 
+/**
+ 获取label的size, 文字自适应
 
+ @param fixedHeight 固定高度
+ */
+- (CGSize)sizeWithSingleLineFixedHeight:(CGFloat)fixedHeight;
+
+/**
+ 获取label的size, 文字自适应
+
+ @param fixedHeight 固定高度
+ */
+- (CGSize)sizeWithSingleLineMaxWidth:(CGFloat)maxWidth fixedHeight:(CGFloat)fixedHeight;
 
 /// 设置label的size,文字自适应, 文本居中
 /// @param padding 文字左右留的间距

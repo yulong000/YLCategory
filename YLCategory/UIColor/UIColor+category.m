@@ -11,17 +11,6 @@
     return randColor;
 }
 
-#pragma mark 16进制 -> 颜色
-+ (UIColor *)colorWithHex:(UInt32)hex {
-    return [UIColor colorWithHex:hex andAlpha:1];
-}
-+ (UIColor *)colorWithHex:(UInt32)hex andAlpha:(CGFloat)alpha{
-    return [UIColor colorWithRed:((hex >> 16) & 0xFF) / 255.0
-                           green:((hex >> 8) & 0xFF) / 255.0
-                            blue:(hex & 0xFF) / 255.0
-                           alpha:alpha];
-}
-
 #pragma mark 获取某个颜色设置透明度后的颜色
 + (UIColor *)colorWithColor:(UIColor *)color alpha:(CGFloat)alpha {
     return [color colorWithAlphaComponent:alpha];

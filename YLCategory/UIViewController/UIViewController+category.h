@@ -15,6 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 返回上一个页面, 如果是push,则pop,如果是present,则dismiss
 - (void)returnBack;
 
+/// 如果有nav，则push，否则 present
+- (void)pushVc:(UIViewController *)vc;
+
+/// 获取导航控制器
+- (UINavigationController *)rootNavController;
+
 @end
 
 NS_ASSUME_NONNULL_END

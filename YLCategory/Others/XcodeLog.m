@@ -19,7 +19,7 @@
     
     [desc appendString:@"\t{\n"];
     
-    // 遍历数组,self就是当前的数组
+    // 遍历字典,self就是当前的字典
     for (id key in self.allKeys) {
         id obj = [self objectForKey:key];
         
