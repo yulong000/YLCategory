@@ -57,6 +57,10 @@ s.subspec 'UIView' do |ss|
 ss.source_files  =   'YLCategory/UIView/*.{h,m}'
 end
 
+s.subspec 'UIViewController' do |ss|
+ss.source_files  =   'YLCategory/UIViewController/*.{h,m}'
+end
+
 s.subspec 'Others' do |ss|
 ss.source_files  =   'YLCategory/Others/*.{h,m}'
 end
