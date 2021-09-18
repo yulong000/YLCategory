@@ -32,16 +32,17 @@
     UIButton *btn2 = [UIButton buttonWithTitle:@"颜色" backgroundImageCorlor:RandomColor cornerRadius:0 clickBlock:nil];
     btn2.frame = CGRectMake(200, 200, 100, 100);
     btn2.clickedBlock = ^(UIButton *button) {
-        [btn setHeightFixBottom:100];
+        [weakSelf test2];
     };
     [self.view addSubview:btn2];
     
-    btn.x_is(10).y_is(20).width_is(40).height_is(100).right_spaceTo(btn2, 20);
-    NSLog(@"frame : %@", NSStringFromCGRect(btn.frame));
-
 }
 
 - (void)test {
+
+}
+
+- (void)test2 {
     
 }
 
