@@ -39,12 +39,13 @@
 }
 
 - (void)test {
+    
+    NSLog(@"keywindow %@", kAppKeyWindow);
 
 }
 
 - (void)test2 {
     
 }
-
 
 @end

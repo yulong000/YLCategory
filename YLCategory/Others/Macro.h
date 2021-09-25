@@ -28,9 +28,15 @@
 #define kIsPad                              (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #endif
 
-#define kScreenScale                        [[UIScreen mainScreen] scale]                                                           // 自然分辨率
-#define kBottomSafeAreaHeight               [UIApplication sharedApplication].delegate.window.safeAreaInsets.bottom                 // 下面的安全区域
-#define kTopSafeAreaHeight                  [UIApplication sharedApplication].delegate.window.safeAreaInsets.top                    // 上面的安全区域
+// 自然分辨率
+#define kScreenScale                        [[UIScreen mainScreen] scale]
+// 全面屏的安全区域
+#define kSafeAreaInsets                     ^UIEdgeInsets {if (@available(iOS 11.0, *)) return [UIApplication sharedApplication].delegate.window.safeAreaInsets; else return UIEdgeInsetsZero;}()
+// 上面的安全区域
+#define kTopSafeAreaHeight                  kSafeAreaInsets.top
+// 下面的安全区域
+#define kBottomSafeAreaHeight               kSafeAreaInsets.bottom
+// 是否是全面屏
 #define kIsFullScreen                       (kBottomSafeAreaHeight > 0)
 
 #define kTabbarHeight                       (kIsFullScreen ? 83.0f : 49.0f)         // 下面tabbar的高度
@@ -130,6 +136,21 @@
 //  appDelegate
 #define kAppDelegate                    [UIApplication sharedApplication].delegate
 //  keyWindow
-#define kAppKeyWindow                   kAppDelegate.window
+#define kAppKeyWindow                   ^UIWindow * { \
+                                            if (@available(iOS 13.0, *)) { \
+                                                    for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) { \
+                                                        if (scene.activationState == UISceneActivationStateForegroundActive) { \
+                                                            for (UIWindow *window in scene.windows) { \
+                                                                if (window.isKeyWindow) { \
+                                                                    return window; \
+                                                                } \
+                                                            } \
+                                                        } \
+                                                    } \
+                                                return [UIApplication sharedApplication].delegate.window; \
+                                            } else { \
+                                                return [UIApplication sharedApplication].keyWindow; \
+                                            } \
+                                        }()
 
 #endif /* Macro_h */
