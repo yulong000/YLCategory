@@ -68,8 +68,10 @@
 #define YellowColor                 [UIColor yellowColor]
 // 蓝色
 #define BlueColor                   [UIColor blueColor]
-// r, g, b ,a 颜色
+// r, g, b, a 颜色
 #define RGBA(r, g, b, a)            [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
+// r=g=b, a=1 颜色
+#define RGB(r)                      [UIColor colorWithRed:r / 255.0 green:r / 255.0 blue:r / 255.0 alpha:1.0]
 // 随机颜色
 #define RandomColor                 [UIColor colorWithRed:arc4random() % 255 / 255.0 green:arc4random() % 255 / 255.0 blue:arc4random() % 255 / 255.0 alpha:1]
 // 十六进制获取颜色
