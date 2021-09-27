@@ -37,7 +37,7 @@
 - (YLSingleValueIs)top_is {
     __weak typeof(self) weakSelf = self;
     return ^ (CGFloat value) {
-        weakSelf.x = value;
+        weakSelf.top = value;
         return weakSelf;
     };
 }
@@ -45,7 +45,7 @@
 - (YLSingleValueIs)left_is {
     __weak typeof(self) weakSelf = self;
     return ^ (CGFloat value) {
-        weakSelf.y = value;
+        weakSelf.left = value;
         return weakSelf;
     };
 }
@@ -85,8 +85,7 @@
 - (YLDoubleValueIs)origin_is {
     __weak typeof(self) weakSelf = self;
     return ^ (CGFloat value1, CGFloat value2) {
-        weakSelf.x = value1;
-        weakSelf.y = value2;
+        weakSelf.origin = CGPointMake(value1, value2);
         return weakSelf;
     };
 }
@@ -94,8 +93,7 @@
 - (YLDoubleValueIs)size_is {
     __weak typeof(self) weakSelf = self;
     return ^ (CGFloat value1, CGFloat value2) {
-        weakSelf.width = value1;
-        weakSelf.height = value2;
+        weakSelf.size = CGSizeMake(value1, value2);
         return weakSelf;
     };
 }
@@ -103,8 +101,7 @@
 - (YLDoubleValueIs)center_is {
     __weak typeof(self) weakSelf = self;
     return ^ (CGFloat value1, CGFloat value2) {
-        weakSelf.centerX = value1;
-        weakSelf.centerY = value2;
+        weakSelf.center = CGPointMake(value1, value2);
         return weakSelf;
     };
 }
