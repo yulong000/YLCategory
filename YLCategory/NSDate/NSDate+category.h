@@ -188,14 +188,14 @@ typedef NS_ENUM(NSInteger, Weekday) {
  *
  *  @param otherDate 另一个日期
  */
-- (BOOL)sameMinuteWithData:(NSDate *)otherData;
+- (BOOL)sameMinuteWithDate:(NSDate *)otherDate;
 
 /**
  *  是否为同一天的同一个小时
  *
  *  @param otherDate 另一个日期
  */
-- (BOOL)sameHourWithData:(NSDate *)otherData;
+- (BOOL)sameHourWithDate:(NSDate *)otherDate;
 
 /**
  *  是否为同一天
@@ -223,6 +223,6 @@ typedef NS_ENUM(NSInteger, Weekday) {
  *
  *  @param otherDate 另一个日期
  */
-- (BOOL)sameYearWithData:(NSDate *)otherDate;
+- (BOOL)sameYearWithDate:(NSDate *)otherDate;
 
 @end

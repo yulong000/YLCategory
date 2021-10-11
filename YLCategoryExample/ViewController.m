@@ -39,9 +39,8 @@
 }
 
 - (void)test {
-    
-    NSLog(@"keywindow %@", kAppKeyWindow);
 
+    NSLog(@"statusBarHeight : %f", kStatusBarHeight);
 }
 
 - (void)test2 {

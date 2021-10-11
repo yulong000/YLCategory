@@ -217,13 +217,13 @@
 }
 
 #pragma mark 是否为同一分钟
-- (BOOL)sameMinuteWithData:(NSDate *)otherData {
-    return [self sameHourWithData:otherData] && self.minute == otherData.minute;
+- (BOOL)sameMinuteWithDate:(NSDate *)otherDate {
+    return [self sameHourWithDate:otherDate] && self.minute == otherDate.minute;
 }
 
 #pragma mark 是否为同一小时
-- (BOOL)sameHourWithData:(NSDate *)otherData {
-    return [self sameDayWithDate:otherData] && self.hour == otherData.hour;
+- (BOOL)sameHourWithDate:(NSDate *)otherDate {
+    return [self sameDayWithDate:otherDate] && self.hour == otherDate.hour;
 }
 
 #pragma mark 是否为同一天
@@ -233,16 +233,16 @@
 
 #pragma mark 是否在同一周
 - (BOOL)sameWeekWithDate:(NSDate *)otherDate {
-    return [self sameYearWithData:otherDate] && self.indexOfWeekInYear == otherDate.indexOfWeekInYear;
+    return [self sameYearWithDate:otherDate] && self.indexOfWeekInYear == otherDate.indexOfWeekInYear;
 }
 
 #pragma mark 是否在同一个月
 - (BOOL)sameMonthWithDate:(NSDate *)otherDate {
-    return [self sameYearWithData:otherDate] && self.month == otherDate.month;
+    return [self sameYearWithDate:otherDate] && self.month == otherDate.month;
 }
 
 #pragma mark 是否在同一年
-- (BOOL)sameYearWithData:(NSDate *)otherDate {
+- (BOOL)sameYearWithDate:(NSDate *)otherDate {
     return self.year == otherDate.year;
 }
 

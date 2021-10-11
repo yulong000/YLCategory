@@ -21,6 +21,12 @@
     ViewController *vc = [[ViewController alloc] init];
     vc.view.backgroundColor = [UIColor whiteColor];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    if (@available(iOS 15.0, *)) {
+        UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+        appearance.backgroundColor = [UIColor whiteColor];
+        nav.navigationBar.scrollEdgeAppearance = appearance;
+        nav.navigationBar.standardAppearance = appearance;
+    }
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;

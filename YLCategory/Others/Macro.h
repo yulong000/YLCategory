@@ -21,7 +21,7 @@
 #endif
 
 #ifndef kStatusBarHeight
-#define kStatusBarHeight                    [UIApplication sharedApplication].statusBarFrame.size.height
+#define kStatusBarHeight                    ^CGFloat {if(@available(iOS 13.0, *)) return [UIApplication sharedApplication].windows.firstObject.windowScene.statusBarManager.statusBarFrame.size.height; else return [UIApplication sharedApplication].statusBarFrame.size.height;}()
 #endif
 
 #ifndef kIsPad
