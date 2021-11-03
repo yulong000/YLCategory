@@ -35,7 +35,7 @@
         [weakSelf test2];
     };
     [self.view addSubview:btn2];
-    
+
 }
 
 - (void)test {

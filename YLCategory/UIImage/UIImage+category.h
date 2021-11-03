@@ -62,7 +62,6 @@
 + (CGSize)imageSizeWithURL:(id)imageURL;
 
 
-
 /**
  *  获取图片上某个点的颜色
  *
@@ -72,6 +71,10 @@
  */
 - (UIColor *)colorAtPixel:(CGPoint)point;
 
+
+/// 压缩图片到指定大小
+/// @param maxLength 最大值
+- (UIImage *)compressToByte:(NSUInteger)maxLength;
 
 
 

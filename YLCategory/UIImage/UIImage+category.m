@@ -93,6 +93,81 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
+- (UIImage *)compressToByte:(NSUInteger)maxLength {
+    if(self == nil || [self isKindOfClass:[UIImage class]] == NO) return nil;
+    
+    // Compress by quality
+    CGFloat compression = 1;
+    NSData *data = UIImageJPEGRepresentation(self, compression);
+    if (data.length <= maxLength) return self;
+    
+    CGFloat max = 1;
+    CGFloat min = 0;
+    for (int i = 0; i < 6; ++i) {
+        compression = (max + min) / 2;
+        data = UIImageJPEGRepresentation(self, compression);
+        if (data.length < maxLength * 0.9) {
+            min = compression;
+        } else if (data.length > maxLength) {
+            max = compression;
+        } else {
+            break;
+        }
+    }
+    UIImage *resultImage = [UIImage imageWithData:data];
+    if (data.length < maxLength) return resultImage;
+    
+    // Compress by size
+    NSUInteger lastDataLength = 0;
+    while (data.length > maxLength && data.length != lastDataLength) {
+        lastDataLength = data.length;
+        CGFloat ratio = (CGFloat)maxLength / data.length;
+        // Use NSUInteger to prevent white blank
+        CGSize size = CGSizeMake((NSUInteger)(resultImage.size.width * sqrtf(ratio)),
+                                 (NSUInteger)(resultImage.size.height * sqrtf(ratio)));
+        UIGraphicsBeginImageContext(size);
+        [resultImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        resultImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        data = UIImageJPEGRepresentation(resultImage, compression);
+    }
+    return resultImage;
+}
+
+#pragma mark 获取纯色图片
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, (CGRect){CGPointZero, size});
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+#pragma mark 获取可拉伸的纯色图片
++ (instancetype)stretchableImageWithColor:(UIColor *)color {
+    UIImage *image = [self imageWithColor:color size:CGSizeMake(4, 4)];
+    return [image stretchableImageWithLeftCapWidth:2 topCapHeight:2];
+}
+
+#pragma mark 对某个view截图
++ (instancetype)imageWithView:(UIView *)view {
+    if(view == nil) return [[UIImage alloc] init];
+    UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [view.layer renderInContext:context];
+    [[UIColor clearColor] setFill];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+#pragma mark 截屏
++ (instancetype)screenImage {
+    return [self imageWithView:[UIApplication sharedApplication].keyWindow];
+}
+
 #pragma mark - 高斯模糊
 - (UIImage *)croppedImageAtFrame:(CGRect)frame {
     frame = CGRectMake(frame.origin.x * self.scale, frame.origin.y * self.scale, frame.size.width * self.scale, frame.size.height * self.scale);
@@ -333,6 +408,7 @@
     
     return outputImage;
 }
+
 #pragma mark - 获取网络图片的 size
 + (CGSize)imageSizeWithURL:(id)imageURL {
     NSURL *URL = nil;
@@ -484,40 +560,6 @@
             return CGSizeZero;
         }
     }
-}
-
-#pragma mark 获取纯色图片
-+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
-    UIGraphicsBeginImageContext(size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, color.CGColor);
-    CGContextFillRect(context, (CGRect){CGPointZero, size});
-    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
-#pragma mark 获取可拉伸的纯色图片
-+ (instancetype)stretchableImageWithColor:(UIColor *)color {
-    UIImage *image = [self imageWithColor:color size:CGSizeMake(4, 4)];
-    return [image stretchableImageWithLeftCapWidth:2 topCapHeight:2];
-}
-
-#pragma mark 对某个view截图
-+ (instancetype)imageWithView:(UIView *)view {
-    if(view == nil) return [[UIImage alloc] init];
-    UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0f);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [view.layer renderInContext:context];
-    [[UIColor clearColor] setFill];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
-#pragma mark 截屏
-+ (instancetype)screenImage {
-    return [self imageWithView: [UIApplication sharedApplication].keyWindow];
 }
 
 @end

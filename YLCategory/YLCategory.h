@@ -1,6 +1,7 @@
 #ifndef YLCategory_h
 #define YLCategory_h
 
+#import "Macro.h"
 #import "UIView+Frame.h"
 #import "UIView+gesture.h"
 #import "UIView+category.h"
@@ -15,5 +16,6 @@
 #import "UIControl+category.h"
 #import "NSDate+category.h"
 #import "NSObject+category.h"
+#import "UIViewController+category.h"
 
 #endif /* YLCategory_h */

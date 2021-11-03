@@ -106,6 +106,7 @@
 
 // weakself
 #define WeakObject(obj)                 __weak typeof(obj) weak##obj = obj;
+#define WeakSelf                        __weak typeof(self) weakSelf = self;
 
 // 根据图片名字构建image
 #define ImageWithName(imageName)        [UIImage imageNamed:imageName]

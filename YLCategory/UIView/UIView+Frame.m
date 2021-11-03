@@ -314,6 +314,14 @@
     };
 }
 
+- (YLEqualToSuperView)center_equalToSuper {
+    __weak typeof(self) weakSelf = self;
+    return ^ {
+        weakSelf.center = weakSelf.superview.centerPoint;
+        return weakSelf;
+    };
+}
+
 - (YLEqualToSuperView)centerX_equalToSuper {
     __weak typeof(self) weakSelf = self;
     return ^ {

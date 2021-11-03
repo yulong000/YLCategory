@@ -18,7 +18,9 @@ typedef UIView *(^YLOffset)(CGFloat offset);
 /* ------- 连续布局，一行代码设置frame -------
  
 ************************************
-注意：非自动布局，所有传入otherView或superView的布局，都以该view当前的frame作为参考值，不会根据其frame的变化而变化
+注意：
+ 1.非自动布局，所有传入otherView或superView的布局，都以该view当前的frame作为参考值，不会根据其frame的变化而变化
+ 2.相对布局的otherView, 指的是同一个父视图下的同级子视图
 ************************************
  
 */
@@ -113,6 +115,8 @@ typedef UIView *(^YLOffset)(CGFloat offset);
 @property (nonatomic, copy, readonly) YLEqualToSuperView right_equalToSuper;
 /// 设置底部对齐父视图底部
 @property (nonatomic, copy, readonly) YLEqualToSuperView bottom_equalToSuper;
+/// 设置居中
+@property (nonatomic, copy, readonly) YLEqualToSuperView center_equalToSuper;
 /// 设置水平居中
 @property (nonatomic, copy, readonly) YLEqualToSuperView centerX_equalToSuper;
 /// 设置垂直居中
