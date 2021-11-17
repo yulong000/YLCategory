@@ -20,16 +20,17 @@ static const char UIViewLongPressGestureHandlerKey = '\0';
     return objc_getAssociatedObject(self, &UIViewTapGestureHandlerKey);
 }
 
-- (void)addTapGestureWithDelegate:(id)delegate handler:(UIViewTapGestureHandler)handler {
+- (UITapGestureRecognizer *)addTapGestureWithDelegate:(id)delegate handler:(UIViewTapGestureHandler)handler {
     self.userInteractionEnabled = YES;
     self.tapGestureHandler = [handler copy];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     if(delegate) tap.delegate = delegate;
     [self addGestureRecognizer:tap];
+    return tap;
 }
 
-- (void)addTapGestureWithHandler:(UIViewTapGestureHandler)handler {
-    [self addTapGestureWithDelegate:nil handler:handler];
+- (UITapGestureRecognizer *)addTapGestureWithHandler:(UIViewTapGestureHandler)handler {
+    return [self addTapGestureWithDelegate:nil handler:handler];
 }
 
 - (void)tap:(UITapGestureRecognizer *)tap {
@@ -50,16 +51,17 @@ static const char UIViewLongPressGestureHandlerKey = '\0';
     return objc_getAssociatedObject(self, &UIViewPanGestureHandlerKey);
 }
 
-- (void)addPanGestureWithDelegate:(id)delegate handler:(UIViewPanGestureHandler)handler {
+- (UIPanGestureRecognizer *)addPanGestureWithDelegate:(id)delegate handler:(UIViewPanGestureHandler)handler {
     self.userInteractionEnabled = YES;
     self.panGestureHandler = [handler copy];
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     if(delegate) pan.delegate = delegate;
     [self addGestureRecognizer:pan];
+    return pan;
 }
 
-- (void)addPanGestureWithHandler:(UIViewPanGestureHandler)handler {
-    [self addPanGestureWithDelegate:nil handler:handler];
+- (UIPanGestureRecognizer *)addPanGestureWithHandler:(UIViewPanGestureHandler)handler {
+    return [self addPanGestureWithDelegate:nil handler:handler];
 }
 
 - (void)pan:(UIPanGestureRecognizer *)pan {
@@ -80,16 +82,17 @@ static const char UIViewLongPressGestureHandlerKey = '\0';
     return objc_getAssociatedObject(self, &UIViewLongPressGestureHandlerKey);
 }
 
-- (void)addLongPressGestureWithDelegate:(id)delegate handler:(UIViewLongPressGestureHandler)handler {
+- (UILongPressGestureRecognizer *)addLongPressGestureWithDelegate:(id)delegate handler:(UIViewLongPressGestureHandler)handler {
     self.userInteractionEnabled = YES;
     self.longPressGestureHandler = [handler copy];
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     if(delegate) longPress.delegate = delegate;
     [self addGestureRecognizer:longPress];
+    return longPress;
 }
 
-- (void)addLongPressGestureWithHandler:(UIViewLongPressGestureHandler)handler {
-    [self addLongPressGestureWithDelegate:nil handler:handler];
+- (UILongPressGestureRecognizer *)addLongPressGestureWithHandler:(UIViewLongPressGestureHandler)handler {
+    return [self addLongPressGestureWithDelegate:nil handler:handler];
 }
 
 - (void)longPress:(UILongPressGestureRecognizer *)longPress {

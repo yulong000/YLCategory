@@ -8,12 +8,12 @@ typedef void (^UIViewLongPressGestureHandler)(id view, UILongPressGestureRecogni
 
 @interface UIView (gesture)
 
-- (void)addTapGestureWithHandler:(UIViewTapGestureHandler)handler;
-- (void)addPanGestureWithHandler:(UIViewPanGestureHandler)handler;
-- (void)addLongPressGestureWithHandler:(UIViewLongPressGestureHandler)handler;
+- (UITapGestureRecognizer *)addTapGestureWithHandler:(UIViewTapGestureHandler)handler;
+- (UIPanGestureRecognizer *)addPanGestureWithHandler:(UIViewPanGestureHandler)handler;
+- (UILongPressGestureRecognizer *)addLongPressGestureWithHandler:(UIViewLongPressGestureHandler)handler;
 
-- (void)addTapGestureWithDelegate:(id)delegate handler:(UIViewTapGestureHandler)handler;
-- (void)addPanGestureWithDelegate:(id)delegate handler:(UIViewPanGestureHandler)handler;
-- (void)addLongPressGestureWithDelegate:(id)delegate handler:(UIViewLongPressGestureHandler)handler;
+- (UITapGestureRecognizer *)addTapGestureWithDelegate:(id)delegate handler:(UIViewTapGestureHandler)handler;
+- (UIPanGestureRecognizer *)addPanGestureWithDelegate:(id)delegate handler:(UIViewPanGestureHandler)handler;
+- (UILongPressGestureRecognizer *)addLongPressGestureWithDelegate:(id)delegate handler:(UIViewLongPressGestureHandler)handler;
 
 @end
