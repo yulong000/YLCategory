@@ -210,6 +210,14 @@
     };
 }
 
+- (YLEqualToView)frame_equalTo {
+    __weak typeof(self) weakSelf = self;
+    return ^ (UIView *otherView) {
+        weakSelf.frame = otherView.frame;
+        return weakSelf;
+    };
+}
+
 - (YLEqualToView)centerX_equalTo {
     __weak typeof(self) weakSelf = self;
     return ^ (UIView *otherView) {

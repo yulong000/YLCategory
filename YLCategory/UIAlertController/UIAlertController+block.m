@@ -44,6 +44,26 @@
 
 + (UIAlertController *)alertControllerWithTitle:(NSString *)title
                                         message:(NSString *)message
+                              cancelButtonTitle:(NSString *)cancelButtonTitle
+                                    cancelBlock:(UIAlertActionHandler)cancelBlock
+                                  destructTitle:(NSString *)destructTitle
+                                  destructBlock:(UIAlertActionHandler)destructBlock {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelButtonTitle
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:cancelBlock];
+    UIAlertAction *destructAction = [UIAlertAction actionWithTitle:destructTitle
+                                                          style:UIAlertActionStyleDestructive
+                                                        handler:destructBlock];
+    [alertController addAction:cancelAction];
+    [alertController addAction:destructAction];
+    return alertController;
+}
+
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title
+                                        message:(NSString *)message
                                     buttonTitle:(NSString *)buttonTitle
                                     handleBlock:(void (^)(UIAlertAction *))handleBlock {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title

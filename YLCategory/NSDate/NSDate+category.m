@@ -10,6 +10,12 @@
     return [formatter dateFromString:dateStr];
 }
 
+#pragma mark 转换日期字符串的格式
++ (NSString *)dateStringWithConvert:(NSString *)dateString from:(NSString *)fromFormat to:(NSString *)toFormat {
+    NSDate *date = [self dateWithFormat:fromFormat string:dateString];
+    return [date stringValueWithFormat:toFormat];
+}
+
 #pragma mark 根据时间戳，返回格式化的字符串
 + (NSString *)dateStringWithFormat:(NSString *)format timeInterval:(NSTimeInterval)timeInterval {
     return [[NSDate dateWithTimeIntervalSince1970:timeInterval] stringValueWithFormat:format];
@@ -38,7 +44,7 @@
 }
 
 #pragma mark 当前时间对应的周是当前年中的第几周
-- (NSUInteger)indexOfWeekInYear {
+- (NSInteger)indexOfWeekInYear {
     // 1月1日 为第一周
     if(self.day == 1 && self.month == 1) {
         return 1;
@@ -47,7 +53,7 @@
     return [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitWeekOfYear inUnit:NSCalendarUnitYear forDate:[self dateAddDays:-1]];
 }
 #pragma mark 今天所在的周是一年中的第几周
-+ (NSUInteger)indexOfWeekInYearWithToday {
++ (NSInteger)indexOfWeekInYearWithToday {
     return [[NSDate date] indexOfWeekInYear];
 }
 
@@ -95,7 +101,7 @@
 }
 
 #pragma mark 计算当前日期的月份有多少天
-- (NSUInteger)numberOfDaysInMonth {
+- (NSInteger)numberOfDaysInMonth {
     return [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self].length;
 }
 
@@ -108,32 +114,32 @@
 }
 
 #pragma mark 获取日期对应的年份
-- (NSUInteger)year {
+- (NSInteger)year {
     return [self dateComponents].year;
 }
 
 #pragma mark 获取日期对应的月份
-- (NSUInteger)month {
+- (NSInteger)month {
     return [self dateComponents].month;
 }
 
 #pragma mark 获取日期对应的天
-- (NSUInteger)day {
+- (NSInteger)day {
     return [self dateComponents].day;
 }
 
 #pragma mark 获取日期对应的小时数
-- (NSUInteger)hour {
+- (NSInteger)hour {
     return [self dateComponents].hour;
 }
 
 #pragma mark 获取日期对应的分钟数
-- (NSUInteger)minute {
+- (NSInteger)minute {
     return [self dateComponents].minute;
 }
 
 #pragma mark 获取日期对应的秒数
-- (NSUInteger)second {
+- (NSInteger)second {
     return [self dateComponents].second;
 }
 
@@ -172,6 +178,26 @@
 #pragma mark 获取日期为星期几 如 "星期一"
 - (NSString *)weekdayString {
     return [self transformWeekdayToString:self.weekday];
+}
+
+#pragma mark 把周几转换成文字
+- (NSString *)transformWeekdayToString2:(Weekday)weekday {
+    switch (weekday) {
+        case Monday:    return @"周一";
+        case Tuesday:   return @"周二";
+        case Wednesday: return @"周三";
+        case Thursday:  return @"周四";
+        case Friday:    return @"周五";
+        case Saturday:  return @"周六";
+        case Sunday:    return @"周日";
+        default:
+            break;
+    }
+    return @"";
+}
+#pragma mark 获取日期为星期几 如 "周一"
+- (NSString *)weekdayString2 {
+    return [self transformWeekdayToString2:self.weekday];
 }
 
 #pragma mark 获取一个NSDateComponents实例

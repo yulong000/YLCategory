@@ -10,9 +10,7 @@
 
 @implementation UIViewController (category)
 
-#pragma mark - 返回
-
-- (void)returnBack {
+- (void)goBack {
     if([self isKindOfClass:[UINavigationController class]]) {
         // 本身是导航控制器
         UINavigationController *nav = (UINavigationController *)self;
@@ -25,7 +23,7 @@
         }
     } else if (self.navigationController) {
         // 有导航控制器
-        [self.navigationController returnBack];
+        [self.navigationController goBack];
     } else {
         // 没有导航控制器
         if(self.presentationController) {

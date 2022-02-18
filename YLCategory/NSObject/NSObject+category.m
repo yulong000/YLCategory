@@ -47,16 +47,17 @@
             size += attr.fileSize;
         }];
     }
-    if(size > 1024 * 1024 * 1024) {
+    float base = 1000.0;
+    if(size > base * base * base) {
         // GB
-        return [NSString stringWithFormat:@"%.2fGB", size / 1024.0 / 1024.0 / 1024.0];
+        return [NSString stringWithFormat:@"%.2fGB", size / base / base / base];
     }
-    if(size > 1024 * 1024) {
+    if(size > base * base) {
         // MB
-         return [NSString stringWithFormat:@"%.2fMB", size / 1024.0 / 1024.0];
+         return [NSString stringWithFormat:@"%.2fMB", size / base / base];
     }
     // KB
-    return [NSString stringWithFormat:@"%.2fKB", size / 1024.0];
+    return [NSString stringWithFormat:@"%.2fKB", size / base];
 }
 
 #pragma mark 清除缓存

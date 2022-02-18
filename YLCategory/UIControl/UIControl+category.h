@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^UIControlClickedBlock)(UIControl *control);
+typedef void (^UIControlClickedBlock)(id control);
+typedef void (^UIControlCustomBlock)(id control);
 
 @interface UIControl (category)
 
@@ -19,4 +20,8 @@ typedef void (^UIControlClickedBlock)(UIControl *control);
 
 /**  扩大点击区域  */
 - (void)addClickArea:(UIEdgeInsets)insets;
+
+/// 针对不同的事件设置回调
+- (void)setCustomBlock:(UIControlCustomBlock)customBlock forControlEvents:(UIControlEvents)events;
+
 @end

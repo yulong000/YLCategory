@@ -3,6 +3,11 @@
 
 @interface NSString (predicate)
 
+
+/// 匹配正则表达式
+/// @param regex 正则
+- (BOOL)isValidateByRegex:(NSString *)regex;
+
 /**
  *  手机号有效性
  */

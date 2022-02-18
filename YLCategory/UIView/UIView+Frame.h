@@ -21,6 +21,7 @@ typedef UIView *(^YLOffset)(CGFloat offset);
 注意：
  1.非自动布局，所有传入otherView或superView的布局，都以该view当前的frame作为参考值，不会根据其frame的变化而变化
  2.相对布局的otherView, 指的是同一个父视图下的同级子视图
+ 3.必须实例化对象，否则会野指针崩溃
 ************************************
  
 */
@@ -84,6 +85,8 @@ typedef UIView *(^YLOffset)(CGFloat offset);
 @property (nonatomic, copy, readonly) YLEqualToView height_equalTo;
 /// 设置大小等于另一个view
 @property (nonatomic, copy, readonly) YLEqualToView size_equalTo;
+/// 设置frame等于另一个view
+@property (nonatomic, copy, readonly) YLEqualToView frame_equalTo;
 
 /// 设置中心位置x等于另一个view
 @property (nonatomic, copy, readonly) YLEqualToView centerX_equalTo;

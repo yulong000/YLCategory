@@ -11,6 +11,7 @@
 
 static const char UIControlAreaInsetsKey = '\0';
 static const char UIControlClickedBlockKey = '\0';
+static const char UIControlCustomBlockKey = '\0';
 
 @implementation UIControl (category)
 
@@ -21,14 +22,28 @@ static const char UIControlClickedBlockKey = '\0';
 
 - (void)setClickedBlock:(UIControlClickedBlock)clickedBlock {
     [self addTarget:self action:@selector(controlClick) forControlEvents:UIControlEventTouchUpInside];
-    [self willChangeValueForKey:@"clickBlock"];
+    [self willChangeValueForKey:@"clickedBlock"];
     objc_setAssociatedObject(self, &UIControlClickedBlockKey, clickedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self didChangeValueForKey:@"clickBlock"];
+    [self didChangeValueForKey:@"clickedBlock"];
 }
 
 - (void)controlClick {
     if(self.clickedBlock) {
         self.clickedBlock(self);
+    }
+}
+
+- (void)setCustomBlock:(UIControlCustomBlock)customBlock forControlEvents:(UIControlEvents)events {
+    [self addTarget:self action:@selector(customSelector) forControlEvents:events];
+    [self willChangeValueForKey:@"customBlock"];
+    objc_setAssociatedObject(self, &UIControlCustomBlockKey, customBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self didChangeValueForKey:@"customBlock"];
+}
+
+- (void)customSelector {
+    UIControlCustomBlock block = objc_getAssociatedObject(self, &UIControlCustomBlockKey);
+    if(block) {
+        block(self);
     }
 }
 

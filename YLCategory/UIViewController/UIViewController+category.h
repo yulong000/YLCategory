@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIViewController (category)
 
 /// 返回上一个页面, 如果是push,则pop,如果是present,则dismiss
-- (void)returnBack;
+- (void)goBack;
 
 /// 如果有nav，则push，否则 present
 - (void)pushVc:(UIViewController *)vc;

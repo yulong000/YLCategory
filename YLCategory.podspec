@@ -45,6 +45,10 @@ s.subspec 'UIControl' do |ss|
 ss.source_files  =   'YLCategory/UIControl/*.{h,m}'
 end
 
+s.subspec 'UISwitch' do |ss|
+ss.source_files  =   'YLCategory/UISwitch/*.{h,m}'
+end
+
 s.subspec 'UIImage' do |ss|
 ss.source_files  =   'YLCategory/UIImage/*.{h,m}'
 end

@@ -36,6 +36,23 @@ typedef void(^UIAlertActionHandler)(UIAlertAction *action);
                                otherButtonblock:(UIAlertActionHandler)otherButtonBlock;
 
 /**
+ 创建alertView类型，只有2个选择，取消和其他
+
+ @param title 标题
+ @param message 内容
+ @param cancelButtonTitle 取消button的文字
+ @param cancelBlock 取消回调
+ @param otherButtonTitle 第二个button的文字
+ @param otherButtonBlock 第二个button的回调
+ */
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title
+                                        message:(NSString *)message
+                              cancelButtonTitle:(NSString *)cancelButtonTitle
+                                    cancelBlock:(UIAlertActionHandler)cancelBlock
+                                  destructTitle:(NSString *)destructTitle
+                                  destructBlock:(UIAlertActionHandler)destructBlock;
+
+/**
  创建alertView类型，只有1个选择
  
  @param title 标题

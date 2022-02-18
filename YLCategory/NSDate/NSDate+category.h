@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, Weekday) {
 /**
  *  今天所在的周是一年中的第几周
  */
-+ (NSUInteger)indexOfWeekInYearWithToday;
++ (NSInteger)indexOfWeekInYearWithToday;
 
 /**
  *  将日期转换成字符串
@@ -63,6 +63,13 @@ typedef NS_ENUM(NSInteger, Weekday) {
  */
 + (NSString *)dateStringWithFormat:(NSString *)format timeInterval:(NSTimeInterval)timeInterval;
 
+
+/// 转换日期字符串的格式
+/// @param dateString 原始的日期字符串
+/// @param fromFormat 原来的格式
+/// @param toFormat 转换后的格式
++ (NSString *)dateStringWithConvert:(NSString *)dateString from:(NSString *)fromFormat to:(NSString *)toFormat;
+
 /**
  *  获取当前日期增加dayCount天的日期
  *
@@ -92,7 +99,7 @@ typedef NS_ENUM(NSInteger, Weekday) {
 /**
  *  当前时间对应的周是当前年中的第几周
  */
-- (NSUInteger)indexOfWeekInYear;
+- (NSInteger)indexOfWeekInYear;
 
 /**
  *  所选日期所在月的第一天
@@ -117,7 +124,7 @@ typedef NS_ENUM(NSInteger, Weekday) {
 /**
  *  计算当前日期的月份有多少天
  */
-- (NSUInteger)numberOfDaysInMonth;
+- (NSInteger)numberOfDaysInMonth;
 
 /**
  *  将日期转换成对应格式的字符串
@@ -131,42 +138,42 @@ typedef NS_ENUM(NSInteger, Weekday) {
  *
  *  @return 如：2015
  */
-- (NSUInteger)year;
+- (NSInteger)year;
 
 /**
  *  获取日期对应的月份
  *
  *  @return 如：8
  */
-- (NSUInteger)month;
+- (NSInteger)month;
 
 /**
  *  获取日期对应的号
  *
  *  @return 如：13
  */
-- (NSUInteger)day;
+- (NSInteger)day;
 
 /**
  *  获取日期对应的小时数
  *
  *  @return 如：11
  */
-- (NSUInteger)hour;
+- (NSInteger)hour;
 
 /**
  *  获取日期对应的分钟数
  *
  *  @return 如：25
  */
-- (NSUInteger)minute;
+- (NSInteger)minute;
 
 /**
  *  获取日期对应的秒数
  *
  *  @return 如： 59
  */
-- (NSUInteger)second;
+- (NSInteger)second;
 
 /**
  *  获取日期为星期几
@@ -182,6 +189,16 @@ typedef NS_ENUM(NSInteger, Weekday) {
  获取日期为星期几 如 "星期一"
  */
 - (NSString *)weekdayString;
+
+/**
+ 把星期几转换成文字 如 "周一"
+ */
+- (NSString *)transformWeekdayToString2:(Weekday)weekday;
+
+/**
+ 获取日期为星期几 如 "周一"
+ */
+- (NSString *)weekdayString2;
 
 /**
  *  是否为同一天的同一个小时同一分钟
