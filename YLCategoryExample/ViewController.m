@@ -48,7 +48,14 @@
         NSLog(@"btn  touch up outside");
     } forControlEvents:UIControlEventTouchUpOutside];
     
+    UILabel *timeLabel = [[UILabel alloc] init];
+//    timeLabel.text = [[NSDate date] stringValueWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    timeLabel.text = [NSDate dateStringWithConvert:@"2020-12-01 12:09:01" from:@"yyyy-MM-dd HH:mm:ss" to:@"MM-dd HH:mm"];
+    [self.view addSubview:timeLabel];
+    timeLabel.frame_is(10, 50, 200, 30);
+    
 }
+
 
 
 - (void)test {

@@ -47,7 +47,7 @@
             size += attr.fileSize;
         }];
     }
-    float base = 1000.0;
+    float base = 1024.0;
     if(size > base * base * base) {
         // GB
         return [NSString stringWithFormat:@"%.2fGB", size / base / base / base];

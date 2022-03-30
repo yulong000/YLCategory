@@ -126,12 +126,6 @@ typedef NS_ENUM(NSInteger, Weekday) {
  */
 - (NSInteger)numberOfDaysInMonth;
 
-/**
- *  将日期转换成对应格式的字符串
- *
- *  @param format 例如：@"yyyy-MM-dd"
- */
-- (NSString *)dateToStringWithFormat:(NSString *)format;
 
 /**
  *  获取日期对应的年份
