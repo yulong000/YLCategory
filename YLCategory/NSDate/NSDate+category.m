@@ -5,6 +5,7 @@
 #pragma mark 根据日期格式和字符串 创建日期实例
 + (NSDate *)dateWithFormat:(NSString *)format string:(NSString *)dateStr {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
     [formatter setDateFormat:format];
     return [formatter dateFromString:dateStr];
 }
@@ -23,12 +24,14 @@
 #pragma mark 将日期转换成字符串
 - (NSString *)stringValueWithFormat:(NSString *)formatStr {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
     [formatter setDateFormat:formatStr];
     return [formatter stringFromDate:self];
 }
 #pragma mark 将日期格式化成对应格式的日期
 - (NSDate *)dateWithFormatString:(NSString *)formatStr {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
     [formatter setDateFormat:formatStr];
     NSString *dateStr = [formatter stringFromDate:self];
     return [formatter dateFromString:dateStr];

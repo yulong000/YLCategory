@@ -36,7 +36,7 @@ typedef void(^UIAlertActionHandler)(UIAlertAction *action);
                                otherButtonblock:(UIAlertActionHandler)otherButtonBlock;
 
 /**
- 创建alertView类型，只有2个选择，取消和其他
+ 创建alertView类型，只有2个选择，取消和其他(慎重)
 
  @param title 标题
  @param message 内容
