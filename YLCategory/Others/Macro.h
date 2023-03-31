@@ -76,6 +76,8 @@
 #define RandomColor                 [UIColor colorWithRed:arc4random() % 255 / 255.0 green:arc4random() % 255 / 255.0 blue:arc4random() % 255 / 255.0 alpha:1]
 // 十六进制获取颜色
 #define UIColorFromHex(s)           [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s & 0xFF00) >> 8))/255.0 blue:((s & 0xFF))/255.0  alpha:1.0]
+// 十六进制颜色
+#define HEX(s)                      UIColorFromHex(s)
 // 半透明黑
 #define BlackColorAlpha(a)          [UIColor colorWithWhite:0 alpha:a]
 // 半透明白
@@ -135,6 +137,11 @@
 #define kAPP_Name                        [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
 // 系统版本号
 #define kSystem_version                  [[UIDevice currentDevice].systemName stringByAppendingFormat:@" %@", [UIDevice currentDevice].systemVersion]
+// bundle id
+#define kBundle_id                      [NSBundle mainBundle].bundleIdentifier
+
+// 系统是否是暗黑模式
+#define kIsDarkTheme                    (@available(iOS 13.0, *) && UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark)
 
 //  appDelegate
 #define kAppDelegate                    [UIApplication sharedApplication].delegate

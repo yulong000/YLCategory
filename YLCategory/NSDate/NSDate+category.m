@@ -58,8 +58,7 @@
 #pragma mark 所选日期所在月的第一天
 - (NSDate *)firstDayOfMonth {
     NSDate *startDate = nil;
-    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitMonth startDate:&startDate interval:NULL forDate:self];
-    NSAssert1(ok, @"Failed to calculate the first day of the month based on %@", self);
+    [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitMonth startDate:&startDate interval:NULL forDate:self];
     return startDate;
 }
 #pragma mark 所选日期所在月的最后一天
@@ -73,8 +72,7 @@
 #pragma mark 当前月的第一天
 + (NSDate *)firstDayOfCurrentMonth {
     NSDate *startDate = nil;
-    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitMonth startDate:&startDate interval:NULL forDate:[NSDate date]];
-    NSAssert1(ok, @"Failed to calculate the first day of the month based on %@", self);
+    [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitMonth startDate:&startDate interval:NULL forDate:[NSDate date]];
     return startDate;
 }
 #pragma mark 当前月的最后一天
@@ -136,8 +134,8 @@
 #pragma mark 获取日期为星期几
 - (Weekday)weekday {
     Weekday day = Monday;
-    NSDateComponents *dateComponents = [self dateComponents];
-    switch ([dateComponents weekday]) {
+    NSInteger index = [self dateComponents].weekday;
+    switch (index) {
         case 1: day = Sunday;       break;
         case 2: day = Monday;       break;
         case 3: day = Tuesday;      break;

@@ -24,7 +24,7 @@ static const char UIButtonClickedBlockKey = '\0';
 }
 
 + (instancetype)buttonWithTitle:(NSString *)title image:(UIImage *)image backgroundImage:(UIImage *)backgroundImage clickBlock:(UIButtonClickedBlock)clickedBlock {
-    UIButton *button =  [[UIButton alloc] init];
+    UIButton *button =  [[self alloc] init];
     if(title.length)    [button setTitle:title forState:UIControlStateNormal];
     if(image)           [button setImage:image forState:UIControlStateNormal];
     if(backgroundImage) [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
@@ -38,33 +38,33 @@ static const char UIButtonClickedBlockKey = '\0';
 }
 
 + (instancetype)buttonWithTitle:(NSString *)title image:(UIImage *)image clickBlock:(UIButtonClickedBlock)clickedBlock {
-    return [UIButton buttonWithTitle:title image:image backgroundImage:nil clickBlock:clickedBlock];
+    return [self buttonWithTitle:title image:image backgroundImage:nil clickBlock:clickedBlock];
 }
 
 + (instancetype)buttonWithTitle:(NSString *)title clickBlock:(UIButtonClickedBlock)clickedBlock {
-    return [UIButton buttonWithTitle:title image:nil clickBlock:clickedBlock];
+    return [self buttonWithTitle:title image:nil clickBlock:clickedBlock];
 }
 
 + (instancetype)buttonWithImage:(UIImage *)image clickBlock:(UIButtonClickedBlock)clickedBlock {
-    return [UIButton buttonWithTitle:nil image:image clickBlock:clickedBlock];
+    return [self buttonWithTitle:nil image:image clickBlock:clickedBlock];
 }
 
 + (instancetype)buttonWithImage:(UIImage *)image selectedImage:(UIImage *)selectedImage clickBlock:(UIButtonClickedBlock)clickedBlock {
-    UIButton *button = [UIButton buttonWithImage:image clickBlock:clickedBlock];
+    UIButton *button = [self buttonWithImage:image clickBlock:clickedBlock];
     [button setImage:selectedImage forState:UIControlStateSelected];
     return button;
 }
 
 + (instancetype)buttonWithClickBlock:(UIButtonClickedBlock)clickedBlock {
-    return [UIButton buttonWithTitle:nil clickBlock:clickedBlock];
+    return [self buttonWithTitle:nil clickBlock:clickedBlock];
 }
 
 + (instancetype)buttonWithBackgroundImage:(UIImage *)backgroundImage clickBlock:(UIButtonClickedBlock)clickedBlock {
-    return [UIButton buttonWithTitle:nil image:nil backgroundImage:backgroundImage clickBlock:clickedBlock];
+    return [self buttonWithTitle:nil image:nil backgroundImage:backgroundImage clickBlock:clickedBlock];
 }
 
 + (instancetype)buttonWithTitle:(NSString *)title backgroundImage:(UIImage *)backgroundImage clickBlock:(UIButtonClickedBlock)clickedBlock {
-    return [UIButton buttonWithTitle:title image:nil backgroundImage:backgroundImage clickBlock:clickedBlock];
+    return [self buttonWithTitle:title image:nil backgroundImage:backgroundImage clickBlock:clickedBlock];
 }
 
 + (instancetype)buttonWithTitle:(NSString *)title
@@ -73,7 +73,7 @@ static const char UIButtonClickedBlockKey = '\0';
                      clickBlock:(UIButtonClickedBlock)clickedBlock {
     UIImage *image = [self imageWithColor:bgImageColor size:CGSizeMake(10, 10)];
     UIImage *bgImage = [image stretchableImageWithLeftCapWidth:5 topCapHeight:5];
-    UIButton *btn = [UIButton buttonWithTitle:title backgroundImage:bgImage clickBlock:clickedBlock];
+    UIButton *btn = [self buttonWithTitle:title backgroundImage:bgImage clickBlock:clickedBlock];
     btn.layer.cornerRadius = cornerRadius;
     btn.clipsToBounds = YES;
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

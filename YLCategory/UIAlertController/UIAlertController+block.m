@@ -1,4 +1,5 @@
 #import "UIAlertController+block.h"
+#import "Macro.h"
 
 @implementation UIAlertActionModel
 
@@ -76,12 +77,32 @@
     return alertController;
 }
 
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title
+                                        message:(NSString *)message
+                                   buttonTitles:(NSArray<NSString *> *)buttonTitles
+                                        handler:(void (^)(NSInteger))handler {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    for (NSInteger i = 0; i < buttonTitles.count; i++) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:buttonTitles[i]
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * _Nonnull action) {
+            if(handler) {
+                handler(i);
+            }
+        }];
+        [alertController addAction:action];
+    }
+    return alertController;
+}
+
 + (UIAlertController *)actionSheetControllerWithTitle:(NSString *)title
                                               message:(NSString *)message
                                          actionModels:(NSArray<UIAlertActionModel *> *)actionModels {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
-                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+                                                                      preferredStyle:kIsPad ? UIAlertControllerStyleAlert: UIAlertControllerStyleActionSheet];
     for (UIAlertActionModel *model in actionModels) {
         UIAlertAction *action = [UIAlertAction actionWithTitle:model.title
                                                          style:model.style

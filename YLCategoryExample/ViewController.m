@@ -59,14 +59,12 @@
 
 
 - (void)test {
+    
 
-    NSLog(@"statusBarHeight : %f", kStatusBarHeight);
 }
 
 - (void)test2 {
-    [[UIAlertController alertControllerWithTitle:@"是否删除？" message:nil cancelButtonTitle:@"取消" cancelBlock:nil destructTitle:@"删除" destructBlock:^(UIAlertAction *action) {
-        NSLog(@"删除成功！");
-    }] showWithController:self];
+   
 }
 
 @end

@@ -82,7 +82,7 @@ static const char UILabelClickedBlockKey = '\0';
 }
 
 + (instancetype)labelWithText:(NSString *)text textColor:(UIColor *)textColor alignment:(NSTextAlignment)alignment font:(UIFont *)font {
-    UILabel *label = [[UILabel alloc] init];
+    UILabel *label = [[super alloc] init];
     label.text = text;
     label.textColor = textColor;
     label.textAlignment = alignment;
