@@ -9,6 +9,7 @@ s.author       = { 'weiyulong' => 'weiyulong1987@163.com' }
 s.platform     = :ios, '11.0'
 s.source       = { :git => 'https://github.com/yulong000/YLCategory.git', :tag => s.version}
 s.source_files = 'YLCategory/*.{h, m}'
+s.resource     = 'YLCategory/MBProgressHUD/MBProgressHUD.bundle'
 s.public_header_files = 'YLCategory/YLCategory.h'
 s.requires_arc = true
 
