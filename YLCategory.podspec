@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
 
 s.name                  = 'YLCategory'
-s.version               = '1.2.4'
+s.version               = '1.2.5'
 s.summary               = '分类'
 s.homepage              = 'https://github.com/yulong000/YLCategory'
 s.license               = { :type => 'MIT', :file => 'LICENSE'}
 s.author                = { 'weiyulong' => 'weiyulong1987@163.com' }
-s.platform              = :ios, '11.0'
+s.platform              = :ios, '10.0'
 s.source                = { :git => 'https://github.com/yulong000/YLCategory.git', :tag => s.version}
 s.source_files          = 'YLCategory/YLCategory.h'
 s.requires_arc          = true
