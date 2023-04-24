@@ -14,10 +14,10 @@
 #import "NSString+bounds.h"
 #import "NSString+category.h"
 #import "UILabel+category.h"
-#import "MBProgressHUD+YL.h"
 #import "UIControl+category.h"
 #import "NSDate+category.h"
 #import "NSObject+category.h"
 #import "UIViewController+category.h"
+#import "YLHud.h"
 
 #endif /* YLCategory_h */

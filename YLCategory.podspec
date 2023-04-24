@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name                  = 'YLCategory'
-s.version               = '1.2.5'
+s.version               = '1.2.6'
 s.summary               = '分类'
 s.homepage              = 'https://github.com/yulong000/YLCategory'
 s.license               = { :type => 'MIT', :file => 'LICENSE'}
@@ -16,9 +16,9 @@ s.subspec 'Others' do |ss|
 ss.source_files  =   'YLCategory/Others/*.{h,m}'
 end
 
-s.subspec 'MBProgressHUD' do |ss|
-ss.source_files  =    'YLCategory/MBProgressHUD/*.{h,m}'
-ss.resource      =    'YLCategory/MBProgressHUD/MBProgressHUD.bundle'
+s.subspec 'YLHud' do |ss|
+ss.source_files  =    'YLCategory/YLHud/*.{h,m}'
+ss.resource      =    'YLCategory/YLHud/YLHud.bundle'
 end
 
 s.subspec 'NSDate' do |ss|
@@ -68,7 +68,7 @@ end
 
 s.subspec 'UIViewController' do |ss|
 ss.source_files  =   'YLCategory/UIViewController/*.{h,m}'
-ss.dependency         'YLCategory/UIAlertController'
+ss.dependency        'YLCategory/UIAlertController'
 end
 
 
