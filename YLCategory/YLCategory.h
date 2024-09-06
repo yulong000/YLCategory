@@ -13,6 +13,7 @@
 #import "NSString+predicate.h"
 #import "NSString+bounds.h"
 #import "NSString+category.h"
+#import "NSString+secret.h"
 #import "UILabel+category.h"
 #import "UIControl+category.h"
 #import "NSDate+category.h"

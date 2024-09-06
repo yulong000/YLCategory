@@ -10,24 +10,21 @@
 #import <objc/runtime.h>
 
 static const char UIControlAreaInsetsKey = '\0';
-static const char UIControlClickedBlockKey = '\0';
 static const char UIControlCustomBlockKey = '\0';
 
 @implementation UIControl (category)
 
 #pragma mark - block
 - (UIControlClickedBlock)clickedBlock {
-    return objc_getAssociatedObject(self, &UIControlClickedBlockKey);
+    return objc_getAssociatedObject(self, _cmd);
 }
 
 - (void)setClickedBlock:(UIControlClickedBlock)clickedBlock {
-    [self addTarget:self action:@selector(controlClick) forControlEvents:UIControlEventTouchUpInside];
-    [self willChangeValueForKey:@"clickedBlock"];
-    objc_setAssociatedObject(self, &UIControlClickedBlockKey, clickedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self didChangeValueForKey:@"clickedBlock"];
+    [self addTarget:self action:@selector(yl_controlClick) forControlEvents:UIControlEventTouchUpInside];
+    objc_setAssociatedObject(self, @selector(clickedBlock), clickedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (void)controlClick {
+- (void)yl_controlClick {
     if(self.clickedBlock) {
         self.clickedBlock(self);
     }

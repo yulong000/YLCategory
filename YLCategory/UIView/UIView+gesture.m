@@ -2,22 +2,16 @@
 #import "UIView+gesture.h"
 #import <objc/runtime.h>
 
-static const char UIViewTapGestureHandlerKey = '\0';
-static const char UIViewPanGestureHandlerKey = '\0';
-static const char UIViewLongPressGestureHandlerKey = '\0';
-
 @implementation UIView (gesture)
 
 #pragma mark - 点击手势
 
 - (void)setTapGestureHandler:(UIViewTapGestureHandler)tapGestureHandler {
-    [self willChangeValueForKey:@"tapGestureHandler"];
-    objc_setAssociatedObject(self, &UIViewTapGestureHandlerKey, tapGestureHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self didChangeValueForKey:@"tapGestureHandler"];
+    objc_setAssociatedObject(self, @selector(tapGestureHandler), tapGestureHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (UIViewTapGestureHandler)tapGestureHandler {
-    return objc_getAssociatedObject(self, &UIViewTapGestureHandlerKey);
+    return objc_getAssociatedObject(self, _cmd);
 }
 
 - (UITapGestureRecognizer *)addTapGestureWithDelegate:(id)delegate handler:(UIViewTapGestureHandler)handler {
@@ -42,13 +36,11 @@ static const char UIViewLongPressGestureHandlerKey = '\0';
 #pragma mark - 拖动手势
 
 - (void)setPanGestureHandler:(UIViewPanGestureHandler)panGestureHandler {
-    [self willChangeValueForKey:@"panGestureHandler"];
-    objc_setAssociatedObject(self, &UIViewPanGestureHandlerKey, panGestureHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self didChangeValueForKey:@"panGestureHandler"];
+    objc_setAssociatedObject(self, @selector(panGestureHandler), panGestureHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (UIViewPanGestureHandler)panGestureHandler {
-    return objc_getAssociatedObject(self, &UIViewPanGestureHandlerKey);
+    return objc_getAssociatedObject(self, _cmd);
 }
 
 - (UIPanGestureRecognizer *)addPanGestureWithDelegate:(id)delegate handler:(UIViewPanGestureHandler)handler {
@@ -73,13 +65,11 @@ static const char UIViewLongPressGestureHandlerKey = '\0';
 #pragma mark - 长按手势
 
 - (void)setLongPressGestureHandler:(UIViewLongPressGestureHandler)longPressGestureHandler {
-    [self willChangeValueForKey:@"longPressGestureHandler"];
-    objc_setAssociatedObject(self, &UIViewLongPressGestureHandlerKey, longPressGestureHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self didChangeValueForKey:@"longPressGestureHandler"];
+    objc_setAssociatedObject(self, @selector(longPressGestureHandler), longPressGestureHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (UIViewLongPressGestureHandler)longPressGestureHandler {
-    return objc_getAssociatedObject(self, &UIViewLongPressGestureHandlerKey);
+    return objc_getAssociatedObject(self, _cmd);
 }
 
 - (UILongPressGestureRecognizer *)addLongPressGestureWithDelegate:(id)delegate handler:(UIViewLongPressGestureHandler)handler {

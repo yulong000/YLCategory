@@ -102,6 +102,7 @@
 // 字体大小
 #define Font(size)                      [UIFont systemFontOfSize:size]
 #define BoldFont(size)                  [UIFont boldSystemFontOfSize:size]
+#define MediumFont(size)                [NSFont systemFontOfSize:size weight:NSFontWeightMedium]
 
 
 /****************************************  快捷方法  ***********************************/
@@ -134,7 +135,7 @@
 // building 号
 #define kAPP_Build_Number                [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 // app Name
-#define kAPP_Name                        [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+#define kAPP_Name                       ([[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"] ?: [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"] ?: [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleName"] ?: [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"])
 // 系统版本号
 #define kSystem_version                  [[UIDevice currentDevice].systemName stringByAppendingFormat:@" %@", [UIDevice currentDevice].systemVersion]
 // bundle id

@@ -1,5 +1,14 @@
 #import "NSObject+category.h"
 #import <sys/utsname.h>
+#import <objc/runtime.h>
+
+static const char YLNotificationDictionaryKey = '\0';
+
+@interface NSObject ()
+
+@property (nonatomic, strong) NSMutableDictionary *yl_noteDict;
+
+@end
 
 @implementation NSObject (category)
 
@@ -15,6 +24,46 @@
 #pragma mark 是否是 [NSNull null]
 - (BOOL)isNull {
     return [self isKindOfClass:[NSNull class]];
+}
+
+#pragma mark - 通知事件
+
+- (void)postNotificationWithName:(NSString *)name {
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil];
+}
+
+- (void)postNotificationWithName:(NSString *)name userInfo:(NSDictionary *)userInfo {
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil userInfo:userInfo];
+}
+
+- (void)addNotificationName:(NSString *)name handler:(YLNotificationHandler)handler {
+    if(name.isValidString == NO || handler == nil)  return;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(yl_notificationMsg:) name:name object:nil];
+    if(self.yl_noteDict == nil) {
+        self.yl_noteDict = [NSMutableDictionary dictionary];
+    }
+    self.yl_noteDict[name] = handler;
+}
+
+- (void)yl_notificationMsg:(NSNotification *)note {
+    YLNotificationHandler handler = [self.yl_noteDict objectForKey:note.name];
+    if(handler) {
+        handler(note);
+    }
+}
+
+- (void)removeAllNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (NSMutableDictionary *)yl_noteDict {
+    return objc_getAssociatedObject(self, &YLNotificationDictionaryKey);
+}
+
+- (void)setYl_noteDict:(NSMutableDictionary *)yl_noteDict {
+    [self willChangeValueForKey:@"yl_noteDict"];
+    objc_setAssociatedObject(self, &YLNotificationDictionaryKey, yl_noteDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self didChangeValueForKey:@"yl_noteDict"];
 }
 
 #pragma mark 获取显示在最上面的控制器

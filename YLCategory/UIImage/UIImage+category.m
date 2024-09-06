@@ -168,6 +168,27 @@
     return [self imageWithView:[UIApplication sharedApplication].keyWindow];
 }
 
+#pragma mark 更改图片的颜色
+- (UIImage *)renderWithColor:(UIColor *)color {
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);  // 创建一个位图上下文
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    
+    // 绘制原图
+    [self drawInRect:rect];
+    
+    // 设置颜色蒙版
+    CGContextSetBlendMode(context, kCGBlendModeSourceIn);
+    [color setFill];
+    CGContextFillRect(context, rect);
+    
+    // 生成新的图片
+    UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return tintedImage;
+}
+
 #pragma mark - 高斯模糊
 - (UIImage *)croppedImageAtFrame:(CGRect)frame {
     frame = CGRectMake(frame.origin.x * self.scale, frame.origin.y * self.scale, frame.size.width * self.scale, frame.size.height * self.scale);
@@ -408,6 +429,7 @@
     
     return outputImage;
 }
+
 
 #pragma mark - 获取网络图片的 size
 + (CGSize)imageSizeWithURL:(id)imageURL {

@@ -99,7 +99,7 @@
     if (level > 0) {
         tab = tabString;
     }
-    [desc appendString:@"\t(\n"];
+    [desc appendString:@"\t[\n"];
     
     for (id obj in self) {
         if (![obj respondsToSelector:@selector(description)]) {
@@ -153,7 +153,7 @@
         }
     }
     
-    [desc appendFormat:@"%@)", tab];
+    [desc appendFormat:@"%@]", tab];
     
     return desc;
 }

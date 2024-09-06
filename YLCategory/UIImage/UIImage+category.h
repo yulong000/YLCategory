@@ -76,6 +76,9 @@
 /// @param maxLength 最大值
 - (UIImage *)compressToByte:(NSUInteger)maxLength;
 
+/// 更改图片的颜色
+- (UIImage *)renderWithColor:(UIColor *)color;
+
 
 
 /// ------------------------------------
